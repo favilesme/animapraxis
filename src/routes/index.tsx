@@ -3,7 +3,7 @@ import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
 import { ChatSection } from "@/components/sections/ChatSection";
 import { Falta } from "@/components/brand/Falta";
 import { WHATSAPP_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
-import francisco from "@/assets/francisco-aviles.png.asset.json";
+import heroImg from "@/assets/anima-praxis-hero.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -107,11 +107,12 @@ function HomePage() {
           <div className="relative">
             <div className="absolute -inset-4 bg-primary/20 rounded-3xl blur-2xl" aria-hidden />
             <img
-              src={francisco.url}
-              alt="Francisco Avilés en su despacho profesional"
+              src={heroImg.url}
+              alt="Anima Praxis — Conciencia que transforma. Acción que enraíza."
               loading="eager"
-              className="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/5]"
+              className="relative rounded-2xl shadow-xl w-full object-contain bg-deep p-6"
             />
+
           </div>
         </div>
       </section>

@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
-import { Falta } from "@/components/brand/Falta";
 import { WHATSAPP_URL, CALENDLY_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
 import { ClientsMarquee } from "@/components/sections/ClientsMarquee";
 import francisco from "@/assets/francisco-aviles.png.asset.json";

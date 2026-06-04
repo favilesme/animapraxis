@@ -39,9 +39,22 @@ function Page() {
     defaultValues: { perfil: "", linea: "", consentimiento: false as unknown as true },
   });
 
-  const onSubmit = async (_data: FormValues) => {
-    // Frontend-only: no backend conectado todavía.
-    await new Promise((r) => setTimeout(r, 600));
+  const onSubmit = async (data: FormValues) => {
+    const subject = `Nueva solicitud de contacto — ${data.nombre}`;
+    const bodyLines = [
+      `Nombre: ${data.nombre}`,
+      `Email: ${data.email}`,
+      data.telefono ? `Teléfono: ${data.telefono}` : null,
+      data.empresa ? `Empresa: ${data.empresa}` : null,
+      `Perfil: ${data.perfil}`,
+      `Línea de interés: ${data.linea}`,
+      "",
+      "Mensaje:",
+      data.mensaje,
+    ].filter(Boolean) as string[];
+    const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailto;
+    await new Promise((r) => setTimeout(r, 400));
     setSent(true);
   };
 

@@ -49,7 +49,25 @@ function Page() {
             Cumplido el plazo aplicable, los datos serán eliminados, bloqueados o anonimizados.
           </p>
           <h2 className="font-display text-xl text-deep">Terceros y transferencias</h2>
-          <p><Falta label="detalle de proveedores y transferencias internacionales si aplica" /></p>
+          <p>
+            Para operar este sitio y responder solicitudes, Anima Praxis utiliza proveedores tecnológicos que actúan como encargados del tratamiento de datos personales.
+          </p>
+          <p>Proveedores utilizados:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Hosting web: Lovable.com, <a href="https://docs.lovable.dev/features/privacy-and-security-settings" className="underline text-foreground" target="_blank" rel="noopener noreferrer">https://docs.lovable.dev/features/privacy-and-security-settings</a></li>
+            <li>Correo electrónico: Lovable.com, <a href="https://docs.lovable.dev/features/privacy-and-security-settings" className="underline text-foreground" target="_blank" rel="noopener noreferrer">https://docs.lovable.dev/features/privacy-and-security-settings</a></li>
+            <li>Formulario de contacto: Lovable.com, <a href="https://docs.lovable.dev/features/privacy-and-security-settings" className="underline text-foreground" target="_blank" rel="noopener noreferrer">https://docs.lovable.dev/features/privacy-and-security-settings</a></li>
+            <li>Asistente conversacional: nubionai.com, <a href="https://www.nubionai.com/es/privacy-policy" className="underline text-foreground" target="_blank" rel="noopener noreferrer">https://www.nubionai.com/es/privacy-policy</a></li>
+          </ul>
+          <p>
+            Estos proveedores tratan datos únicamente para prestar servicios de infraestructura, comunicación, seguridad, atención al usuario, agenda, soporte técnico y mejora operativa del sitio.
+          </p>
+          <p>
+            No vendemos datos personales.
+          </p>
+          <p>
+            Si algún proveedor trata datos fuera de Ecuador, existirá transferencia o comunicación internacional de datos. En ese caso, Anima Praxis aplicará las garantías contractuales y técnicas exigidas por la normativa vigente de protección de datos personales.
+          </p>
         </div>
       </div>
     </section>

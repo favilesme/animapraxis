@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
-import { ChatSection } from "@/components/sections/ChatSection";
 import { Falta } from "@/components/brand/Falta";
 import { WHATSAPP_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
 import francisco from "@/assets/francisco-aviles.png.asset.json";
@@ -96,12 +95,13 @@ function HomePage() {
               >
                 Reservar cita
               </a>
-              <a
-                href="#chat"
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event("anima:open-chat"))}
                 className="rounded-md border border-deep px-6 py-3 font-semibold text-deep hover:bg-deep hover:text-deep-foreground transition-colors"
               >
                 Chatea con nosotros
-              </a>
+              </button>
             </div>
           </div>
           <div className="relative">
@@ -189,7 +189,7 @@ function HomePage() {
         </div>
       </section>
 
-      <ChatSection />
+      
 
       {/* Cómo llegar */}
       <section className="py-16 sm:py-24">

@@ -76,7 +76,7 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight text-deep break-words hyphens-auto">
-              Claridad estratégica, inteligencia artificial y desarrollo humano para avanzar con sentido
+              Claridad estratégica,<br />inteligencia artificial y desarrollo humano para avanzar con sentido
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Anima Praxis integra consultoría estratégica, inteligencia artificial aplicada, coaching,

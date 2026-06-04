@@ -95,12 +95,13 @@ function HomePage() {
               >
                 Reservar cita
               </a>
-              <a
-                href="#chat"
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event("anima:open-chat"))}
                 className="rounded-md border border-deep px-6 py-3 font-semibold text-deep hover:bg-deep hover:text-deep-foreground transition-colors"
               >
                 Chatea con nosotros
-              </a>
+              </button>
             </div>
           </div>
           <div className="relative">
@@ -188,7 +189,7 @@ function HomePage() {
         </div>
       </section>
 
-      <ChatSection />
+      
 
       {/* Cómo llegar */}
       <section className="py-16 sm:py-24">

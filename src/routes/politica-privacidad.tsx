@@ -37,7 +37,16 @@ function Page() {
           <h2 className="font-display text-xl text-deep">Conservación y derechos</h2>
           <p>
             Puedes ejercer tus derechos de acceso, rectificación, eliminación, oposición y
-            portabilidad escribiéndonos a {EMAIL}. Plazo de conservación de los datos: <Falta />.
+            portabilidad escribiéndonos a {EMAIL}.
+          </p>
+          <p>
+            Conservamos los datos enviados mediante el formulario de contacto durante 24 meses desde la última interacción, con la finalidad de responder solicitudes, dar seguimiento a conversaciones iniciadas y mantener un registro básico de atención.
+          </p>
+          <p>
+            Si se inicia una relación contractual, comercial o profesional, conservaremos los datos durante el tiempo necesario para gestionar esa relación y cumplir obligaciones legales, contables, tributarias o de defensa de derechos.
+          </p>
+          <p>
+            Cumplido el plazo aplicable, los datos serán eliminados, bloqueados o anonimizados.
           </p>
           <h2 className="font-display text-xl text-deep">Terceros y transferencias</h2>
           <p><Falta label="detalle de proveedores y transferencias internacionales si aplica" /></p>

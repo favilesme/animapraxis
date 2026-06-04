@@ -8,7 +8,7 @@ export function TopBar() {
           href={CALENDLY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-primary transition-colors text-stone-950"
+          className="hover:text-primary transition-colors text-orange-400"
         >
           Pide cita hoy y agenda tu primera evaluación sin costo
         </a>

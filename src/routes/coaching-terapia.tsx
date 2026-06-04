@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
+import infografiaAsset from "@/assets/coaching-terapia-infografia.png.asset.json";
 
 export const Route = createFileRoute("/coaching-terapia")({
   head: () => ({
@@ -34,6 +35,17 @@ function Page() {
             Acompañamos a profesionales, empresarios, líderes y personas adultas en procesos de
             claridad, transición, crisis de sentido, gestión emocional y liderazgo consciente.
           </p>
+        </div>
+      </section>
+
+      <section className="py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <img
+            src={infografiaAsset.url}
+            alt="Coaching, terapia de profundidad y transformación personal: claridad personal, transición vital o profesional, crisis de sentido, gestión emocional y liderazgo consciente."
+            className="w-full h-auto rounded-xl shadow-md"
+            loading="lazy"
+          />
         </div>
       </section>
 

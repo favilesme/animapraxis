@@ -147,7 +147,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <TopBar />
       <Header />
-      <main id="main">
+      <main id="main" className="overflow-x-clip">
         <Outlet />
       </main>
       <Footer />

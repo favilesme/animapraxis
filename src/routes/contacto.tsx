@@ -34,27 +34,41 @@ type FormValues = z.infer<typeof schema>;
 
 function Page() {
   const [sent, setSent] = useState(false);
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormValues>({
+  const [submitError, setSubmitError] = useState("");
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormValues>({
     resolver: zodResolver(schema),
     defaultValues: { perfil: "", linea: "", consentimiento: false as unknown as true },
   });
 
   const onSubmit = async (data: FormValues) => {
-    const subject = `Nueva solicitud de contacto — ${data.nombre}`;
-    const bodyLines = [
-      `Nombre: ${data.nombre}`,
-      `Email: ${data.email}`,
-      data.telefono ? `Teléfono: ${data.telefono}` : null,
-      data.empresa ? `Empresa: ${data.empresa}` : null,
-      `Perfil: ${data.perfil}`,
-      `Línea de interés: ${data.linea}`,
-      "",
-      "Mensaje:",
-      data.mensaje,
-    ].filter(Boolean) as string[];
-    const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = mailto;
-    await new Promise((r) => setTimeout(r, 400));
+    setSubmitError("");
+    const response = await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        _subject: `Nueva solicitud de contacto — ${data.nombre}`,
+        _template: "table",
+        _captcha: "false",
+        nombre: data.nombre,
+        email: data.email,
+        telefono: data.telefono || "No indicado",
+        empresa: data.empresa || "No indicada",
+        perfil: data.perfil,
+        linea_de_interes: data.linea,
+        mensaje: data.mensaje,
+        consentimiento: "Acepto ser contactado por Anima Praxis respecto a esta solicitud.",
+      }),
+    });
+
+    if (!response.ok) {
+      setSubmitError("No pudimos enviar la solicitud. Inténtalo nuevamente o escríbenos por email.");
+      return;
+    }
+
+    reset();
     setSent(true);
   };
 
@@ -172,8 +186,9 @@ function Page() {
               >
                 {isSubmitting ? "Enviando…" : "Enviar solicitud"}
               </button>
+              {submitError && <p className="text-sm text-destructive text-center">{submitError}</p>}
               <p className="text-xs text-muted-foreground text-center">
-                El formulario aún no envía a un destino real. Por ahora, contáctanos por WhatsApp o email.
+                Tu solicitud se enviará directamente a {EMAIL}.
               </p>
             </form>
           )}

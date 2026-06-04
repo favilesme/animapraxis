@@ -83,7 +83,7 @@ function HomePage() {
               terapia de profundidad y capacitación corporativa para ayudarte a tomar mejores decisiones,
               ordenar prioridades y transformar tu forma de operar, liderar y crecer.
             </p>
-            <p className="mt-4 italic text-primary-hover font-display text-xl">
+            <p className="mt-4 italic text-primary-hover font-display text-3xl">
               Conciencia que transforma. Acción que enraíza.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

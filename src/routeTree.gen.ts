@@ -19,6 +19,7 @@ import { Route as CoachingTerapiaRouteImport } from './routes/coaching-terapia'
 import { Route as CapacitacionCorporativaRouteImport } from './routes/capacitacion-corporativa'
 import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 
 const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
   id: '/sobre-francisco',
@@ -70,6 +71,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InsightsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -78,10 +84,11 @@ export interface FileRoutesByFullPath {
   '/coaching-terapia': typeof CoachingTerapiaRoute
   '/consultoria-ia': typeof ConsultoriaIaRoute
   '/contacto': typeof ContactoRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
+  '/insights/$slug': typeof InsightsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -90,10 +97,11 @@ export interface FileRoutesByTo {
   '/coaching-terapia': typeof CoachingTerapiaRoute
   '/consultoria-ia': typeof ConsultoriaIaRoute
   '/contacto': typeof ContactoRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
+  '/insights/$slug': typeof InsightsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -103,10 +111,11 @@ export interface FileRoutesById {
   '/coaching-terapia': typeof CoachingTerapiaRoute
   '/consultoria-ia': typeof ConsultoriaIaRoute
   '/contacto': typeof ContactoRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
+  '/insights/$slug': typeof InsightsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/politica-cookies'
     | '/politica-privacidad'
     | '/sobre-francisco'
+    | '/insights/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/politica-cookies'
     | '/politica-privacidad'
     | '/sobre-francisco'
+    | '/insights/$slug'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/politica-cookies'
     | '/politica-privacidad'
     | '/sobre-francisco'
+    | '/insights/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -154,7 +166,7 @@ export interface RootRouteChildren {
   CoachingTerapiaRoute: typeof CoachingTerapiaRoute
   ConsultoriaIaRoute: typeof ConsultoriaIaRoute
   ContactoRoute: typeof ContactoRoute
-  InsightsRoute: typeof InsightsRoute
+  InsightsRoute: typeof InsightsRouteWithChildren
   PoliticaCookiesRoute: typeof PoliticaCookiesRoute
   PoliticaPrivacidadRoute: typeof PoliticaPrivacidadRoute
   SobreFranciscoRoute: typeof SobreFranciscoRoute
@@ -232,8 +244,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof InsightsRoute
+    }
   }
 }
+
+interface InsightsRouteChildren {
+  InsightsSlugRoute: typeof InsightsSlugRoute
+}
+
+const InsightsRouteChildren: InsightsRouteChildren = {
+  InsightsSlugRoute: InsightsSlugRoute,
+}
+
+const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
+  InsightsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -242,7 +273,7 @@ const rootRouteChildren: RootRouteChildren = {
   CoachingTerapiaRoute: CoachingTerapiaRoute,
   ConsultoriaIaRoute: ConsultoriaIaRoute,
   ContactoRoute: ContactoRoute,
-  InsightsRoute: InsightsRoute,
+  InsightsRoute: InsightsRouteWithChildren,
   PoliticaCookiesRoute: PoliticaCookiesRoute,
   PoliticaPrivacidadRoute: PoliticaPrivacidadRoute,
   SobreFranciscoRoute: SobreFranciscoRoute,
@@ -250,3 +281,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/contact";
+import { CALENDLY_URL } from "@/lib/contact";
 import infografiaAsset from "@/assets/consultoria-ia-infografia.png.asset.json";
 
 export const Route = createFileRoute("/consultoria-ia")({
@@ -93,8 +93,8 @@ function Page() {
       </section>
 
       <section className="py-16 text-center">
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
-          Solicita un diagnóstico
+        <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
+          Reservar cita
         </a>
       </section>
     </>

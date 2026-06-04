@@ -124,13 +124,10 @@ function HomePage() {
             Empresas, líderes y profesionales confiaron en Anima Praxis para ordenar decisiones,
             fortalecer equipos y avanzar con foco.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm">
-            {["Servicios", "Comercio", "Educación", "Manufactura", "Profesionales independientes"].map((s) => (
-              <span key={s} className="rounded-full border border-border px-4 py-1.5 text-muted-foreground">
-                {s}
-              </span>
-            ))}
+          <div className="mt-8">
+            <ClientsMarquee />
           </div>
+
           <p className="mt-6 text-center text-sm text-muted-foreground">
             25 años de experiencia profesional aplicada.
           </p>

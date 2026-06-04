@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { WHATSAPP_URL, EMAIL } from "@/lib/contact";
+import { CALENDLY_URL, EMAIL } from "@/lib/contact";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -85,8 +85,8 @@ function Page() {
             coordinar una primera conversación.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
-              Prefiero WhatsApp directo
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
+              Agendar cita virtual
             </a>
             <a href={`mailto:${EMAIL}?subject=${encodeURIComponent("Contacto desde la web — Anima Praxis")}`} className="inline-flex rounded-md border border-deep px-6 py-3 font-semibold text-deep hover:bg-deep hover:text-deep-foreground transition-colors">
               Escríbenos a {EMAIL}

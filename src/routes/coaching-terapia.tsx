@@ -38,6 +38,17 @@ function Page() {
         </div>
       </section>
 
+      <section className="py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <img
+            src={infografiaAsset.url}
+            alt="Coaching, terapia de profundidad y transformación personal: claridad personal, transición vital o profesional, crisis de sentido, gestión emocional y liderazgo consciente."
+            className="w-full h-auto rounded-xl shadow-md"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 grid gap-12 md:grid-cols-2">
           <div>

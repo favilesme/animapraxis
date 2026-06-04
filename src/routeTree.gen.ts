@@ -9,8 +9,62 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SobreFranciscoRouteImport } from './routes/sobre-francisco'
+import { Route as PoliticaPrivacidadRouteImport } from './routes/politica-privacidad'
+import { Route as PoliticaCookiesRouteImport } from './routes/politica-cookies'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as ConsultoriaIaRouteImport } from './routes/consultoria-ia'
+import { Route as CoachingTerapiaRouteImport } from './routes/coaching-terapia'
+import { Route as CapacitacionCorporativaRouteImport } from './routes/capacitacion-corporativa'
+import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
+  id: '/sobre-francisco',
+  path: '/sobre-francisco',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaPrivacidadRoute = PoliticaPrivacidadRouteImport.update({
+  id: '/politica-privacidad',
+  path: '/politica-privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaCookiesRoute = PoliticaCookiesRouteImport.update({
+  id: '/politica-cookies',
+  path: '/politica-cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultoriaIaRoute = ConsultoriaIaRouteImport.update({
+  id: '/consultoria-ia',
+  path: '/consultoria-ia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoachingTerapiaRoute = CoachingTerapiaRouteImport.update({
+  id: '/coaching-terapia',
+  path: '/coaching-terapia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapacitacionCorporativaRoute = CapacitacionCorporativaRouteImport.update({
+  id: '/capacitacion-corporativa',
+  path: '/capacitacion-corporativa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvisoLegalRoute = AvisoLegalRouteImport.update({
+  id: '/aviso-legal',
+  path: '/aviso-legal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +73,158 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
+  '/capacitacion-corporativa': typeof CapacitacionCorporativaRoute
+  '/coaching-terapia': typeof CoachingTerapiaRoute
+  '/consultoria-ia': typeof ConsultoriaIaRoute
+  '/contacto': typeof ContactoRoute
+  '/insights': typeof InsightsRoute
+  '/politica-cookies': typeof PoliticaCookiesRoute
+  '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sobre-francisco': typeof SobreFranciscoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
+  '/capacitacion-corporativa': typeof CapacitacionCorporativaRoute
+  '/coaching-terapia': typeof CoachingTerapiaRoute
+  '/consultoria-ia': typeof ConsultoriaIaRoute
+  '/contacto': typeof ContactoRoute
+  '/insights': typeof InsightsRoute
+  '/politica-cookies': typeof PoliticaCookiesRoute
+  '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sobre-francisco': typeof SobreFranciscoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
+  '/capacitacion-corporativa': typeof CapacitacionCorporativaRoute
+  '/coaching-terapia': typeof CoachingTerapiaRoute
+  '/consultoria-ia': typeof ConsultoriaIaRoute
+  '/contacto': typeof ContactoRoute
+  '/insights': typeof InsightsRoute
+  '/politica-cookies': typeof PoliticaCookiesRoute
+  '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sobre-francisco': typeof SobreFranciscoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/aviso-legal'
+    | '/capacitacion-corporativa'
+    | '/coaching-terapia'
+    | '/consultoria-ia'
+    | '/contacto'
+    | '/insights'
+    | '/politica-cookies'
+    | '/politica-privacidad'
+    | '/sobre-francisco'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/aviso-legal'
+    | '/capacitacion-corporativa'
+    | '/coaching-terapia'
+    | '/consultoria-ia'
+    | '/contacto'
+    | '/insights'
+    | '/politica-cookies'
+    | '/politica-privacidad'
+    | '/sobre-francisco'
+  id:
+    | '__root__'
+    | '/'
+    | '/aviso-legal'
+    | '/capacitacion-corporativa'
+    | '/coaching-terapia'
+    | '/consultoria-ia'
+    | '/contacto'
+    | '/insights'
+    | '/politica-cookies'
+    | '/politica-privacidad'
+    | '/sobre-francisco'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisoLegalRoute: typeof AvisoLegalRoute
+  CapacitacionCorporativaRoute: typeof CapacitacionCorporativaRoute
+  CoachingTerapiaRoute: typeof CoachingTerapiaRoute
+  ConsultoriaIaRoute: typeof ConsultoriaIaRoute
+  ContactoRoute: typeof ContactoRoute
+  InsightsRoute: typeof InsightsRoute
+  PoliticaCookiesRoute: typeof PoliticaCookiesRoute
+  PoliticaPrivacidadRoute: typeof PoliticaPrivacidadRoute
+  SobreFranciscoRoute: typeof SobreFranciscoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sobre-francisco': {
+      id: '/sobre-francisco'
+      path: '/sobre-francisco'
+      fullPath: '/sobre-francisco'
+      preLoaderRoute: typeof SobreFranciscoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-privacidad': {
+      id: '/politica-privacidad'
+      path: '/politica-privacidad'
+      fullPath: '/politica-privacidad'
+      preLoaderRoute: typeof PoliticaPrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-cookies': {
+      id: '/politica-cookies'
+      path: '/politica-cookies'
+      fullPath: '/politica-cookies'
+      preLoaderRoute: typeof PoliticaCookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consultoria-ia': {
+      id: '/consultoria-ia'
+      path: '/consultoria-ia'
+      fullPath: '/consultoria-ia'
+      preLoaderRoute: typeof ConsultoriaIaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coaching-terapia': {
+      id: '/coaching-terapia'
+      path: '/coaching-terapia'
+      fullPath: '/coaching-terapia'
+      preLoaderRoute: typeof CoachingTerapiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capacitacion-corporativa': {
+      id: '/capacitacion-corporativa'
+      path: '/capacitacion-corporativa'
+      fullPath: '/capacitacion-corporativa'
+      preLoaderRoute: typeof CapacitacionCorporativaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aviso-legal': {
+      id: '/aviso-legal'
+      path: '/aviso-legal'
+      fullPath: '/aviso-legal'
+      preLoaderRoute: typeof AvisoLegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +237,26 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisoLegalRoute: AvisoLegalRoute,
+  CapacitacionCorporativaRoute: CapacitacionCorporativaRoute,
+  CoachingTerapiaRoute: CoachingTerapiaRoute,
+  ConsultoriaIaRoute: ConsultoriaIaRoute,
+  ContactoRoute: ContactoRoute,
+  InsightsRoute: InsightsRoute,
+  PoliticaCookiesRoute: PoliticaCookiesRoute,
+  PoliticaPrivacidadRoute: PoliticaPrivacidadRoute,
+  SobreFranciscoRoute: SobreFranciscoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

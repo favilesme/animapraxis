@@ -256,7 +256,7 @@ function HomePage() {
           <h2 className="font-display text-3xl sm:text-4xl">
             Conversemos sobre lo que necesitas ordenar, transformar o fortalecer
           </h2>
-          <p className="mt-4 text-deep-foreground/80">
+          <p className="mt-4 text-deep-foreground">
             Cuéntanos tu situación y definimos juntos el próximo paso.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

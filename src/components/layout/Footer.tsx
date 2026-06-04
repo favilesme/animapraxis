@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo variant="footer" />
-            <p className="mt-4 text-sm text-deep-foreground/80 leading-relaxed">
+            <p className="mt-4 text-sm text-deep-foreground leading-relaxed">
               Anima Praxis integra estrategia, inteligencia artificial y desarrollo
               humano para personas y organizaciones que buscan avanzar con claridad,
               coherencia y capacidad de acción.
@@ -57,7 +57,7 @@ export function Footer() {
                   {EMAIL}
                 </a>
               </li>
-              <li className="text-deep-foreground/80">{ADDRESS}</li>
+              <li className="text-deep-foreground">{ADDRESS}</li>
             </ul>
           </div>
           <div>
@@ -81,7 +81,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-6 border-t border-deep-foreground/10 text-xs text-deep-foreground/60 text-center">
+        <div className="mt-12 pt-6 border-t border-deep-foreground/20 text-xs text-deep-foreground/80 text-center">
           © {year} Anima Praxis. Todos los derechos reservados.
         </div>
       </div>

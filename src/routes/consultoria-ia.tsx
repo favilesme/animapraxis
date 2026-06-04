@@ -39,6 +39,17 @@ function Page() {
         </div>
       </section>
 
+      <section className="py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <img
+            src={infografiaAsset.url}
+            alt="Proceso de consultoría estratégica con inteligencia artificial: ordenamos tu negocio, definimos prioridades, usamos IA como apoyo práctico y tomamos mejores decisiones."
+            className="w-full h-auto rounded-xl shadow-md"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 grid gap-12 md:grid-cols-2">
           <div>

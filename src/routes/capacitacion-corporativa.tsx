@@ -39,7 +39,14 @@ function Page() {
         </div>
       </section>
 
+      <section className="py-12">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <img src={infografiaAsset.url} alt="Infografía Capacitación corporativa personalizada" className="w-full rounded-xl shadow-md" />
+        </div>
+      </section>
+
       <section className="py-16">
+
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="font-display text-2xl text-deep">Para quién es</h2>

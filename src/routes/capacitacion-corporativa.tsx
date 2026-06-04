@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/contact";
+import { CALENDLY_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/capacitacion-corporativa")({
   head: () => ({
@@ -73,8 +73,8 @@ function Page() {
       </section>
 
       <section className="py-16 text-center">
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
-          Cuéntanos tu necesidad
+        <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
+          Reservar cita
         </a>
       </section>
     </>

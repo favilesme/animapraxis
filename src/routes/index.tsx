@@ -176,12 +176,12 @@ function HomePage() {
                   ))}
                 </ul>
                 <a
-                  href={WHATSAPP_URL}
+                  href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-6 inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 font-semibold text-primary-foreground hover:bg-primary-hover transition-colors"
                 >
-                  Reservar pack
+                  Reservar cita
                 </a>
               </article>
             ))}

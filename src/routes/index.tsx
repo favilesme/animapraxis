@@ -107,11 +107,12 @@ function HomePage() {
           <div className="relative">
             <div className="absolute -inset-4 bg-primary/20 rounded-3xl blur-2xl" aria-hidden />
             <img
-              src={francisco.url}
-              alt="Francisco Avilés en su despacho profesional"
+              src={heroImg.url}
+              alt="Anima Praxis — Conciencia que transforma. Acción que enraíza."
               loading="eager"
-              className="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/5]"
+              className="relative rounded-2xl shadow-xl w-full object-contain bg-deep p-6"
             />
+
           </div>
         </div>
       </section>

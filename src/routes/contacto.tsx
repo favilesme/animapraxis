@@ -57,9 +57,14 @@ function Page() {
             Cuéntanos qué necesitas ordenar, transformar o fortalecer. Te contactaremos para
             coordinar una primera conversación.
           </p>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
-            Prefiero WhatsApp directo
-          </a>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
+              Prefiero WhatsApp directo
+            </a>
+            <a href={`mailto:${EMAIL}`} className="inline-flex rounded-md border border-deep px-6 py-3 font-semibold text-deep hover:bg-deep hover:text-deep-foreground transition-colors">
+              Escríbenos a {EMAIL}
+            </a>
+          </div>
         </div>
       </section>
 

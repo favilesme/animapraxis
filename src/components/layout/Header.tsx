@@ -17,7 +17,7 @@ const navLinks = [
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-30 w-full bg-background border-b border-border shadow-sm">
+    <header className="sticky top-0 z-30 w-full bg-deep text-deep-foreground border-b border-deep shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-4">
           <Link to="/" aria-label="Anima Praxis — Inicio" className="shrink-0">
@@ -29,8 +29,8 @@ export function Header() {
               <Link
                 key={l.to}
                 to={l.to}
-                className="px-3 py-2 text-sm text-foreground hover:text-primary-hover rounded-md transition-colors"
-                activeProps={{ className: "text-primary-hover font-semibold" }}
+                className="px-3 py-2 text-sm text-deep-foreground hover:text-primary rounded-md transition-colors"
+                activeProps={{ className: "text-primary font-semibold" }}
                 activeOptions={{ exact: l.to === "/" }}
               >
                 {l.label}
@@ -49,7 +49,7 @@ export function Header() {
 
           <button
             type="button"
-            className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-cream"
+            className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-deep-foreground hover:bg-white/10"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -66,8 +66,8 @@ export function Header() {
                   <Link
                     to={l.to}
                     onClick={() => setOpen(false)}
-                    className="block rounded-md px-3 py-2.5 text-base text-foreground hover:bg-cream"
-                    activeProps={{ className: "text-primary-hover font-semibold bg-cream" }}
+                    className="block rounded-md px-3 py-2.5 text-base text-deep-foreground hover:bg-white/10"
+                    activeProps={{ className: "text-primary font-semibold bg-white/10" }}
                     activeOptions={{ exact: l.to === "/" }}
                   >
                     {l.label}
@@ -87,6 +87,7 @@ export function Header() {
             </ul>
           </nav>
         )}
+
       </div>
     </header>
   );

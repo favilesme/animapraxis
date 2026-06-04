@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
 import { Falta } from "@/components/brand/Falta";
-import { WHATSAPP_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
+import { WHATSAPP_URL, CALENDLY_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
 import francisco from "@/assets/francisco-aviles.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -88,7 +88,7 @@ function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={WHATSAPP_URL}
+                href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover transition-colors"
@@ -260,7 +260,7 @@ function HomePage() {
             Cuéntanos tu situación y definimos juntos el próximo paso.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover transition-colors">
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover transition-colors">
               Reservar cita
             </a>
             <Link to="/contacto" className="rounded-md border border-primary px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors">

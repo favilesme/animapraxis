@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Falta } from "@/components/brand/Falta";
 
 export const Route = createFileRoute("/politica-cookies")({
   head: () => ({

@@ -121,7 +121,7 @@ function HomePage() {
       <section className="border-y border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
           <p className="text-center text-muted-foreground max-w-3xl mx-auto">
-            Empresas, líderes y profesionales confían en Anima Praxis para ordenar decisiones,
+            Empresas, líderes y profesionales confiaron en Anima Praxis para ordenar decisiones,
             fortalecer equipos y avanzar con foco.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm">

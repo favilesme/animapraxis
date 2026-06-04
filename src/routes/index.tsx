@@ -262,7 +262,7 @@ function HomePage() {
                 </div>
                 <div>
                   <p className="font-semibold text-deep">Felipe Arpi</p>
-                  <p className="text-sm text-muted-foreground">Gerente</p>
+                  <p className="text-sm text-muted-foreground">Gerente General</p>
                   <p className="text-sm text-muted-foreground">@Columtrad</p>
                 </div>
               </footer>

@@ -67,7 +67,7 @@ export const Route = createFileRoute("/insights/$slug")({
     <section className="py-20">
       <div className="mx-auto max-w-2xl px-4 text-center">
         <h1 className="font-display text-3xl text-deep">Ocurrió un problema</h1>
-        <p className="mt-3 text-muted-foreground">{error.message}</p>
+        <p className="mt-3 text-muted-foreground">No pudimos cargar este artículo. Por favor, intenta de nuevo.</p>
         <button
           onClick={reset}
           className="mt-6 inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-primary-hover transition-colors"

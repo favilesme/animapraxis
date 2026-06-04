@@ -68,7 +68,7 @@
   --secondary-foreground: oklch(0.232 0.027 254);
 
   --muted: oklch(0.972 0.012 30);
-  --muted-foreground: oklch(0.475 0.018 256);         /* #5A626F */
+  --muted-foreground: oklch(0.30 0.018 256);          /* mucho más legible */
 
   --accent: oklch(0.972 0.012 30);
   --accent-foreground: oklch(0.232 0.027 254);
@@ -89,6 +89,7 @@
   }
   html {
     scroll-behavior: smooth;
+    font-size: 18px;
   }
   body {
     background-color: var(--color-background);

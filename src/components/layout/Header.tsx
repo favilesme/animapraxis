@@ -29,7 +29,7 @@ export function Header() {
               <Link
                 key={l.to}
                 to={l.to}
-                className="px-3 py-2 text-sm text-foreground/80 hover:text-primary-hover rounded-md transition-colors"
+                className="px-3 py-2 text-sm text-foreground hover:text-primary-hover rounded-md transition-colors"
                 activeProps={{ className: "text-primary-hover font-semibold" }}
                 activeOptions={{ exact: l.to === "/" }}
               >

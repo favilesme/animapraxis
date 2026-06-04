@@ -12,7 +12,7 @@ export function Logo({ variant = "header", className = "" }: LogoProps) {
       <img
         src={banner.url}
         alt="Anima Praxis — Conciencia que transforma. Acción que enraíza."
-        className={isFooter ? "h-16 w-auto" : "h-12 w-auto"}
+        className={isFooter ? "h-16 w-auto" : "h-20 w-auto max-w-[200px] sm:max-w-[280px]"}
       />
     </div>
   );

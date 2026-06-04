@@ -64,11 +64,10 @@ function Page() {
           <p className="mt-4 text-muted-foreground leading-relaxed">
             A lo largo de su carrera ha ocupado posiciones ejecutivas y consultivas en organizaciones
             nacionales e internacionales como Ernst & Young, Coca-Cola, American Airlines,
-            Panificadora Ambato, Refreshment & Beverage Servicios y Avilés Consultores Asociados.
-            También ha acompañado procesos de consultoría, capacitación y transformación en empresas
-            como Holcim, Petrobras, Cervecería Nacional, Metropolitan Touring, Tecniseguros, Seguros
-            del Pichincha, Disensa, Aerogal, Amanco, Financoop, Camposanto La Paz e Hilos Pinto,
-            entre otras.
+            Avilés Consultores Asociados e importantes empresas nacionales. También ha acompañado
+            procesos de consultoría, capacitación y transformación en empresas como Holcim,
+            Cervecería Nacional, Metropolitan Touring, Tecniseguros, Seguros del Pichincha,
+            Disensa, Financoop, Camposanto La Paz e Hilos Pinto, entre otras.
           </p>
 
           <h2 className="mt-12 font-display text-2xl text-deep">Enfoque de trabajo</h2>

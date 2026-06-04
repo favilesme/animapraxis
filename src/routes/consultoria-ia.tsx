@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
+import infografiaAsset from "@/assets/consultoria-ia-infografia.png.asset.json";
 
 export const Route = createFileRoute("/consultoria-ia")({
   head: () => ({
@@ -35,6 +36,17 @@ function Page() {
             práctico para analizar información, comparar escenarios, mejorar procesos y tomar
             mejores decisiones.
           </p>
+        </div>
+      </section>
+
+      <section className="py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <img
+            src={infografiaAsset.url}
+            alt="Proceso de consultoría estratégica con inteligencia artificial: ordenamos tu negocio, definimos prioridades, usamos IA como apoyo práctico y tomamos mejores decisiones."
+            className="w-full h-auto rounded-xl shadow-md"
+            loading="lazy"
+          />
         </div>
       </section>
 

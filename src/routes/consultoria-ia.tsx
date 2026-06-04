@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
+import infografiaAsset from "@/assets/consultoria-ia-infografia.png.asset.json";
 
 export const Route = createFileRoute("/consultoria-ia")({
   head: () => ({

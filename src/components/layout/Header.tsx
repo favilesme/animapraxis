@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
-import { WHATSAPP_URL } from "@/lib/contact";
+import { CALENDLY_URL } from "@/lib/contact";
 
 const navLinks = [
   { to: "/", label: "Inicio" },
@@ -39,7 +39,7 @@ export function Header() {
           </nav>
 
           <a
-            href={WHATSAPP_URL}
+            href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition-colors"
@@ -76,7 +76,7 @@ export function Header() {
               ))}
               <li className="mt-2">
                 <a
-                  href={WHATSAPP_URL}
+                  href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center rounded-md bg-primary px-4 py-2.5 text-base font-semibold text-primary-foreground"

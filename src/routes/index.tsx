@@ -233,7 +233,7 @@ function HomePage() {
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-3xl sm:text-4xl text-deep text-center">Historias y experiencias</h2>
-          <div className="mt-10 max-w-3xl mx-auto">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             <blockquote className="rounded-2xl border border-border bg-cream/60 p-8 sm:p-10 relative">
               <span className="absolute top-4 left-6 text-6xl text-primary/30 font-display leading-none">"</span>
               <p className="text-deep leading-relaxed relative z-10 pt-4">
@@ -247,6 +247,23 @@ function HomePage() {
                   <p className="font-semibold text-deep">Javier Salazar</p>
                   <p className="text-sm text-muted-foreground">CEO & Country Managing Partner</p>
                   <p className="text-sm text-muted-foreground">@Ernst & Young Ecuador</p>
+                </div>
+              </footer>
+            </blockquote>
+
+            <blockquote className="rounded-2xl border border-border bg-cream/60 p-8 sm:p-10 relative">
+              <span className="absolute top-4 left-6 text-6xl text-primary/30 font-display leading-none">"</span>
+              <p className="text-deep leading-relaxed relative z-10 pt-4">
+                Tuve el gusto de trabajar con Francisco en la implementación de nuestra planificación estratégica y en el liderazgo del área comercial. Desde el inicio, demostró una visión clara para identificar oportunidades y resolver desafíos, logrando alinear los objetivos de la empresa con acciones concretas y medibles. Gracias a su capacidad de análisis, su enfoque estructurado y su compromiso con los resultados, optimizamos procesos clave, fortalecimos la gestión comercial y consolidamos un equipo más enfocado y eficiente. Su liderazgo generó mejoras tangibles en nuestro rendimiento y aportó estabilidad a la operación. Francisco es un profesional íntegro, estratégico y orientado al logro, capaz de aportar valor real a cualquier organización.
+              </p>
+              <footer className="mt-6 pt-6 border-t border-border/60 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-deep flex items-center justify-center text-deep-foreground font-semibold text-lg shrink-0">
+                  FA
+                </div>
+                <div>
+                  <p className="font-semibold text-deep">Felipe Arpi</p>
+                  <p className="text-sm text-muted-foreground">Gerente</p>
+                  <p className="text-sm text-muted-foreground">@Columtrad</p>
                 </div>
               </footer>
             </blockquote>

@@ -39,9 +39,22 @@ function Page() {
     defaultValues: { perfil: "", linea: "", consentimiento: false as unknown as true },
   });
 
-  const onSubmit = async (_data: FormValues) => {
-    // Frontend-only: no backend conectado todavía.
-    await new Promise((r) => setTimeout(r, 600));
+  const onSubmit = async (data: FormValues) => {
+    const subject = `Nueva solicitud de contacto — ${data.nombre}`;
+    const bodyLines = [
+      `Nombre: ${data.nombre}`,
+      `Email: ${data.email}`,
+      data.telefono ? `Teléfono: ${data.telefono}` : null,
+      data.empresa ? `Empresa: ${data.empresa}` : null,
+      `Perfil: ${data.perfil}`,
+      `Línea de interés: ${data.linea}`,
+      "",
+      "Mensaje:",
+      data.mensaje,
+    ].filter(Boolean) as string[];
+    const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailto;
+    await new Promise((r) => setTimeout(r, 400));
     setSent(true);
   };
 
@@ -61,9 +74,23 @@ function Page() {
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
               Prefiero WhatsApp directo
             </a>
-            <a href={`mailto:${EMAIL}`} className="inline-flex rounded-md border border-deep px-6 py-3 font-semibold text-deep hover:bg-deep hover:text-deep-foreground transition-colors">
+            <a href={`mailto:${EMAIL}?subject=${encodeURIComponent("Contacto desde la web — Anima Praxis")}`} className="inline-flex rounded-md border border-deep px-6 py-3 font-semibold text-deep hover:bg-deep hover:text-deep-foreground transition-colors">
               Escríbenos a {EMAIL}
             </a>
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  await navigator.clipboard.writeText(EMAIL);
+                  alert(`Email copiado: ${EMAIL}`);
+                } catch {
+                  prompt("Copia el email:", EMAIL);
+                }
+              }}
+              className="inline-flex rounded-md border border-deep/40 px-6 py-3 font-semibold text-deep hover:bg-deep/10 transition-colors"
+            >
+              Copiar email
+            </button>
           </div>
         </div>
       </section>

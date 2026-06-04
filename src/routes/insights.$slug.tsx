@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { articles, getArticleBySlug } from "@/data/articles";
+import { articles, getArticleBySlug, type Article } from "@/data/articles";
 
 const WA_URL =
   "https://wa.me/593984220189?text=Hola%20Anima%20Praxis%2C%20me%20interesa%20conversar%20a%20partir%20de%20uno%20de%20sus%20insights.";
@@ -81,7 +81,7 @@ export const Route = createFileRoute("/insights/$slug")({
 });
 
 function ArticlePage() {
-  const { article: a } = Route.useLoaderData();
+  const { article: a } = Route.useLoaderData() as { article: Article };
   const related = articles.filter((x) => x.slug !== a.slug).slice(0, 3);
 
   return (

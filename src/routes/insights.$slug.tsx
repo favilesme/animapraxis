@@ -121,7 +121,7 @@ function ArticlePage() {
       </div>
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 mt-12 space-y-12">
-        <section className="space-y-5 text-deep-foreground leading-relaxed">
+        <section className="space-y-5 text-foreground leading-relaxed">
           {a.introduccion.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -135,7 +135,7 @@ function ArticlePage() {
             {a.ideas.map((idea, i) => (
               <div key={i} className="border-l-4 border-primary pl-5">
                 <h3 className="font-display text-xl text-deep">{idea.titulo}</h3>
-                <p className="mt-2 text-deep-foreground leading-relaxed">{idea.texto}</p>
+                <p className="mt-2 text-foreground leading-relaxed">{idea.texto}</p>
               </div>
             ))}
           </div>
@@ -145,7 +145,7 @@ function ArticlePage() {
           <h2 className="font-display text-2xl sm:text-3xl text-deep mb-6">
             {a.ejemploTitulo}
           </h2>
-          <div className="space-y-5 text-deep-foreground leading-relaxed">
+          <div className="space-y-5 text-foreground leading-relaxed">
             {a.ejemplo.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -160,7 +160,7 @@ function ArticlePage() {
             {a.errores.map((e, i) => (
               <li key={i} className="rounded-xl bg-cream/40 border border-border p-5">
                 <h3 className="font-semibold text-deep">{e.titulo}</h3>
-                <p className="mt-1.5 text-deep-foreground leading-relaxed">{e.texto}</p>
+                <p className="mt-1.5 text-foreground leading-relaxed">{e.texto}</p>
               </li>
             ))}
           </ul>
@@ -172,7 +172,7 @@ function ArticlePage() {
           </h2>
           <ul className="space-y-3">
             {a.recomendaciones.map((r, i) => (
-              <li key={i} className="flex gap-3 text-deep-foreground leading-relaxed">
+              <li key={i} className="flex gap-3 text-foreground leading-relaxed">
                 <span
                   aria-hidden
                   className="mt-2 h-1.5 w-1.5 rounded-full bg-primary-hover flex-shrink-0"
@@ -183,14 +183,14 @@ function ArticlePage() {
           </ul>
         </section>
 
-        <section className="space-y-5 text-deep-foreground leading-relaxed">
+        <section className="space-y-5 text-foreground leading-relaxed">
           <h2 className="font-display text-2xl sm:text-3xl text-deep">Cierre</h2>
           {a.cierre.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </section>
 
-        <section className="rounded-2xl bg-deep text-deep-foreground/0 p-8 sm:p-10 text-center">
+        <section className="rounded-2xl bg-deep text-foreground/0 p-8 sm:p-10 text-center">
           <div className="text-white">
             <h2 className="font-display text-2xl sm:text-3xl">Da el siguiente paso</h2>
             <p className="mt-3 text-white/90 leading-relaxed max-w-2xl mx-auto">{a.cta}</p>

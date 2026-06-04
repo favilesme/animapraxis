@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
 import { Falta } from "@/components/brand/Falta";
 import { WHATSAPP_URL, CALENDLY_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
+import { ClientsMarquee } from "@/components/sections/ClientsMarquee";
 import francisco from "@/assets/francisco-aviles.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -124,13 +125,10 @@ function HomePage() {
             Empresas, líderes y profesionales confiaron en Anima Praxis para ordenar decisiones,
             fortalecer equipos y avanzar con foco.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm">
-            {["Servicios", "Comercio", "Educación", "Manufactura", "Profesionales independientes"].map((s) => (
-              <span key={s} className="rounded-full border border-border px-4 py-1.5 text-muted-foreground">
-                {s}
-              </span>
-            ))}
+          <div className="mt-8">
+            <ClientsMarquee />
           </div>
+
           <p className="mt-6 text-center text-sm text-muted-foreground">
             25 años de experiencia profesional aplicada.
           </p>

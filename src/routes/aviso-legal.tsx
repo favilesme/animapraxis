@@ -22,7 +22,7 @@ function Page() {
           <p><strong className="text-foreground">Titular:</strong> Francisco Raúl Avilés Merino — Anima Praxis.</p>
           <p><strong className="text-foreground">RUC / identificación fiscal:</strong> 1706784541001.</p>
           <p><strong className="text-foreground">Domicilio profesional:</strong> {ADDRESS}</p>
-          <p><strong className="text-foreground">Contacto:</strong> {EMAIL}</p>
+          <p><strong className="text-foreground">Contacto:</strong> legal@animapraxis.org</p>
           <p>
             El acceso y uso de este sitio implica la aceptación de las condiciones aquí descritas.
             Los contenidos publicados tienen carácter informativo y no constituyen asesoramiento

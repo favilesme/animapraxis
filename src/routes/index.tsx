@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
-import { Falta } from "@/components/brand/Falta";
 import { WHATSAPP_URL, CALENDLY_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
 import { ClientsMarquee } from "@/components/sections/ClientsMarquee";
 import francisco from "@/assets/francisco-aviles.png.asset.json";
@@ -230,20 +229,27 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Historias placeholder */}
+      {/* Historias y experiencias */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-3xl sm:text-4xl text-deep text-center">Historias y experiencias</h2>
-          <p className="mt-4 text-muted-foreground text-center max-w-2xl mx-auto">
-            Próximamente incorporaremos testimonios reales de clientes y consultantes, con
-            autorización expresa.
-          </p>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-2xl border border-dashed border-border p-6 bg-cream/50">
-                <Falta label={`testimonio real ${i}`} />
-              </div>
-            ))}
+          <div className="mt-10 max-w-3xl mx-auto">
+            <blockquote className="rounded-2xl border border-border bg-cream/60 p-8 sm:p-10 relative">
+              <span className="absolute top-4 left-6 text-6xl text-primary/30 font-display leading-none">"</span>
+              <p className="text-deep leading-relaxed relative z-10 pt-4">
+                El Ing. Francisco Avilés es un profesional de excelente formación y sólidos conocimientos que trabajó en Ernst & Young Ecuador, donde soy el CEO & Country Managing Partner. El Ing. Avilés es un profesional de mucha iniciativa y con un fuerte enfoque en proyectos de negocios y resultados. Su amplia experiencia profesional, relaciones comerciales y conocimiento de mercado, fueron cruciales para enfrentar los desafíos de EY Ecuador dentro de la práctica de consultoría.
+              </p>
+              <footer className="mt-6 pt-6 border-t border-border/60 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-deep flex items-center justify-center text-deep-foreground font-semibold text-lg shrink-0">
+                  JS
+                </div>
+                <div>
+                  <p className="font-semibold text-deep">Javier Salazar</p>
+                  <p className="text-sm text-muted-foreground">CEO & Country Managing Partner</p>
+                  <p className="text-sm text-muted-foreground">@Ernst & Young Ecuador</p>
+                </div>
+              </footer>
+            </blockquote>
           </div>
         </div>
       </section>

@@ -7,6 +7,10 @@ import cerveceriaNacional from "@/assets/clients/cerveceria-nacional.png.asset.j
 import teciniseguros from "@/assets/clients/teciniseguros.png.asset.json";
 import donDiego from "@/assets/clients/don-diego.png.asset.json";
 import segurosPichincha from "@/assets/clients/seguros-pichincha.png.asset.json";
+import metropolitanTouring from "@/assets/clients/metropolitan-touring.png.asset.json";
+import financoop from "@/assets/clients/financoop.png.asset.json";
+import laPaz from "@/assets/clients/la-paz.png.asset.json";
+import danielaOrtiz from "@/assets/clients/daniela-ortiz.png.asset.json";
 
 const clients = [
   { name: "Petrobras", src: petrobras.url },
@@ -18,6 +22,10 @@ const clients = [
   { name: "Alimentos Don Diego", src: donDiego.url },
   { name: "Columtrad", src: columtrad.url },
   { name: "TH Company", src: thCompany.url },
+  { name: "Metropolitan Touring", src: metropolitanTouring.url },
+  { name: "Financoop", src: financoop.url },
+  { name: "Camposanto La Paz", src: laPaz.url },
+  { name: "Daniela Ortiz", src: danielaOrtiz.url },
 ];
 
 export function ClientsMarquee() {

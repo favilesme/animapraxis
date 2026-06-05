@@ -39,7 +39,7 @@ function Page() {
             <h1 className="font-display text-4xl sm:text-5xl text-deep">Sobre Francisco Avilés</h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Consultor, coach, facilitador y especialista en estrategia, inteligencia artificial
-              aplicada, liderazgo y desarrollo humano. 25 años de trayectoria profesional.
+              aplicada, liderazgo y desarrollo humano. Con 25 años de trayectoria profesional.
             </p>
           </div>
           <img

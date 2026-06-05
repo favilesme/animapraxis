@@ -41,7 +41,7 @@ function Page() {
 
       <section className="py-12">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <img src={infografiaAsset.url} alt="Infografía Capacitación corporativa personalizada" className="w-full rounded-xl shadow-md" />
+          <img src={infografiaAsset.url} alt="Infografía Capacitación corporativa personalizada" width={1672} height={941} loading="lazy" className="w-full h-auto rounded-xl shadow-md" />
         </div>
       </section>
 

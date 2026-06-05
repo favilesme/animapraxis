@@ -13,19 +13,19 @@ import laPaz from "@/assets/clients/la-paz.png.asset.json";
 import danielaOrtiz from "@/assets/clients/daniela-ortiz.png.asset.json";
 
 const clients = [
-  { name: "Petrobras", src: petrobras.url },
-  { name: "Holcim", src: holcim.url },
-  { name: "Disensa", src: disensa.url },
-  { name: "Cervecería Nacional", src: cerveceriaNacional.url },
-  { name: "Seguros del Pichincha", src: segurosPichincha.url },
-  { name: "Tecniseguros", src: teciniseguros.url },
-  { name: "Alimentos Don Diego", src: donDiego.url },
-  { name: "Columtrad", src: columtrad.url },
-  { name: "TH Company", src: thCompany.url },
-  { name: "Metropolitan Touring", src: metropolitanTouring.url },
-  { name: "Financoop", src: financoop.url },
-  { name: "Camposanto La Paz", src: laPaz.url },
-  { name: "Daniela Ortiz", src: danielaOrtiz.url },
+  { name: "Petrobras", src: petrobras.url, width: 528, height: 120 },
+  { name: "Holcim", src: holcim.url, width: 398, height: 106 },
+  { name: "Disensa", src: disensa.url, width: 376, height: 152 },
+  { name: "Cervecería Nacional", src: cerveceriaNacional.url, width: 316, height: 80 },
+  { name: "Seguros del Pichincha", src: segurosPichincha.url, width: 524, height: 98 },
+  { name: "Tecniseguros", src: teciniseguros.url, width: 352, height: 208 },
+  { name: "Alimentos Don Diego", src: donDiego.url, width: 364, height: 232 },
+  { name: "Columtrad", src: columtrad.url, width: 764, height: 202 },
+  { name: "TH Company", src: thCompany.url, width: 460, height: 74 },
+  { name: "Metropolitan Touring", src: metropolitanTouring.url, width: 292, height: 94 },
+  { name: "Financoop", src: financoop.url, width: 596, height: 156 },
+  { name: "Camposanto La Paz", src: laPaz.url, width: 446, height: 124 },
+  { name: "Daniela Ortiz", src: danielaOrtiz.url, width: 446, height: 160 },
 ];
 
 export function ClientsMarquee() {
@@ -50,6 +50,8 @@ export function ClientsMarquee() {
               src={c.src}
               alt={c.name}
               loading="lazy"
+              width={c.width}
+              height={c.height}
               className="h-16 w-auto object-contain"
             />
           </div>

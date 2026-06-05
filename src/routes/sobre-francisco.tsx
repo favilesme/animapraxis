@@ -45,6 +45,8 @@ function Page() {
           <img
             src={francisco.url}
             alt="Francisco Avilés sentado en su despacho profesional"
+            width={832}
+            height={1248}
             className="rounded-2xl shadow-xl w-full object-cover aspect-[4/5]"
             loading="lazy"
           />

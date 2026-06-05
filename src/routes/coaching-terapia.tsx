@@ -43,6 +43,8 @@ function Page() {
           <img
             src={infografiaAsset.url}
             alt="Coaching, terapia de profundidad y transformación personal: claridad personal, transición vital o profesional, crisis de sentido, gestión emocional y liderazgo consciente."
+            width={1672}
+            height={941}
             className="w-full h-auto rounded-xl shadow-md"
             loading="lazy"
           />

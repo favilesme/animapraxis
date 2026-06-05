@@ -1,0 +1,21 @@
+# Anima Praxis
+
+> Consultoría estratégica con inteligencia artificial, coaching, terapia de profundidad y capacitación corporativa para líderes, equipos y organizaciones que buscan claridad, crecimiento y transformación sostenida.
+
+Anima Praxis es una práctica boutique fundada por Francisco Avilés, con 25 años de trayectoria en estrategia, liderazgo, transformación humana e inteligencia artificial aplicada. La propuesta integra planificación estratégica, implementación de IA, coaching ejecutivo, terapia de profundidad y programas de capacitación corporativa personalizados. El enfoque parte del contexto real de cada cliente para diseñar rutas claras, medibles y aplicables.
+
+## Pages
+
+- [Inicio](/): Servicios principales, propuesta de valor, packs de consultoría y preguntas frecuentes.
+- [Sobre Francisco Avilés](/sobre-francisco): Trayectoria, credenciales, enfoque y experiencia profesional del fundador.
+- [Consultoría estratégica con IA](/consultoria-ia): Planificación estratégica, diagnóstico, plan de negocios e implementación práctica de inteligencia artificial.
+- [Coaching y terapia de profundidad](/coaching-terapia): Coaching ejecutivo, terapia junguiana, prácticas cuerpo-mente, liderazgo consciente y procesos de transición.
+- [Capacitación corporativa](/capacitacion-corporativa): Programas formativos a medida en liderazgo, soft skills, productividad e innovación con IA.
+- [Contacto](/contacto): Formulario de contacto, agenda de citas y datos para solicitar información.
+- [Insights](/insights): Artículos y reflexiones sobre estrategia, inteligencia artificial aplicada, liderazgo y desarrollo humano.
+
+## Optional
+
+- [Aviso legal](/aviso-legal): Condiciones de uso, licencias, propiedad intelectual y responsabilidad del sitio.
+- [Política de privacidad](/politica-privacidad): Recopilación, uso, conservación y protección de datos personales.
+- [Política de cookies](/politica-cookies): Uso de almacenamiento local, cookies de terceros y gestión de preferencias.

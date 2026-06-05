@@ -4,7 +4,7 @@ export const Route = createFileRoute("/politica-cookies")({
   head: () => ({
     meta: [
       { title: "Política de cookies — Anima Praxis" },
-      { name: "description", content: "Uso de cookies en el sitio de Anima Praxis." },
+      { name: "description", content: "Política de cookies de Anima Praxis: uso de almacenamiento local, cookies de terceros y gestión de preferencias." },
       { property: "og:description", content: "Política de cookies, almacenamiento local y uso del asistente conversacional en el sitio de Anima Praxis." },
       { property: "og:url", content: "/politica-cookies" },
     ],

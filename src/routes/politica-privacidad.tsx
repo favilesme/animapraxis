@@ -5,7 +5,7 @@ export const Route = createFileRoute("/politica-privacidad")({
   head: () => ({
     meta: [
       { title: "Política de privacidad — Anima Praxis" },
-      { name: "description", content: "Cómo Anima Praxis trata los datos personales." },
+      { name: "description", content: "Política de privacidad de Anima Praxis: recopilación, uso, conservación y protección de datos personales según la LOPDP." },
       { property: "og:description", content: "Cómo Anima Praxis recopila, utiliza y protege los datos personales de sus visitantes según la normativa ecuatoriana." },
       { property: "og:url", content: "/politica-privacidad" },
     ],

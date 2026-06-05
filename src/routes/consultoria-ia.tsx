@@ -44,6 +44,8 @@ function Page() {
           <img
             src={infografiaAsset.url}
             alt="Proceso de consultoría estratégica con inteligencia artificial: ordenamos tu negocio, definimos prioridades, usamos IA como apoyo práctico y tomamos mejores decisiones."
+            width={1672}
+            height={941}
             className="w-full h-auto rounded-xl shadow-md"
             loading="lazy"
           />

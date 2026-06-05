@@ -9,7 +9,7 @@ export const Route = createFileRoute("/consultoria-ia")({
       { title: "Consultoría estratégica con IA — Anima Praxis" },
       { name: "description", content: "Planificación estratégica, plan de negocios e implementación práctica de inteligencia artificial." },
       { property: "og:title", content: "Consultoría estratégica con IA — Anima Praxis" },
-      { property: "og:description", content: "Estrategia, foco y decisiones potenciadas con IA." },
+      { property: "og:description", content: "Consultoría estratégica e implementación práctica de inteligencia artificial para ordenar tu negocio y acelerar decisiones." },
       { property: "og:url", content: "/consultoria-ia" },
     ],
     links: [{ rel: "canonical", href: "/consultoria-ia" }],

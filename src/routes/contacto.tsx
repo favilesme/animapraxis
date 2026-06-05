@@ -11,7 +11,7 @@ export const Route = createFileRoute("/contacto")({
       { title: "Contacto — Anima Praxis" },
       { name: "description", content: "Agenda una conversación con Anima Praxis. Cuéntanos qué necesitas ordenar, transformar o fortalecer." },
       { property: "og:title", content: "Contacto — Anima Praxis" },
-      { property: "og:description", content: "Agenda una primera conversación." },
+      { property: "og:description", content: "Cuéntanos qué necesitas ordenar, transformar o fortalecer. Te contactaremos para coordinar una primera conversación." },
       { property: "og:url", content: "/contacto" },
     ],
     links: [{ rel: "canonical", href: "/contacto" }],

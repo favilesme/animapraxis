@@ -9,8 +9,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Anima Praxis — Estrategia, IA y desarrollo humano" },
       { name: "description", content: "Consultoría estratégica con IA, coaching, terapia de profundidad y capacitación corporativa. Reserva tu primera conversación." },
-      { property: "og:title", content: "Anima Praxis" },
-      { property: "og:description", content: "Claridad estratégica, IA y desarrollo humano." },
+      { property: "og:title", content: "Anima Praxis — Estrategia, IA y desarrollo humano" },
+      { property: "og:description", content: "Consultoría estratégica, inteligencia artificial aplicada, coaching, terapia de profundidad y capacitación corporativa para claridad y crecimiento." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],

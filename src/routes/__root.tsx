@@ -93,6 +93,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "Anima Praxis offers strategic consulting, AI implementation, coaching, and corporate training for clarity and growth." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/W9n5Kdaih9fbHjJwkOFRnLpRHoz1/social-images/social-1780607679512-Imagen_Google_Workspace.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/W9n5Kdaih9fbHjJwkOFRnLpRHoz1/social-images/social-1780607679512-Imagen_Google_Workspace.webp" },
+      { name: "google-site-verification", content: "iXqXuGObg_3RVnGKDfpcXEJqhDfUG8xl1KE7aeIsfA8" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

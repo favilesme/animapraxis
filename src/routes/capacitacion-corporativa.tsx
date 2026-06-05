@@ -9,7 +9,7 @@ export const Route = createFileRoute("/capacitacion-corporativa")({
       { title: "Capacitación corporativa personalizada — Anima Praxis" },
       { name: "description", content: "Programas de capacitación a la medida en liderazgo, comunicación, productividad e innovación con IA." },
       { property: "og:title", content: "Capacitación corporativa personalizada — Anima Praxis" },
-      { property: "og:description", content: "Capacitación corporativa diseñada para tu realidad." },
+      { property: "og:description", content: "Capacitación corporativa personalizada en liderazgo, comunicación, productividad e innovación con inteligencia artificial." },
       { property: "og:url", content: "/capacitacion-corporativa" },
     ],
     links: [{ rel: "canonical", href: "/capacitacion-corporativa" }],

@@ -50,6 +50,8 @@ export function ClientsMarquee() {
               src={c.src}
               alt={c.name}
               loading="lazy"
+              width={c.width}
+              height={c.height}
               className="h-16 w-auto object-contain"
             />
           </div>

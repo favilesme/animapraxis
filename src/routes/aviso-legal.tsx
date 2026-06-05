@@ -5,7 +5,7 @@ export const Route = createFileRoute("/aviso-legal")({
   head: () => ({
     meta: [
       { title: "Aviso legal — Anima Praxis" },
-      { name: "description", content: "Información legal de Anima Praxis." },
+      { name: "description", content: "Aviso legal de Anima Praxis: condiciones de uso, licencias, propiedad intelectual y responsabilidad del sitio." },
       { property: "og:description", content: "Información legal, licencias y propiedad intelectual de Anima Praxis." },
       { property: "og:url", content: "/aviso-legal" },
     ],

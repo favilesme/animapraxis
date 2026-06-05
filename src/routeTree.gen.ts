@@ -19,6 +19,7 @@ import { Route as CapacitacionCorporativaRouteImport } from './routes/capacitaci
 import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 
 const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
@@ -71,6 +72,11 @@ const InsightsIndexRoute = InsightsIndexRouteImport.update({
   path: '/insights/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapXmlRoute = SitemapXmlRouteImport.update({
+  id: '/sitemap/xml',
+  path: '/sitemap/xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
   id: '/insights/$slug',
   path: '/insights/$slug',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights': typeof InsightsIndexRoute
 }
 export interface FileRoutesById {
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRouteTypes {
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/politica-privacidad'
     | '/sobre-francisco'
     | '/insights/$slug'
+    | '/sitemap/xml'
     | '/insights/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/politica-privacidad'
     | '/sobre-francisco'
     | '/insights/$slug'
+    | '/sitemap/xml'
     | '/insights'
   id:
     | '__root__'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/politica-privacidad'
     | '/sobre-francisco'
     | '/insights/$slug'
+    | '/sitemap/xml'
     | '/insights/'
   fileRoutesById: FileRoutesById
 }
@@ -170,6 +182,7 @@ export interface RootRouteChildren {
   PoliticaPrivacidadRoute: typeof PoliticaPrivacidadRoute
   SobreFranciscoRoute: typeof SobreFranciscoRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
+  SitemapXmlRoute: typeof SitemapXmlRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
 }
 
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap/xml': {
+      id: '/sitemap/xml'
+      path: '/sitemap/xml'
+      fullPath: '/sitemap/xml'
+      preLoaderRoute: typeof SitemapXmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/$slug': {
       id: '/insights/$slug'
       path: '/insights/$slug'
@@ -266,8 +286,19 @@ const rootRouteChildren: RootRouteChildren = {
   PoliticaPrivacidadRoute: PoliticaPrivacidadRoute,
   SobreFranciscoRoute: SobreFranciscoRoute,
   InsightsSlugRoute: InsightsSlugRoute,
+  SitemapXmlRoute: SitemapXmlRoute,
   InsightsIndexRoute: InsightsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

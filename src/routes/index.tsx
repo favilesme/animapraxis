@@ -155,6 +155,8 @@ function HomePage() {
               src={francisco.url}
               alt="Francisco Avilés en su despacho profesional"
               loading="eager"
+              width={832}
+              height={1248}
               className="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/5]"
             />
 

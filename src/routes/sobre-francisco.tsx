@@ -107,7 +107,7 @@ function Page() {
 
           <h2 className="mt-12 font-display text-2xl text-deep">Filosofía de Anima Praxis</h2>
           <p className="mt-3 text-muted-foreground leading-relaxed">
-            Su propósito es claro: ayudar a personas y organizaciones a crecer con claridad,
+            Su propósito es claro: acompañar a personas y organizaciones a crecer con claridad,
             propósito y capacidad de acción, integrando estrategia, inteligencia artificial y
             desarrollo humano.
           </p>

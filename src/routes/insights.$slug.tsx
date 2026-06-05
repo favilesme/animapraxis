@@ -190,7 +190,7 @@ function ArticlePage() {
           ))}
         </section>
 
-        <section className="rounded-2xl bg-deep text-foreground/0 p-8 sm:p-10 text-center">
+        <section className="rounded-2xl bg-deep p-8 sm:p-10 text-center">
           <div className="text-white">
             <h2 className="font-display text-2xl sm:text-3xl">Da el siguiente paso</h2>
             <p className="mt-3 text-white/90 leading-relaxed max-w-2xl mx-auto">{a.cta}</p>

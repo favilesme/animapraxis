@@ -21,6 +21,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
   id: '/sobre-francisco',
@@ -82,6 +83,11 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/insights/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
+  '/api/chat': typeof ApiChatRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
+  '/api/chat': typeof ApiChatRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights': typeof InsightsIndexRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
+  '/api/chat': typeof ApiChatRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/politica-cookies'
     | '/politica-privacidad'
     | '/sobre-francisco'
+    | '/api/chat'
     | '/insights/$slug'
     | '/sitemap/xml'
     | '/insights/'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/politica-cookies'
     | '/politica-privacidad'
     | '/sobre-francisco'
+    | '/api/chat'
     | '/insights/$slug'
     | '/sitemap/xml'
     | '/insights'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/politica-cookies'
     | '/politica-privacidad'
     | '/sobre-francisco'
+    | '/api/chat'
     | '/insights/$slug'
     | '/sitemap/xml'
     | '/insights/'
@@ -181,6 +193,7 @@ export interface RootRouteChildren {
   PoliticaCookiesRoute: typeof PoliticaCookiesRoute
   PoliticaPrivacidadRoute: typeof PoliticaPrivacidadRoute
   SobreFranciscoRoute: typeof SobreFranciscoRoute
+  ApiChatRoute: typeof ApiChatRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
   SitemapXmlRoute: typeof SitemapXmlRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
@@ -272,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -285,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   PoliticaCookiesRoute: PoliticaCookiesRoute,
   PoliticaPrivacidadRoute: PoliticaPrivacidadRoute,
   SobreFranciscoRoute: SobreFranciscoRoute,
+  ApiChatRoute: ApiChatRoute,
   InsightsSlugRoute: InsightsSlugRoute,
   SitemapXmlRoute: SitemapXmlRoute,
   InsightsIndexRoute: InsightsIndexRoute,

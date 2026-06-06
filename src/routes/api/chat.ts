@@ -52,10 +52,23 @@ export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { messages } = (await request.json()) as { messages?: unknown };
-        if (!Array.isArray(messages)) {
-          return new Response("Messages are required", { status: 400 });
+        const body = (await request.json().catch(() => null)) as { messages?: unknown } | null;
+        const MessagePartSchema = z.object({
+          type: z.string().min(1).max(64),
+          text: z.string().max(10_000).optional(),
+        }).passthrough();
+        const MessageSchema = z.object({
+          id: z.string().max(128).optional(),
+          role: z.enum(["system", "user", "assistant", "tool"]),
+          content: z.union([z.string().max(10_000), z.array(MessagePartSchema).max(20)]).optional(),
+          parts: z.array(MessagePartSchema).max(20).optional(),
+        }).passthrough();
+        const MessagesSchema = z.array(MessageSchema).min(1).max(50);
+        const parsed = MessagesSchema.safeParse(body?.messages);
+        if (!parsed.success) {
+          return new Response("Invalid messages payload", { status: 400 });
         }
+        const messages = parsed.data;
 
         const key = process.env.LOVABLE_API_KEY;
         if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });

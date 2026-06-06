@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/contact";
-import infografiaAsset from "@/assets/consultoria-ia-infografia.png.asset.json";
+import infografiaAsset from "@/assets/consultoria-ia-infografia-v2.jpg.asset.json";
 
 export const Route = createFileRoute("/consultoria-ia")({
   head: () => ({

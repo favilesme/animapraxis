@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
+import { AnimaChat } from "@/components/chat/AnimaChat";
 
 export function FAB() {
   const [open, setOpen] = useState(false);
@@ -21,7 +22,7 @@ export function FAB() {
           role="dialog"
           aria-label="Asistente Anima Praxis"
         >
-          <div className="flex items-center justify-between bg-deep text-deep-foreground px-4 py-2.5">
+          <div className="flex items-center justify-between bg-deep text-deep-foreground px-4 py-2.5 shrink-0">
             <span className="font-display text-sm">Asistente Anima Praxis</span>
             <button
               type="button"
@@ -32,12 +33,7 @@ export function FAB() {
               <X className="h-4 w-4" />
             </button>
           </div>
-          <iframe
-            title="Asistente Anima Praxis"
-            src="https://centeia-sass-gsxz.onrender.com/api/widget/0a1389ee-a74d-4868-947c-681c930ca6c5"
-            className="w-full flex-1 block"
-            frameBorder={0}
-          />
+          <AnimaChat heightClassName="flex-1 min-h-0" />
         </div>
       )}
 

@@ -22,6 +22,7 @@ import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
 const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
   id: '/sobre-francisco',
@@ -88,6 +89,12 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LovableEmailQueueProcessRoute =
+  LovableEmailQueueProcessRouteImport.update({
+    id: '/lovable/email/queue/process',
+    path: '/lovable/email/queue/process',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -103,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/insights/$slug': typeof InsightsSlugRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -118,6 +126,7 @@ export interface FileRoutesByTo {
   '/insights/$slug': typeof InsightsSlugRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights': typeof InsightsIndexRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -134,6 +143,7 @@ export interface FileRoutesById {
   '/insights/$slug': typeof InsightsSlugRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +161,7 @@ export interface FileRouteTypes {
     | '/insights/$slug'
     | '/sitemap/xml'
     | '/insights/'
+    | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/insights/$slug'
     | '/sitemap/xml'
     | '/insights'
+    | '/lovable/email/queue/process'
   id:
     | '__root__'
     | '/'
@@ -181,6 +193,7 @@ export interface FileRouteTypes {
     | '/insights/$slug'
     | '/sitemap/xml'
     | '/insights/'
+    | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -197,6 +210,7 @@ export interface RootRouteChildren {
   InsightsSlugRoute: typeof InsightsSlugRoute
   SitemapXmlRoute: typeof SitemapXmlRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
+  LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -292,6 +306,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/queue/process': {
+      id: '/lovable/email/queue/process'
+      path: '/lovable/email/queue/process'
+      fullPath: '/lovable/email/queue/process'
+      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -309,7 +330,18 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsSlugRoute: InsightsSlugRoute,
   SitemapXmlRoute: SitemapXmlRoute,
   InsightsIndexRoute: InsightsIndexRoute,
+  LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -89,7 +89,7 @@ export const Route = createFileRoute("/api/chat")({
                   Accept: "application/json",
                 },
                 body: JSON.stringify({
-                  _subject: `Nuevo prospecto desde el ChatBot — ${input.nombre}`,
+                  _subject: "Solicitud Propuesta Chatbot - Anima Praxis",
                   _template: "table",
                   _captcha: "false",
                   origen: "ChatBot Anima Praxis (sitio web)",

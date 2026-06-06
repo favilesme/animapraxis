@@ -76,9 +76,9 @@ function Page() {
             pregrado y posgrado de reconocidas universidades. En la Universidad de las Américas ha
             impartido cursos de Dirección, Estrategia y Administración; en la Universidad
             Internacional SEK ha contribuido al Posgrado en Habilidades Gerenciales; y en la
-            Universidad Simón Bolívar ha enseñado Estadística Aplicada para la Toma de Decisiones.
-            Esta vinculación académica fortalece su práctica con rigor conceptual y una mirada
-            actualizada sobre la gestión organizacional.
+            Universidad Simón Bolívar ha contribuido en la escuela de posgrado enseñando
+            Estadística Aplicada para la Toma de Decisiones. Esta vinculación académica fortalece su
+            práctica con rigor conceptual y una mirada actualizada sobre la gestión organizacional.
           </p>
 
           <h2 className="mt-12 font-display text-2xl text-deep">Enfoque de trabajo</h2>

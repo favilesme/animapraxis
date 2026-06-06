@@ -3,12 +3,6 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
-  "overrides": {
-    "entities": "4.5.0"
-  },
-  "resolutions": {
-    "entities": "4.5.0"
-  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",

@@ -131,7 +131,7 @@ export const Route = createFileRoute("/api/chat")({
           system: SYSTEM_PROMPT,
           messages: await convertToModelMessages(messages as UIMessage[]),
           tools: { submit_lead: submitLead },
-          stopWhen: ({ steps }) => steps.length >= 5,
+          stopWhen: stepCountIs(5),
         });
 
         return result.toUIMessageStreamResponse({

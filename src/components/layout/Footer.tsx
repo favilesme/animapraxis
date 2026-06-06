@@ -5,7 +5,7 @@ import { WHATSAPP_URL, WHATSAPP_DISPLAY, EMAIL, ADDRESS } from "@/lib/contact";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-deep text-deep-foreground mt-20">
+    <footer className="bg-[#040c2a] text-deep-foreground mt-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 bg-[#040c2a]">
           <div>

@@ -17,7 +17,7 @@ const navLinks = [
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-30 w-full bg-deep text-deep-foreground border-b border-deep shadow-sm">
+    <header className="sticky top-0 z-30 w-full bg-[#040c2a] text-deep-foreground border-b border-[#040c2a] shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-4 bg-[#040c2a]">
           <Link to="/" aria-label="Anima Praxis — Inicio" className="shrink-0">

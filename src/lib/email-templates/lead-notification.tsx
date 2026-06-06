@@ -17,6 +17,7 @@ interface LeadNotificationProps {
   nombre?: string
   email?: string
   telefono?: string
+  cargo?: string
   empresa?: string
   linea_interes?: string
   mensaje?: string
@@ -28,6 +29,7 @@ function LeadNotificationEmail({
   nombre = 'No indicado',
   email = 'No indicado',
   telefono = 'No indicado',
+  cargo = 'No indicado',
   empresa = 'No indicada',
   linea_interes = 'No indicada',
   mensaje = 'No indicado',
@@ -49,6 +51,7 @@ function LeadNotificationEmail({
             <Field label="Nombre" value={nombre} />
             <Field label="Email" value={email} />
             <Field label="Teléfono / WhatsApp" value={telefono} />
+            <Field label="Cargo / rol" value={cargo} />
             <Field label="Empresa u organización" value={empresa} />
             <Field label="Línea de interés" value={linea_interes} />
           </Section>
@@ -88,6 +91,7 @@ export const template = {
     nombre: 'Pedro Liut',
     email: 'fameconsultores@gmail.com',
     telefono: 'No indicado',
+    cargo: 'Vicepresidente',
     empresa: 'Fame Consultores',
     linea_interes: 'Coaching y terapia',
     mensaje: 'Conflicto con un socio en mi empresa.',

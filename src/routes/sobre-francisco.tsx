@@ -33,10 +33,10 @@ const credenciales = [
 function Page() {
   return (
     <>
-      <section className="bg-cream py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
+      <section className="bg-cream pt-16 pb-10 sm:pt-20 sm:pb-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-2 items-start">
           <div>
-            <h1 className="font-display text-4xl sm:text-5xl text-deep">Sobre Francisco Avilés</h1>
+            <h1 className="font-display text-4xl sm:text-5xl text-deep leading-tight">Sobre Francisco Avilés</h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Consultor, coach, facilitador y especialista en estrategia, inteligencia artificial
               aplicada, liderazgo y desarrollo humano. Con 25 años de trayectoria profesional.
@@ -53,7 +53,8 @@ function Page() {
         </div>
       </section>
 
-      <article className="py-16 sm:py-20">
+      <article className="bg-cream pb-16 sm:pb-20">
+
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 prose-base">
           <h2 className="font-display text-2xl text-deep">Historia profesional</h2>
           <p className="mt-3 text-muted-foreground leading-relaxed">

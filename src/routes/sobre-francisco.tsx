@@ -71,6 +71,15 @@ function Page() {
             Cervecería Nacional, Metropolitan Touring, Tecniseguros, Seguros del Pichincha,
             Disensa, Financoop, Camposanto La Paz e Hilos Pinto, entre otras.
           </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Paralelamente a su actividad consultiva, ha sido docente y académico en programas de
+            pregrado y posgrado de reconocidas universidades. En la Universidad de las Américas ha
+            impartido cursos de Dirección, Estrategia y Administración; en la Universidad
+            Internacional SEK ha contribuido al Posgrado en Habilidades Gerenciales; y en la
+            Universidad Simón Bolívar ha enseñado Estadística Aplicada para la Toma de Decisiones.
+            Esta vinculación académica fortalece su práctica con rigor conceptual y una mirada
+            actualizada sobre la gestión organizacional.
+          </p>
 
           <h2 className="mt-12 font-display text-2xl text-deep">Enfoque de trabajo</h2>
           <p className="mt-3 text-muted-foreground leading-relaxed">

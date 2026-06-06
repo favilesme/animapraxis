@@ -4,6 +4,7 @@ import { z } from "zod";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 
 const LEAD_EMAIL = "info@animapraxis.org";
+const LEAD_TEMPLATE = "lead-notification";
 
 const SYSTEM_PROMPT = `Eres el asistente virtual de Anima Praxis, una firma de consultoría liderada por Francisco Avilés en Quito, Ecuador. Tu rol es orientar a visitantes sobre los servicios y ayudarles a dar el siguiente paso (agendar una conversación o solicitar una propuesta).
 
@@ -30,6 +31,7 @@ Cuando un visitante exprese interés en recibir una propuesta, cotización, info
    - Nombre completo (obligatorio)
    - Email (obligatorio)
    - Teléfono / WhatsApp (opcional pero recomendado)
+   - Cargo / rol (opcional)
    - Empresa u organización (opcional)
    - Línea de interés: Consultoría con IA, Coaching y terapia, Capacitación corporativa, u Otra
    - Mensaje o descripción breve de la necesidad (obligatorio)
@@ -68,6 +70,7 @@ export const Route = createFileRoute("/api/chat")({
             nombre: z.string().min(2).describe("Nombre completo del prospecto"),
             email: z.string().email().describe("Email de contacto del prospecto"),
             telefono: z.string().optional().describe("Teléfono o WhatsApp (opcional)"),
+            cargo: z.string().optional().describe("Cargo o rol del prospecto (opcional)"),
             empresa: z.string().optional().describe("Empresa u organización (opcional)"),
             linea_interes: z
               .string()
@@ -82,24 +85,36 @@ export const Route = createFileRoute("/api/chat")({
           }),
           execute: async (input) => {
             try {
-              const response = await fetch(`https://formsubmit.co/ajax/${LEAD_EMAIL}`, {
+              const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+              if (!serviceRoleKey) {
+                console.error("submit_lead missing SUPABASE_SERVICE_ROLE_KEY");
+                return {
+                  success: false,
+                  error: "La configuración de email no está disponible.",
+                };
+              }
+
+              const response = await fetch(new URL("/lovable/email/transactional/send", request.url), {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
-                  Accept: "application/json",
+                  Authorization: `Bearer ${serviceRoleKey}`,
                 },
                 body: JSON.stringify({
-                  _subject: "Solicitud Propuesta Chatbot - Anima Praxis",
-                  _template: "table",
-                  _captcha: "false",
-                  origen: "ChatBot Anima Praxis (sitio web)",
-                  nombre: input.nombre,
-                  email: input.email,
-                  telefono: input.telefono || "No indicado",
-                  empresa: input.empresa || "No indicada",
-                  linea_de_interes: input.linea_interes,
-                  mensaje: input.mensaje,
-                  resumen_conversacion: input.resumen_conversacion || "—",
+                  templateName: LEAD_TEMPLATE,
+                  recipientEmail: LEAD_EMAIL,
+                  idempotencyKey: `chatbot-lead-${input.email.toLowerCase()}-${Date.now()}`,
+                  templateData: {
+                    origen: "ChatBot Anima Praxis (sitio web)",
+                    nombre: input.nombre,
+                    email: input.email,
+                    telefono: input.telefono || "No indicado",
+                    cargo: input.cargo || "No indicado",
+                    empresa: input.empresa || "No indicada",
+                    linea_interes: input.linea_interes,
+                    mensaje: input.mensaje,
+                    resumen_conversacion: input.resumen_conversacion || "—",
+                  },
                 }),
               });
 

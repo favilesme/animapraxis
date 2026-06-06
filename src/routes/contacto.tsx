@@ -88,23 +88,6 @@ function Page() {
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary-hover">
               Agendar cita virtual
             </a>
-            <a href={`mailto:${EMAIL}?subject=${encodeURIComponent("Contacto desde la web — Anima Praxis")}`} className="inline-flex rounded-md border border-deep px-6 py-3 font-semibold text-deep hover:bg-deep hover:text-deep-foreground transition-colors">
-              Escríbenos a {EMAIL}
-            </a>
-            <button
-              type="button"
-              onClick={async () => {
-                try {
-                  await navigator.clipboard.writeText(EMAIL);
-                  alert(`Email copiado: ${EMAIL}`);
-                } catch {
-                  prompt("Copia el email:", EMAIL);
-                }
-              }}
-              className="inline-flex rounded-md border border-deep/40 px-6 py-3 font-semibold text-deep hover:bg-deep/10 transition-colors"
-            >
-              Copiar email
-            </button>
           </div>
         </div>
       </section>

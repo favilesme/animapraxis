@@ -46,7 +46,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
                 >
-                  WhatsApp: {WHATSAPP_DISPLAY}
+                  WhatsApp{WHATSAPP_DISPLAY && `: ${WHATSAPP_DISPLAY}`}
                 </a>
               </li>
               <li>

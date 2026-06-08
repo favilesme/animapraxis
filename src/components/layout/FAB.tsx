@@ -39,6 +39,7 @@ export function FAB() {
       )}
 
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex flex-col gap-3">
+        <TelegramConnectButton />
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}

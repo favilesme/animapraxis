@@ -101,6 +101,27 @@ export type Database = {
         }
         Relationships: []
       }
+      profiles: {
+        Row: {
+          created_at: string
+          id: string
+          telegram_chat_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          telegram_chat_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          telegram_chat_id?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
@@ -154,6 +175,10 @@ export type Database = {
           msg_id: number
           read_ct: number
         }[]
+      }
+      update_telegram_id: {
+        Args: { chat_id: string; user_id: string }
+        Returns: boolean
       }
     }
     Enums: {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { AnimaChat } from "@/components/chat/AnimaChat";
+import { TelegramConnectButton } from "@/components/TelegramConnectButton";
 
 export function FAB() {
   const [open, setOpen] = useState(false);

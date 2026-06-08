@@ -49,7 +49,7 @@ export function TelegramConnectButton() {
       <button
         type="button"
         disabled
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 inline-flex items-center gap-2 rounded-full bg-[#2AABEE] text-white px-4 py-3 shadow-lg opacity-60 cursor-not-allowed"
+        className="inline-flex items-center gap-2 rounded-full bg-[#2AABEE] text-white px-4 py-3 shadow-lg opacity-60 cursor-not-allowed"
         aria-label="Cargando estado de Telegram"
       >
         <Loader2 className="h-5 w-5 animate-spin" />
@@ -59,9 +59,9 @@ export function TelegramConnectButton() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex flex-col items-end gap-2">
+    <div className="relative flex flex-col items-end gap-2">
       {showLoginMessage && (
-        <div className="rounded-lg bg-deep text-deep-foreground px-3 py-2 text-xs shadow-lg animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="absolute bottom-full mb-2 rounded-lg bg-deep text-deep-foreground px-3 py-2 text-xs shadow-lg whitespace-nowrap">
           Inicia sesión para vincular Telegram
         </div>
       )}

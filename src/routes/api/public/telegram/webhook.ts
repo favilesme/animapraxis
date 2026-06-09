@@ -149,7 +149,7 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
             .upsert(
               {
                 chat_id: chatKey,
-                messages: updatedHistory,
+                messages: updatedHistory as unknown as any,
                 updated_at: new Date().toISOString(),
               },
               { onConflict: "chat_id" },

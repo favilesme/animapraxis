@@ -1,7 +1,3 @@
-import { useState, useEffect } from "react";
-import { Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-
 const BOT_USERNAME = "TeleAnimaPraxis_bot";
 
 function TelegramIcon({ className }: { className?: string }) {
@@ -18,62 +14,16 @@ function TelegramIcon({ className }: { className?: string }) {
 }
 
 export function TelegramConnectButton() {
-  const [user, setUser] = useState<{ id: string } | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [showLoginMessage, setShowLoginMessage] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    supabase.auth.getUser().then(({ data, error }) => {
-      if (cancelled) return;
-      if (!error && data.user) {
-        setUser({ id: data.user.id });
-      }
-      setLoading(false);
-    });
-    return () => { cancelled = true; };
-  }, []);
-
-  const handleClick = () => {
-    if (!user) {
-      setShowLoginMessage(true);
-      setTimeout(() => setShowLoginMessage(false), 3000);
-      return;
-    }
-    const url = `https://t.me/${BOT_USERNAME}?start=${user.id}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
-  if (loading) {
-    return (
-      <button
-        type="button"
-        disabled
-        className="inline-flex items-center gap-2 rounded-full bg-[#2AABEE] text-white px-4 py-3 shadow-lg opacity-60 cursor-not-allowed"
-        aria-label="Cargando estado de Telegram"
-      >
-        <Loader2 className="h-5 w-5 animate-spin" />
-        <span className="hidden sm:inline text-sm font-semibold">Telegram</span>
-      </button>
-    );
-  }
-
   return (
-    <div className="relative flex flex-col items-end gap-2">
-      {showLoginMessage && (
-        <div className="absolute bottom-full mb-2 rounded-lg bg-deep text-deep-foreground px-3 py-2 text-xs shadow-lg whitespace-nowrap">
-          Inicia sesión para vincular Telegram
-        </div>
-      )}
-      <button
-        type="button"
-        onClick={handleClick}
-        className="inline-flex items-center gap-2 rounded-full bg-[#2AABEE] text-white px-4 py-3 shadow-lg hover:bg-[#229ED9] transition-colors duration-200"
-        aria-label={user ? "Vincular Telegram" : "Inicia sesión para vincular Telegram"}
-      >
-        <TelegramIcon className="h-5 w-5" />
-        <span className="hidden sm:inline text-sm font-semibold">Telegram</span>
-      </button>
-    </div>
+    <a
+      href={`https://t.me/${BOT_USERNAME}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 rounded-full bg-[#2AABEE] text-white px-4 py-3 shadow-lg hover:bg-[#229ED9] transition-colors duration-200"
+      aria-label="Abrir chat de Telegram"
+    >
+      <TelegramIcon className="h-5 w-5" />
+      <span className="hidden sm:inline text-sm font-semibold">Telegram</span>
+    </a>
   );
 }

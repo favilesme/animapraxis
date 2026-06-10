@@ -127,7 +127,10 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
             messages,
             tools: {
               submit_lead: createSubmitLeadTool({
-                baseUrl: PRODUCTION_BASE_URL,
+                // Usa el mismo origen al que llegó el webhook (animapraxis.org en prod),
+                // así la petición interna a /lovable/email/transactional/send no
+                // depende de redirecciones ni de un dominio hardcoded.
+                baseUrl: new URL(request.url).origin || PRODUCTION_BASE_URL,
                 origen: "ChatBot Anima Praxis (Telegram)",
               }),
             },

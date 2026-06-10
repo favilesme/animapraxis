@@ -62,45 +62,77 @@ export function createSubmitLeadTool(opts: { baseUrl: string; origen: string }) 
       resumen_conversacion: z.string().optional(),
     }),
     execute: async (input) => {
-      try {
-        const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-        if (!serviceRoleKey) {
-          return { success: false, error: "La configuración de email no está disponible." };
-        }
+      const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+      if (!serviceRoleKey) {
+        console.error("[submit_lead] SUPABASE_SERVICE_ROLE_KEY missing in env");
+        return { success: false, error: "La configuración de email no está disponible." };
+      }
 
-        const response = await fetch(new URL("/lovable/email/transactional/send", opts.baseUrl), {
+      const endpoint = new URL("/lovable/email/transactional/send", opts.baseUrl).toString();
+      const payload = {
+        templateName: ANIMA_LEAD_TEMPLATE,
+        recipientEmail: ANIMA_LEAD_EMAIL,
+        idempotencyKey: `lead-${input.email.toLowerCase()}-${Date.now()}`,
+        templateData: {
+          origen: opts.origen,
+          nombre: input.nombre,
+          email: input.email,
+          telefono: input.telefono || "No indicado",
+          cargo: input.cargo || "No indicado",
+          empresa: input.empresa || "No indicada",
+          linea_interes: input.linea_interes,
+          mensaje: input.mensaje,
+          resumen_conversacion: input.resumen_conversacion || "—",
+        },
+      };
+
+      console.log("[submit_lead] enviando lead", {
+        endpoint,
+        origen: opts.origen,
+        recipient: ANIMA_LEAD_EMAIL,
+        nombre: input.nombre,
+        email: input.email,
+      });
+
+      try {
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${serviceRoleKey}`,
           },
-          body: JSON.stringify({
-            templateName: ANIMA_LEAD_TEMPLATE,
-            recipientEmail: ANIMA_LEAD_EMAIL,
-            idempotencyKey: `lead-${input.email.toLowerCase()}-${Date.now()}`,
-            templateData: {
-              origen: opts.origen,
-              nombre: input.nombre,
-              email: input.email,
-              telefono: input.telefono || "No indicado",
-              cargo: input.cargo || "No indicado",
-              empresa: input.empresa || "No indicada",
-              linea_interes: input.linea_interes,
-              mensaje: input.mensaje,
-              resumen_conversacion: input.resumen_conversacion || "—",
-            },
-          }),
+          body: JSON.stringify(payload),
         });
 
+        const responseText = await response.text().catch(() => "");
+
         if (!response.ok) {
-          const text = await response.text().catch(() => "");
-          console.error("submit_lead failed", response.status, text);
-          return { success: false, error: `HTTP ${response.status}` };
+          console.error("[submit_lead] HTTP error", {
+            status: response.status,
+            statusText: response.statusText,
+            body: responseText.slice(0, 500),
+            endpoint,
+          });
+          return {
+            success: false,
+            error: `No se pudo registrar el lead (HTTP ${response.status}).`,
+          };
         }
-        return { success: true, message: `Solicitud enviada a ${ANIMA_LEAD_EMAIL}.` };
+
+        console.log("[submit_lead] éxito", { status: response.status, body: responseText.slice(0, 200) });
+        return {
+          success: true,
+          message: `¡Perfecto! Tus datos han sido registrados y el equipo de Anima Praxis ya ha sido notificado en ${ANIMA_LEAD_EMAIL}.`,
+        };
       } catch (err) {
-        console.error("submit_lead exception", err);
-        return { success: false, error: "Error de red al enviar la solicitud." };
+        console.error("[submit_lead] excepción de red", {
+          endpoint,
+          error: err instanceof Error ? { name: err.name, message: err.message, stack: err.stack } : err,
+        });
+        return {
+          success: false,
+          error: "Error de red al enviar la solicitud. Por favor escríbenos a info@animapraxis.org o por WhatsApp +593 99 980 1101.",
+        };
       }
     },
   });

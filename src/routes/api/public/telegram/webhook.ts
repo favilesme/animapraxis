@@ -5,7 +5,7 @@ import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { ANIMA_MODEL, ANIMA_SYSTEM_PROMPT, createSubmitLeadTool } from "@/lib/anima-ai.server";
 
 const MAX_HISTORY_MESSAGES = 20;
-const PRODUCTION_BASE_URL = "https://animapraxis.lovable.app";
+const PRODUCTION_BASE_URL = "https://animapraxis.org";
 
 function deriveWebhookSecret(token: string): string {
   return createHash("sha256").update(`telegram-webhook:${token}`).digest("base64url");
@@ -68,6 +68,7 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
         let update: any;
         try {
           update = await request.json();
+          console.log("Mensaje entrante de Telegram:", JSON.stringify(update));
         } catch (err) {
           console.error("[telegram-webhook] Invalid JSON body", err);
           return Response.json({ ok: true });

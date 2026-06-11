@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { createHash, timingSafeEqual } from "crypto";
 import { generateText, stepCountIs, type ModelMessage } from "ai";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
-import { ANIMA_MODEL, ANIMA_SYSTEM_PROMPT, createSubmitLeadTool } from "@/lib/anima-ai.server";
+import { ANIMA_MODEL, buildAnimaSystemPrompt, createSubmitLeadTool } from "@/lib/anima-ai.server";
 
 const MAX_HISTORY_MESSAGES = 20;
 const PRODUCTION_BASE_URL = "https://animapraxis.org";
@@ -123,7 +123,7 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
 
           const result = await generateText({
             model,
-            system: ANIMA_SYSTEM_PROMPT,
+            system: buildAnimaSystemPrompt("telegram"),
             messages,
             tools: {
               submit_lead: createSubmitLeadTool({

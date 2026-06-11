@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { convertToModelMessages, stepCountIs, streamText, type UIMessage } from "ai";
 import { z } from "zod";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
-import { ANIMA_MODEL, ANIMA_SYSTEM_PROMPT, createSubmitLeadTool } from "@/lib/anima-ai.server";
+import { ANIMA_MODEL, buildAnimaSystemPrompt, createSubmitLeadTool } from "@/lib/anima-ai.server";
 
 export const Route = createFileRoute("/api/chat")({
   server: {
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/api/chat")({
 
         const result = streamText({
           model,
-          system: ANIMA_SYSTEM_PROMPT,
+          system: buildAnimaSystemPrompt("web"),
           messages: await convertToModelMessages(messages as UIMessage[]),
           tools: {
             submit_lead: createSubmitLeadTool({

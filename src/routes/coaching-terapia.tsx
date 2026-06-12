@@ -6,9 +6,9 @@ import infografiaAsset from "@/assets/coaching-terapia-infografia-v3.png.asset.j
 export const Route = createFileRoute("/coaching-terapia")({
   head: () => ({
     meta: [
-      { title: "Coaching y terapia de profundidad — Anima Praxis" },
-      { name: "description", content: "Coaching ejecutivo, terapia de profundidad junguiana y prácticas integrativas cuerpo-mente." },
-      { property: "og:title", content: "Coaching y terapia de profundidad — Anima Praxis" },
+      { title: "Coaching y liderazgo consciente — Anima Praxis" },
+      { name: "description", content: "Coaching ejecutivo y liderazgo consciente con prácticas integrativas cuerpo-mente." },
+      { property: "og:title", content: "Coaching y liderazgo consciente — Anima Praxis" },
       { property: "og:description", content: "Acompañamiento para procesos de claridad, transición y liderazgo consciente." },
       { property: "og:url", content: "/coaching-terapia" },
     ],
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/coaching-terapia")({
 
 const servicios = [
   "Coaching ejecutivo",
-  "Terapia de profundidad de orientación junguiana",
+  "Coaching de profundidad",
   "Terapias integrativas cuerpo-mente",
   "Procesos de transición personal",
   "Liderazgo consciente",
@@ -30,7 +30,7 @@ function Page() {
     <>
       <section className="bg-cream py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-4xl sm:text-5xl text-deep">Coaching, terapia de profundidad y transformación personal</h1>
+          <h1 className="font-display text-4xl sm:text-5xl text-deep">Coaching y liderazgo consciente</h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Acompañamos a profesionales, empresarios, líderes y personas adultas en procesos de
             claridad, transición, crisis de sentido, gestión emocional y liderazgo consciente.
@@ -42,7 +42,7 @@ function Page() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <img
             src={infografiaAsset.url}
-            alt="Coaching, terapia de profundidad y transformación personal: claridad personal, transición vital o profesional, crisis de sentido, gestión emocional y liderazgo consciente."
+            alt="Coaching y liderazgo consciente: claridad personal, transición vital o profesional, crisis de sentido, gestión emocional y liderazgo consciente."
             width={1672}
             height={941}
             className="w-full h-auto rounded-xl shadow-md"
@@ -71,7 +71,7 @@ function Page() {
           <div>
             <h2 className="font-display text-2xl text-deep">Enfoque</h2>
             <p className="mt-3 text-muted-foreground">
-              Integramos coaching ontológico, terapia de profundidad y recursos de autorregulación
+              Integramos coaching ontológico y recursos de autorregulación
               cuerpo-mente. Tono ético, confidencial y respetuoso del proceso de cada persona.
             </p>
           </div>
@@ -79,7 +79,7 @@ function Page() {
             <h2 className="font-display text-2xl text-deep">Qué esperar</h2>
             <p className="mt-3 text-muted-foreground">
               Primera sesión exploratoria para evaluar encaje. Luego se define una frecuencia y
-              alcance acordes a la necesidad. No prometemos curas; sí ofrecemos acompañamiento serio.
+              alcance acordes a la necesidad. Ofrecemos acompañamiento serio.
             </p>
           </div>
         </div>

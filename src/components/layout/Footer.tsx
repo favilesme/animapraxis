@@ -11,9 +11,9 @@ export function Footer() {
           <div>
             <Logo variant="footer" />
             <p className="mt-4 text-sm text-deep-foreground leading-relaxed">
-              Anima Praxis integra estrategia, inteligencia artificial y desarrollo
-              humano para personas y organizaciones que buscan avanzar con claridad,
-              coherencia y capacidad de acción.
+              Anima Praxis integra estrategia, coaching y liderazgo consciente para
+              personas y organizaciones que buscan avanzar con claridad, coherencia y
+              capacidad de acción.
             </p>
           </div>
           <div>
@@ -22,8 +22,8 @@ export function Footer() {
               {[
                 ["/", "Inicio"],
                 ["/consultoria-ia", "Consultoría + IA"],
-                ["/coaching-terapia", "Coaching y Terapia"],
-                ["/capacitacion-corporativa", "Capacitación"],
+                ["/coaching-terapia", "Coaching"],
+                ["/capacitacion-corporativa", "Liderazgo"],
                 ["/sobre-francisco", "Sobre Francisco"],
                 ["/insights", "Insights"],
                 ["/contacto", "Contacto"],

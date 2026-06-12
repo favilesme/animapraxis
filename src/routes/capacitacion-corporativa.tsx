@@ -7,9 +7,9 @@ export const Route = createFileRoute("/capacitacion-corporativa")({
   head: () => ({
     meta: [
       { title: "Liderazgo corporativo personalizado — Anima Praxis" },
-      { name: "description", content: "Programas de liderazgo a la medida en comunicación, productividad e innovación con IA." },
+      { name: "description", content: "Programas de liderazgo a la medida en comunicación, productividad y formación a medida." },
       { property: "og:title", content: "Liderazgo corporativo personalizado — Anima Praxis" },
-      { property: "og:description", content: "Liderazgo corporativo personalizado en comunicación, productividad e innovación con inteligencia artificial." },
+      { property: "og:description", content: "Liderazgo corporativo personalizado en comunicación, productividad y formación a medida." },
       { property: "og:url", content: "/capacitacion-corporativa" },
     ],
     links: [{ rel: "canonical", href: "/capacitacion-corporativa" }],
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/capacitacion-corporativa")({
 const servicios = [
   "Habilidades gerenciales",
   "Soft skills corporativas",
-  "Innovación con inteligencia artificial",
+  "\n",
   "Formación a la medida",
   "Transferencia a la operación",
 ];
@@ -33,8 +33,8 @@ function Page() {
           <h1 className="font-display text-4xl sm:text-5xl text-deep">Liderazgo corporativo personalizado</h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Diseñamos programas formativos a la medida de las necesidades reales de tu empresa, con
-            foco en liderazgo, comunicación, productividad, cultura, trabajo en equipo e innovación
-            con inteligencia artificial.
+            foco en liderazgo, comunicación, productividad, cultura, trabajo en equipo y formación a
+            medida.
           </p>
         </div>
       </section>

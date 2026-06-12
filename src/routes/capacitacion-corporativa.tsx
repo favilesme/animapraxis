@@ -20,7 +20,7 @@ export const Route = createFileRoute("/capacitacion-corporativa")({
 const servicios = [
   "Habilidades gerenciales",
   "Soft skills corporativas",
-  "Innovación con inteligencia artificial",
+  "\n",
   "Formación a la medida",
   "Transferencia a la operación",
 ];

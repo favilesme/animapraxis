@@ -7,10 +7,10 @@ import francisco from "@/assets/francisco-aviles.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Anima Praxis — Estrategia, IA y desarrollo humano" },
-      { name: "description", content: "Consultoría estratégica con IA, coaching, terapia de profundidad y capacitación corporativa. Reserva tu primera conversación." },
-      { property: "og:title", content: "Anima Praxis — Estrategia, IA y desarrollo humano" },
-      { property: "og:description", content: "Consultoría estratégica, inteligencia artificial aplicada, coaching, terapia de profundidad y capacitación corporativa para claridad y crecimiento." },
+      { title: "Anima Praxis — Estrategia, Coaching y Liderazgo Consciente" },
+      { name: "description", content: "Consultoría estratégica con IA, coaching y liderazgo consciente. Reserva tu primera conversación." },
+      { property: "og:title", content: "Anima Praxis — Estrategia, Coaching y Liderazgo Consciente" },
+      { property: "og:description", content: "Consultoría estratégica, coaching y liderazgo consciente con la aplicación transversal de inteligencia artificial para claridad y crecimiento." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -78,9 +78,9 @@ const packs = [
   },
   {
     name: "PACK CT",
-    title: "Coaching, Terapia de Profundidad y Cuerpo-Mente",
+    title: "Coaching y Liderazgo Consciente",
     desc: "Un espacio de transformación personal para líderes y profesionales que buscan claridad, equilibrio, propósito y evolución consciente de su vida y trabajo.",
-    items: ["Coaching ejecutivo", "Terapia de profundidad", "Liderazgo consciente", "Procesos de transición", "Recursos cuerpo-mente"],
+    items: ["Coaching ejecutivo", "Liderazgo consciente", "Procesos de transición", "Recursos cuerpo-mente"],
   },
   {
     name: "PACK CA",
@@ -121,11 +121,10 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight text-deep break-words hyphens-auto">
-              Claridad estratégica, inteligencia artificial y desarrollo humano para avanzar con sentido
+              Claridad estratégica, coaching y liderazgo consciente para avanzar con sentido
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Anima Praxis integra consultoría estratégica, inteligencia artificial aplicada, coaching,
-              terapia de profundidad y capacitación corporativa para ayudarte a tomar mejores decisiones,
+              Anima Praxis integra consultoría estratégica, coaching, y liderazgo consciente con la aplicación transversal de inteligencia artificial para ayudarte a tomar mejores decisiones,
               ordenar prioridades y transformar tu forma de operar, liderar y crecer.
             </p>
             <p className="mt-4 italic text-primary-hover font-display text-3xl">
@@ -189,7 +188,7 @@ function HomePage() {
             {[
               { icon: Compass, title: "Primero entendemos tu realidad", text: "Partimos de tu contexto, tus decisiones, tus bloqueos y tus prioridades. Luego diseñamos una ruta clara y aplicable." },
               { icon: Sparkles, title: "Claridad que se traduce en acción", text: "Ordenamos información, conversaciones, indicadores y decisiones para avanzar con foco y medir progreso." },
-              { icon: Layers, title: "Transformación sostenida", text: "Integramos estrategia, inteligencia artificial y desarrollo humano para fortalecer capacidades y sostener cambios en el tiempo." },
+              { icon: Layers, title: "Transformación sostenida", text: "Integramos estrategia, coaching y liderazgo consciente para fortalecer capacidades y sostener cambios en el tiempo." },
             ].map(({ icon: Icon, title, text }) => (
               <div key={title} className="rounded-2xl border border-border p-6 bg-background hover:shadow-md transition-shadow">
                 <Icon className="h-8 w-8 text-primary-hover" />

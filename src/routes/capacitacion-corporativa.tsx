@@ -6,10 +6,10 @@ import infografiaAsset from "@/assets/capacitacion-infografia-v3.png.asset.json"
 export const Route = createFileRoute("/capacitacion-corporativa")({
   head: () => ({
     meta: [
-      { title: "Capacitación corporativa personalizada — Anima Praxis" },
-      { name: "description", content: "Programas de capacitación a la medida en liderazgo, comunicación, productividad e innovación con IA." },
-      { property: "og:title", content: "Capacitación corporativa personalizada — Anima Praxis" },
-      { property: "og:description", content: "Capacitación corporativa personalizada en liderazgo, comunicación, productividad e innovación con inteligencia artificial." },
+      { title: "Liderazgo corporativo personalizado — Anima Praxis" },
+      { name: "description", content: "Programas de liderazgo a la medida en comunicación, productividad e innovación con IA." },
+      { property: "og:title", content: "Liderazgo corporativo personalizado — Anima Praxis" },
+      { property: "og:description", content: "Liderazgo corporativo personalizado en comunicación, productividad e innovación con inteligencia artificial." },
       { property: "og:url", content: "/capacitacion-corporativa" },
     ],
     links: [{ rel: "canonical", href: "/capacitacion-corporativa" }],
@@ -21,7 +21,7 @@ const servicios = [
   "Habilidades gerenciales",
   "Soft skills corporativas",
   "Innovación con inteligencia artificial",
-  "Capacitación a la medida",
+  "Formación a la medida",
   "Transferencia a la operación",
 ];
 
@@ -30,7 +30,7 @@ function Page() {
     <>
       <section className="bg-cream py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-4xl sm:text-5xl text-deep">Capacitación corporativa personalizada</h1>
+          <h1 className="font-display text-4xl sm:text-5xl text-deep">Liderazgo corporativo personalizado</h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Diseñamos programas formativos a la medida de las necesidades reales de tu empresa, con
             foco en liderazgo, comunicación, productividad, cultura, trabajo en equipo e innovación
@@ -41,7 +41,7 @@ function Page() {
 
       <section className="py-12">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <img src={infografiaAsset.url} alt="Infografía Capacitación corporativa personalizada" width={1672} height={941} loading="lazy" className="w-full h-auto rounded-xl shadow-md" />
+          <img src={infografiaAsset.url} alt="Infografía Liderazgo corporativo personalizado" width={1672} height={941} loading="lazy" className="w-full h-auto rounded-xl shadow-md" />
         </div>
       </section>
 

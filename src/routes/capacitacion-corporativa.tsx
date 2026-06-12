@@ -33,8 +33,8 @@ function Page() {
           <h1 className="font-display text-4xl sm:text-5xl text-deep">Liderazgo corporativo personalizado</h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Diseñamos programas formativos a la medida de las necesidades reales de tu empresa, con
-            foco en liderazgo, comunicación, productividad, cultura, trabajo en equipo e innovación
-            con inteligencia artificial.
+            foco en liderazgo, comunicación, productividad, cultura, trabajo en equipo y formación a
+            medida.
           </p>
         </div>
       </section>

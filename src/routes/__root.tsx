@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Anima Praxis integra consultoría estratégica, inteligencia artificial, coaching, terapia de profundidad y capacitación corporativa para personas y organizaciones.",
+          "Anima Praxis integra consultoría estratégica, inteligencia artificial, coaching, terapia de profundidad y formación corporativa para personas y organizaciones.",
       },
       { name: "author", content: "Francisco Avilés — Anima Praxis" },
       { property: "og:site_name", content: "Anima Praxis" },
@@ -114,7 +114,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "ProfessionalService",
           name: "Anima Praxis",
           description:
-            "Consultoría estratégica, inteligencia artificial aplicada, coaching, terapia de profundidad y capacitación corporativa.",
+            "Consultoría estratégica, inteligencia artificial aplicada, coaching, terapia de profundidad y formación corporativa.",
           email: "info@animapraxis.org",
           telephone: "+593999801101",
           address: {

@@ -107,7 +107,7 @@ export const articles: Article[] = [
       {
         titulo: "Medir actividad en lugar de avance",
         texto:
-          "No basta contar reuniones, capacitaciones o tareas. Hay que medir resultados, aprendizaje y cambios reales en la operación.",
+          "No basta contar reuniones, formaciones o tareas. Hay que medir resultados, aprendizaje y cambios reales en la operación.",
       },
     ],
     recomendaciones: [
@@ -175,9 +175,9 @@ export const articles: Article[] = [
     ],
     ejemploTitulo: "Ejemplo aplicado al mundo empresarial",
     ejemplo: [
-      "Una empresa de capacitación quiere incorporar IA para mejorar su operación. La primera idea es comprar varias herramientas: un generador de presentaciones, un chatbot, un transcriptor y una plataforma de automatización.",
+      "Una empresa de formación quiere incorporar IA para mejorar su operación. La primera idea es comprar varias herramientas: un generador de presentaciones, un chatbot, un transcriptor y una plataforma de automatización.",
       "Después de algunas pruebas, el equipo se confunde. Cada persona usa herramientas distintas. No hay estándares. Los resultados varían.",
-      "Un enfoque estratégico cambia la secuencia. Primero se identifican tres procesos críticos: diseño de propuestas comerciales, personalización de programas de capacitación y seguimiento posterior a talleres.",
+      "Un enfoque estratégico cambia la secuencia. Primero se identifican tres procesos críticos: diseño de propuestas comerciales, personalización de programas de formación y seguimiento posterior a talleres.",
       "Luego se definen casos de uso: crear borradores de propuestas con estructura comercial, analizar necesidades del cliente a partir de entrevistas, generar recursos de aplicación para participantes y resumir retroalimentación para proponer mejoras.",
       "Por último, se crean reglas de uso, plantillas, responsables y métricas. La IA deja de ser novedad y se convierte en método.",
     ],
@@ -337,7 +337,7 @@ export const articles: Article[] = [
     introduccion: [
       "El coaching ejecutivo ayuda a líderes y profesionales a observar su forma de pensar, decidir, conversar y actuar. En organizaciones que buscan compromiso y colaboradores de alto nivel, el coaching funciona como una herramienta de desarrollo personal y profesional orientada a resultados.",
       "Las empresas suelen invertir en procesos, tecnología y estrategia. Aun así, muchas veces el problema central está en conversaciones que no ocurren, decisiones que se postergan, responsabilidades difusas y líderes que actúan desde la presión.",
-      "El coaching ejecutivo trabaja en esa zona. No reemplaza la estrategia ni la capacitación. Las complementa.",
+      "El coaching ejecutivo trabaja en esa zona. No reemplaza la estrategia ni la formación. Las complementa.",
       "Un estudio de ICF citado en 2024 indica que 72% de los encuestados en el reporte ICF HCI 2023 reconoció una fuerte relación entre coaching y mayor compromiso de los empleados. Además, una revisión académica publicada en Frontiers in Psychology en 2023 concluyó que el coaching en el trabajo tiene efectos positivos en resultados organizacionales.",
       "El coaching no promete magia. Trabaja con conciencia, lenguaje, responsabilidad y acción.",
     ],
@@ -371,7 +371,7 @@ export const articles: Article[] = [
     ejemploTitulo: "Ejemplo aplicado al mundo empresarial",
     ejemplo: [
       "Una directora de talento humano recibe quejas sobre un gerente técnico. El gerente es competente, pero su equipo lo percibe distante, rígido y poco abierto.",
-      "En lugar de enviarlo a una capacitación genérica, la empresa propone un proceso de coaching ejecutivo.",
+      "En lugar de enviarlo a una formación genérica, la empresa propone un proceso de coaching ejecutivo.",
       "El trabajo se enfoca en tres objetivos: mejorar conversaciones de retroalimentación, delegar con mayor claridad y desarrollar presencia en reuniones de equipo.",
       "Durante el proceso, el gerente identifica una creencia: “Si no controlo cada detalle, el resultado saldrá mal”. Esa creencia lo lleva a revisar, corregir y limitar autonomía.",
       "A partir de ahí practica nuevos comportamientos. Define estándares claros, acuerda entregables y revisa avances sin invadir cada paso. El equipo gana confianza. El gerente mantiene exigencia, pero cambia su forma de coordinar.",
@@ -516,28 +516,28 @@ export const articles: Article[] = [
   },
   {
     slug: "capacitacion-corporativa-personalizada",
-    categoria: "Capacitación Corporativa",
-    titulo: "Capacitación corporativa personalizada: aprendizaje conectado con la operación real",
+    categoria: "Formación Corporativa",
+    titulo: "Formación corporativa personalizada: aprendizaje conectado con la operación real",
     metaDescripcion:
-      "La capacitación personalizada adapta contenidos, casos y recursos a la cultura y necesidades reales de cada empresa.",
+      "La formación personalizada adapta contenidos, casos y recursos a la cultura y necesidades reales de cada empresa.",
     resumen:
-      "La capacitación genera impacto cuando responde a la cultura, procesos y desafíos concretos de la empresa.",
+      "La formación genera impacto cuando responde a la cultura, procesos y desafíos concretos de la empresa.",
     fecha: "22 de mayo de 2026",
     fechaCorta: "22 mayo 2026",
     tiempoLectura: "6 min de lectura",
     autor: "Francisco Avilés",
     imagen: capacitacionImg,
-    ctaTarjeta: "Diseñemos tu capacitación",
+    ctaTarjeta: "Diseñemos tu formación",
     introduccion: [
-      "La capacitación corporativa ya no debe limitarse a contenidos estándar. Los desarrollos actuales de IA, los cambios en habilidades y la presión por productividad exigen programas diseñados a la medida de cada organización. La personalización conecta aprendizaje, operación y resultados.",
+      "La formación corporativa ya no debe limitarse a contenidos estándar. Los desarrollos actuales de IA, los cambios en habilidades y la presión por productividad exigen programas diseñados a la medida de cada organización. La personalización conecta aprendizaje, operación y resultados.",
       "Durante años, muchas empresas capacitaron con programas genéricos. Un mismo taller para distintos equipos. Un mismo contenido para distintas culturas. Una misma dinámica para retos diferentes. Hoy ese enfoque pierde fuerza.",
-      "La velocidad tecnológica, la adopción de IA y la transformación de roles exigen capacitación conectada con la realidad de cada organización.",
+      "La velocidad tecnológica, la adopción de IA y la transformación de roles exigen formación conectada con la realidad de cada organización.",
       "El World Economic Forum indicó en su Future of Jobs Report 2025 que habilidades en IA, big data y ciberseguridad crecerán en demanda, mientras habilidades humanas como pensamiento creativo, resiliencia, flexibilidad y agilidad seguirán siendo críticas.",
       "La pregunta ya no es “qué curso damos”. La pregunta es “qué capacidades necesita nuestra gente para ejecutar mejor la estrategia”.",
     ],
     ideas: [
       {
-        titulo: "La capacitación debe partir de diagnóstico",
+        titulo: "La formación debe partir de diagnóstico",
         texto:
           "Antes de diseñar un programa, hay que entender el negocio, la cultura, el nivel de madurez, los procesos, los problemas reales y las brechas de desempeño.",
       },
@@ -552,9 +552,9 @@ export const articles: Article[] = [
           "No basta enseñar herramientas. Hay que enseñar criterio, formulación de preguntas, revisión de resultados, ética, seguridad de datos y aplicación en procesos concretos.",
       },
       {
-        titulo: "La capacitación debe incluir recursos de aplicación",
+        titulo: "La formación debe incluir recursos de aplicación",
         texto:
-          "Un taller aislado inspira por un día y desaparece. Una capacitación bien diseñada entrega guías, plantillas, prácticas, checklists y seguimiento.",
+          "Un taller aislado inspira por un día y desaparece. Una formación bien diseñada entrega guías, plantillas, prácticas, checklists y seguimiento.",
       },
       {
         titulo: "Talento humano y líderes deben medir impacto",
@@ -564,7 +564,7 @@ export const articles: Article[] = [
     ],
     ejemploTitulo: "Ejemplo aplicado al mundo empresarial",
     ejemplo: [
-      "Una empresa logística solicita una capacitación en negociación. La opción genérica sería dictar teoría, presentar técnicas y hacer ejercicios estándar.",
+      "Una empresa logística solicita una formación en negociación. La opción genérica sería dictar teoría, presentar técnicas y hacer ejercicios estándar.",
       "Un diseño personalizado sigue otra ruta. Primero se entrevista a líderes comerciales, operaciones y servicio al cliente. Luego se identifican conflictos frecuentes: tarifas, tiempos de entrega, reclamos, negociación con proveedores y presión por descuentos.",
       "Con esa información, el programa se diseña con casos reales de la empresa. Los participantes practican conversaciones con clientes exigentes, construyen argumentos de valor, aprenden a manejar objeciones y trabajan acuerdos internos entre áreas.",
       "Después del taller reciben guías de conversación, matriz de preparación y formato de seguimiento.",
@@ -572,7 +572,7 @@ export const articles: Article[] = [
     ],
     errores: [
       {
-        titulo: "Comprar capacitación por tema, no por necesidad",
+        titulo: "Comprar formación por tema, no por necesidad",
         texto:
           "“Queremos liderazgo” no basta. Hay que precisar qué conducta de liderazgo necesita cambiar.",
       },
@@ -600,7 +600,7 @@ export const articles: Article[] = [
       },
     ],
     recomendaciones: [
-      "Define la necesidad de negocio antes del tema de capacitación.",
+      "Define la necesidad de negocio antes del tema de formación.",
       "Realiza entrevistas breves con líderes y participantes.",
       "Identifica situaciones reales que se repiten en la operación.",
       "Diseña talleres con práctica, no únicamente teoría.",
@@ -610,12 +610,12 @@ export const articles: Article[] = [
       "Actualiza contenidos de IA cada ciclo. La tecnología cambia rápido.",
     ],
     cierre: [
-      "La capacitación corporativa efectiva no llena agendas. Desarrolla capacidades.",
+      "La formación corporativa efectiva no llena agendas. Desarrolla capacidades.",
       "Cuando una organización personaliza su formación, respeta su propia realidad. Reconoce que sus equipos no necesitan información general, necesitan herramientas aplicables a sus desafíos.",
       "La IA aumenta esa exigencia. Las empresas necesitan aprender más rápido, pero también con mayor criterio.",
       "Capacitar mejor no significa capacitar más. Significa diseñar mejor, aplicar mejor y acompañar mejor.",
     ],
-    cta: "Si tu organización necesita capacitaciones personalizadas, prácticas y conectadas con casos reales, Anima Praxis diseña programas a la medida de tu cultura, operación y estrategia. Agenda una conversación con Francisco Avilés y convierte la formación en resultados visibles.",
+    cta: "Si tu organización necesita formaciones personalizadas, prácticas y conectadas con casos reales, Anima Praxis diseña programas a la medida de tu cultura, operación y estrategia. Agenda una conversación con Francisco Avilés y convierte la formación en resultados visibles.",
   },
 ];
 

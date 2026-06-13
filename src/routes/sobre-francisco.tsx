@@ -54,7 +54,7 @@ function Page() {
               A lo largo de su carrera ha ocupado posiciones ejecutivas y consultivas en organizaciones
               nacionales e internacionales como Ernst & Young, Coca-Cola, American Airlines,
               Avilés Consultores Asociados e importantes empresas nacionales. También ha acompañado
-              procesos de consultoría, capacitación y transformación en empresas como Holcim,
+              procesos de consultoría, formación y transformación en empresas como Holcim,
               Cervecería Nacional, Metropolitan Touring, Tecniseguros, Seguros del Pichincha,
               Disensa, Financoop, Camposanto La Paz e Hilos Pinto, entre otras.
             </p>
@@ -99,7 +99,7 @@ function Page() {
           <h2 className="mt-12 font-display text-2xl text-deep">Áreas de experiencia</h2>
           <p className="mt-3 text-muted-foreground leading-relaxed">
             Pensamiento estratégico, inteligencia artificial aplicada, coaching ontológico, terapia
-            de profundidad, recursos de autorregulación física y emocional, y capacitación práctica.
+            de profundidad, recursos de autorregulación física y emocional, y formación práctica.
           </p>
 
           <h2 className="mt-12 font-display text-2xl text-deep">Formación y credenciales</h2>

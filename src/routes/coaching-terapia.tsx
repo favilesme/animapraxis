@@ -6,10 +6,10 @@ import infografiaAsset from "@/assets/coaching-terapia-infografia-v3.png.asset.j
 export const Route = createFileRoute("/coaching-terapia")({
   head: () => ({
     meta: [
-      { title: "Coaching y liderazgo consciente — Anima Praxis" },
-      { name: "description", content: "Coaching ejecutivo y liderazgo consciente con prácticas integrativas cuerpo-mente." },
-      { property: "og:title", content: "Coaching y liderazgo consciente — Anima Praxis" },
-      { property: "og:description", content: "Acompañamiento para procesos de claridad, transición y liderazgo consciente." },
+      { title: "Coaching Ontológico — Anima Praxis" },
+      { name: "description", content: "Coaching ontológico para líderes, ejecutivos y adultos funcionales: acompañamiento profesional y confidencial en decisiones, transiciones y evolución personal." },
+      { property: "og:title", content: "Coaching Ontológico — Anima Praxis" },
+      { property: "og:description", content: "Acompañamiento ontológico para expandir espacios de acción, consciencia y aprendizaje." },
       { property: "og:url", content: "/coaching-terapia" },
     ],
     links: [{ rel: "canonical", href: "/coaching-terapia" }],
@@ -19,10 +19,9 @@ export const Route = createFileRoute("/coaching-terapia")({
 
 const servicios = [
   "Coaching ejecutivo",
-  "Coaching de profundidad",
-  "Terapias integrativas cuerpo-mente",
-  "Procesos de transición personal",
   "Liderazgo consciente",
+  "Procesos de transición personal",
+  "Recursos incorporados en las sesiones: Orientación de profundidad Jungiana y Técnicas de integración cuerpo-mente",
 ];
 
 function Page() {
@@ -30,10 +29,10 @@ function Page() {
     <>
       <section className="bg-cream py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-4xl sm:text-5xl text-deep">Coaching y liderazgo consciente</h1>
+          <h1 className="font-display text-4xl sm:text-5xl text-deep">Coaching Ontológico</h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Acompañamos a profesionales, empresarios, líderes y personas adultas en procesos de
-            claridad, transición, crisis de sentido, gestión emocional y liderazgo consciente.
+            Acompañamos a líderes, ejecutivos y adultos funcionales en procesos profundos para
+            expandir sus espacios de acción, consciencia y aprendizaje.
           </p>
         </div>
       </section>
@@ -42,7 +41,7 @@ function Page() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <img
             src={infografiaAsset.url}
-            alt="Coaching y liderazgo consciente: claridad personal, transición vital o profesional, crisis de sentido, gestión emocional y liderazgo consciente."
+            alt="Coaching ontológico: claridad personal, transición vital o profesional, liderazgo consciente e integración cuerpo-mente."
             width={1672}
             height={941}
             className="w-full h-auto rounded-xl shadow-md"
@@ -56,30 +55,32 @@ function Page() {
           <div>
             <h2 className="font-display text-2xl text-deep">Para quién es</h2>
             <p className="mt-3 text-muted-foreground">
-              Personas adultas que buscan acompañamiento profesional confidencial en momentos de
-              decisión, transición o evolución personal.
+              Diseñado para líderes, ejecutivos y adultos funcionales que buscan un acompañamiento
+              profesional y estrictamente confidencial en momentos clave de toma de decisiones,
+              transición adaptativa o evolución personal.
             </p>
           </div>
           <div>
             <h2 className="font-display text-2xl text-deep">Servicios</h2>
             <ul className="mt-3 space-y-2">
               {servicios.map((s) => (
-                <li key={s} className="flex gap-2 text-sm"><Check className="h-4 w-4 text-primary-hover mt-0.5 shrink-0" />{s}</li>
+                <li key={s} className="flex gap-2 text-sm"><Check className="h-4 w-4 text-primary-hover mt-0.5 shrink-0" /><span>{s}</span></li>
               ))}
             </ul>
           </div>
           <div>
             <h2 className="font-display text-2xl text-deep">Enfoque</h2>
             <p className="mt-3 text-muted-foreground">
-              Integramos coaching ontológico y recursos de autorregulación
-              cuerpo-mente. Tono ético, confidencial y respetuoso del proceso de cada persona.
+              Integramos coaching ontológico, orientación de profundidad Jungiana y técnicas de
+              integración cuerpo-mente. Tono ético, confidencial y respetuoso del proceso de cada
+              persona.
             </p>
           </div>
           <div>
             <h2 className="font-display text-2xl text-deep">Qué esperar</h2>
             <p className="mt-3 text-muted-foreground">
               Primera sesión exploratoria para evaluar encaje. Luego se define una frecuencia y
-              alcance acordes a la necesidad. Ofrecemos acompañamiento serio.
+              alcance acordes a la necesidad.
             </p>
           </div>
         </div>

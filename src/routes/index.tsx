@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
+import { Check, MapPin, Sparkles, Compass, Layers, Briefcase, Brain, Users } from "lucide-react";
 import { WHATSAPP_URL, CALENDLY_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
 import { ClientsMarquee } from "@/components/sections/ClientsMarquee";
 import francisco from "@/assets/francisco-aviles.png.asset.json";
@@ -63,30 +63,43 @@ const faqSchema: { q: string; a: string }[] = [
   { q: "¿La IA puede integrarse con procesos de liderazgo y gestión?", a: "Sí. Uno de los enfoques es combinar tecnología, estrategia y desarrollo humano." },
 ];
 
-const packs = [
+const dimensiones = [
   {
-    name: "PACK PE",
-    title: "Plan Estratégico y Esquemas Consultivos",
-    desc: "Convierte la visión de tu empresa en una hoja de ruta clara, medible y ejecutable para crecer con dirección, foco y resultados sostenibles.",
-    items: ["Diagnóstico estratégico", "Objetivos y prioridades", "Indicadores", "Hoja de ruta", "Acompañamiento ejecutivo"],
+    icon: Briefcase,
+    title: "Consultoría Estratégica",
+    href: "/consultoria-ia",
+    desc: "Dimensión enfocada a la empresa, el desarrollo y fortalecimiento de su cultura organizacional, y la estructuración del mapa de dirección estratégico para alcanzar objetivos de alto impacto y asegurar resultados sostenibles.",
+    items: [
+      "Diagnóstico estratégico",
+      "Objetivos y prioridades",
+      "Indicadores de gestión",
+      "Hoja de ruta",
+      "Implementación y seguimiento",
+    ],
   },
   {
-    name: "PACK IA",
-    title: "Implementación y Aceleración con IA",
-    desc: "Integra inteligencia artificial en procesos clave para aumentar productividad, mejorar decisiones y multiplicar capacidades humanas.",
-    items: ["Diagnóstico de oportunidades IA", "Casos de uso priorizados", "Productividad y automatización", "Análisis de información", "Gestión comercial y contenidos"],
+    icon: Brain,
+    title: "Coaching Ontológico",
+    href: "/coaching-terapia",
+    desc: "Dimensión dirigida al desarrollo y crecimiento personal y profesional de líderes, ejecutivos y adultos funcionales que requieren un acompañamiento profundo para expandir sus espacios de acción, consciencia y aprendizaje.",
+    items: [
+      "Coaching ejecutivo",
+      "Liderazgo consciente",
+      "Procesos de transición",
+      "Recursos integrales cuerpo-mente",
+    ],
   },
   {
-    name: "PACK CT",
-    title: "Coaching y Liderazgo Consciente",
-    desc: "Un espacio de transformación personal para líderes y profesionales que buscan claridad, equilibrio, propósito y evolución consciente de su vida y trabajo.",
-    items: ["Coaching ejecutivo", "Liderazgo consciente", "Procesos de transición", "Recursos cuerpo-mente"],
-  },
-  {
-    name: "PACK CA",
-    title: "Formación ajustada a tus necesidades reales",
-    desc: "Programas diseñados a la medida de tu organización, centrados en desafíos reales y orientados a transferir el aprendizaje a la acción.",
-    items: ["Diagnóstico de necesidades", "Habilidades gerenciales", "Soft skills", "Innovación con IA", "Transferencia a la operación"],
+    icon: Users,
+    title: "Gestión del Liderazgo",
+    href: "/capacitacion-corporativa",
+    desc: "Dimensión enfocada en la consolidación del trabajo en equipo empresarial y el desarrollo de competencias integrales para estructurar equipos autogestionados de alto rendimiento.",
+    items: [
+      "Diagnóstico de necesidades de formación",
+      "Diseño de modelos de aprendizaje a medida",
+      "Desarrollo de competencias (Programa de habilidades directivas / Gestión de Liderazgo 360)",
+      "Transferencia efectiva a la operación",
+    ],
   },
 ];
 
@@ -200,34 +213,39 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Servicios */}
+      {/* Dimensiones */}
       <section className="bg-cream py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl sm:text-4xl text-deep text-center">Nuestros servicios</h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {packs.map((p) => (
-              <article key={p.name} className="flex flex-col rounded-2xl bg-background border border-border p-6 sm:p-8 shadow-sm">
-                <span className="text-xs font-semibold text-primary-hover tracking-widest">{p.name}</span>
-                <h3 className="mt-2 font-display text-2xl text-deep">{p.title}</h3>
-                <p className="mt-3 text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
-                <ul className="mt-5 space-y-2 flex-1">
-                  {p.items.map((it) => (
-                    <li key={it} className="flex items-start gap-2 text-sm">
-                      <Check className="h-4 w-4 text-primary-hover mt-0.5 shrink-0" />
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 font-semibold text-primary-foreground hover:bg-primary-hover transition-colors"
-                >
-                  Reservar cita
-                </a>
-              </article>
-            ))}
+          <h2 className="font-display text-3xl sm:text-4xl text-deep text-center">Nuestras tres dimensiones</h2>
+          <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
+            Un marco integrado que articula estrategia, conciencia y liderazgo para impulsar
+            resultados sostenibles en personas y organizaciones.
+          </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {dimensiones.map((d) => {
+              const Icon = d.icon;
+              return (
+                <article key={d.title} className="flex flex-col rounded-2xl bg-background border border-border p-6 sm:p-8 shadow-sm">
+                  <Icon className="h-8 w-8 text-primary-hover" />
+                  <h3 className="mt-4 font-display text-2xl text-deep">{d.title}</h3>
+                  <p className="mt-3 text-muted-foreground text-sm leading-relaxed">{d.desc}</p>
+                  <ul className="mt-5 space-y-2 flex-1">
+                    {d.items.map((it) => (
+                      <li key={it} className="flex items-start gap-2 text-sm">
+                        <Check className="h-4 w-4 text-primary-hover mt-0.5 shrink-0" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to={d.href}
+                    className="mt-6 inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 font-semibold text-primary-foreground hover:bg-primary-hover transition-colors"
+                  >
+                    Conocer más
+                  </Link>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

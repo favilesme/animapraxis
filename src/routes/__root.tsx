@@ -75,19 +75,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Anima Praxis — Consultoría, IA, coaching y capacitacion" },
+      { title: "Anima Praxis — Consultoría, IA, coaching y formación" },
       {
         name: "description",
         content:
-          "Anima Praxis integra consultoría estratégica, inteligencia artificial, coaching, terapia de profundidad y capacitación corporativa para personas y organizaciones.",
+          "Anima Praxis integra consultoría estratégica, inteligencia artificial, coaching, terapia de profundidad y formación corporativa para personas y organizaciones.",
       },
       { name: "author", content: "Francisco Avilés — Anima Praxis" },
       { property: "og:site_name", content: "Anima Praxis" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "es_EC" },
       { name: "twitter:card", content: "summary" },
-      { property: "og:title", content: "Anima Praxis — Consultoría, IA, coaching y capacitacion" },
-      { name: "twitter:title", content: "Anima Praxis — Consultoría, IA, coaching y capacitacion" },
+      { property: "og:title", content: "Anima Praxis — Consultoría, IA, coaching y formación" },
+      { name: "twitter:title", content: "Anima Praxis — Consultoría, IA, coaching y formación" },
       
       { property: "og:description", content: "Anima Praxis offers strategic consulting, AI implementation, coaching, and corporate training for clarity and growth." },
       { name: "twitter:description", content: "Anima Praxis offers strategic consulting, AI implementation, coaching, and corporate training for clarity and growth." },
@@ -114,7 +114,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "ProfessionalService",
           name: "Anima Praxis",
           description:
-            "Consultoría estratégica, inteligencia artificial aplicada, coaching, terapia de profundidad y capacitación corporativa.",
+            "Consultoría estratégica, inteligencia artificial aplicada, coaching, terapia de profundidad y formación corporativa.",
           email: "info@animapraxis.org",
           telephone: "+593999801101",
           address: {

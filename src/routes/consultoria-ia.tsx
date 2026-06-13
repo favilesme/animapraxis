@@ -6,10 +6,10 @@ import infografiaAsset from "@/assets/consultoria-ia-infografia-v2.jpg.asset.jso
 export const Route = createFileRoute("/consultoria-ia")({
   head: () => ({
     meta: [
-      { title: "Consultoría estratégica con IA — Anima Praxis" },
-      { name: "description", content: "Planificación estratégica, plan de negocios e implementación práctica de inteligencia artificial." },
-      { property: "og:title", content: "Consultoría estratégica con IA — Anima Praxis" },
-      { property: "og:description", content: "Consultoría estratégica e implementación práctica de inteligencia artificial para ordenar tu negocio y acelerar decisiones." },
+      { title: "Consultoría Estratégica — Anima Praxis" },
+      { name: "description", content: "Consultoría estratégica con integración transversal de inteligencia artificial para acelerar y blindar el desarrollo de planes y esquemas de trabajo de alto nivel." },
+      { property: "og:title", content: "Consultoría Estratégica — Anima Praxis" },
+      { property: "og:description", content: "Integramos IA de forma transversal en todos nuestros procesos de consultoría corporativa para potenciar planes estratégicos y esquemas de trabajo." },
       { property: "og:url", content: "/consultoria-ia" },
     ],
     links: [{ rel: "canonical", href: "/consultoria-ia" }],
@@ -18,11 +18,9 @@ export const Route = createFileRoute("/consultoria-ia")({
 });
 
 const servicios = [
-  "Planificación estratégica",
-  "Plan de negocios",
-  "Diagnóstico estratégico",
-  "Implementación con inteligencia artificial",
-  "Acompañamiento de ejecución",
+  "Planificación estratégica y Plan de negocios",
+  "Metodologías consultivas de estrategia: Árbol de Problemas MECE, Análisis DAFO cuantitativo, Análisis PORTER (5F), Cadena de Valor, y Enfoque DMAIC (6 Sigma)",
+  "Transformación organizacional: Modelo de Operación, Gobernanza, KPIs estructurales y Gestión y Adopción del cambio",
 ];
 
 function Page() {
@@ -30,11 +28,11 @@ function Page() {
     <>
       <section className="bg-cream py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-4xl sm:text-5xl text-deep">Consultoría estratégica con inteligencia artificial</h1>
+          <h1 className="font-display text-4xl sm:text-5xl text-deep">Consultoría Estratégica</h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Ordenamos tu negocio, definimos prioridades y usamos inteligencia artificial como apoyo
-            práctico para analizar información, comparar escenarios, mejorar procesos y tomar
-            mejores decisiones.
+            Integramos de forma transversal la inteligencia artificial en todos nuestros procesos
+            de consultoría corporativa para acelerar, potenciar y blindar el desarrollo de planes
+            estratégicos y esquemas de trabajo de alto nivel.
           </p>
         </div>
       </section>
@@ -43,7 +41,7 @@ function Page() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <img
             src={infografiaAsset.url}
-            alt="Proceso de consultoría estratégica con inteligencia artificial: ordenamos tu negocio, definimos prioridades, usamos IA como apoyo práctico y tomamos mejores decisiones."
+            alt="Proceso de consultoría estratégica con integración transversal de inteligencia artificial."
             width={1672}
             height={941}
             className="w-full h-auto rounded-xl shadow-md"
@@ -65,15 +63,16 @@ function Page() {
             <h2 className="font-display text-2xl text-deep">Servicios</h2>
             <ul className="mt-3 space-y-2">
               {servicios.map((s) => (
-                <li key={s} className="flex gap-2 text-sm"><Check className="h-4 w-4 text-primary-hover mt-0.5 shrink-0" />{s}</li>
+                <li key={s} className="flex gap-2 text-sm"><Check className="h-4 w-4 text-primary-hover mt-0.5 shrink-0" /><span>{s}</span></li>
               ))}
             </ul>
           </div>
           <div>
-            <h2 className="font-display text-2xl text-deep">Cómo usamos IA</h2>
+            <h2 className="font-display text-2xl text-deep">Cómo usamos la IA</h2>
             <p className="mt-3 text-muted-foreground">
-              Aplicamos IA en análisis de información, generación de escenarios, mejora de procesos,
-              productividad y soporte a la toma de decisiones — siempre con tu criterio al centro.
+              La inteligencia artificial actúa como un catalizador transversal que maximiza la
+              agilidad, la calidad analítica y la precisión milimétrica en cada etapa de nuestros
+              procesos de consultoría.
             </p>
           </div>
           <div>

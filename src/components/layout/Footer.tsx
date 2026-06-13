@@ -21,9 +21,9 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               {[
                 ["/", "Inicio"],
-                ["/consultoria-ia", "Consultoría + IA"],
-                ["/coaching-terapia", "Coaching"],
-                ["/capacitacion-corporativa", "Liderazgo"],
+                ["/consultoria-ia", "Consultoría Estratégica"],
+                ["/coaching-terapia", "Coaching Ontológico"],
+                ["/capacitacion-corporativa", "Liderazgo Organizacional"],
                 ["/sobre-francisco", "Sobre Francisco"],
                 ["/insights", "Insights"],
                 ["/contacto", "Contacto"],

@@ -6,9 +6,9 @@ import { CALENDLY_URL } from "@/lib/contact";
 
 const navLinks = [
   { to: "/", label: "Inicio" },
-  { to: "/consultoria-ia", label: "Consultoría + IA" },
-  { to: "/coaching-terapia", label: "Coaching" },
-  { to: "/capacitacion-corporativa", label: "Liderazgo" },
+  { to: "/consultoria-ia", label: "Consultoría Estratégica" },
+  { to: "/coaching-terapia", label: "Coaching Ontológico" },
+  { to: "/capacitacion-corporativa", label: "Liderazgo Organizacional" },
   { to: "/sobre-francisco", label: "Sobre Francisco" },
   { to: "/insights", label: "Insights" },
   { to: "/contacto", label: "Contacto" },

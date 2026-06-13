@@ -1,16 +1,16 @@
 # Anima Praxis
 
-> Consultoría estratégica con inteligencia artificial, coaching, terapia de profundidad y capacitación corporativa para líderes, equipos y organizaciones que buscan claridad, crecimiento y transformación sostenida.
+> Tres dimensiones integradas — Consultoría Estratégica, Coaching Ontológico y Liderazgo Organizacional — para líderes, equipos y organizaciones que buscan claridad, crecimiento y transformación sostenida.
 
-Anima Praxis es una práctica boutique fundada por Francisco Avilés, con 25 años de trayectoria en estrategia, liderazgo, transformación humana e inteligencia artificial aplicada. La propuesta integra planificación estratégica, implementación de IA, coaching ejecutivo, terapia de profundidad y programas de capacitación corporativa personalizados. El enfoque parte del contexto real de cada cliente para diseñar rutas claras, medibles y aplicables.
+Anima Praxis es una práctica boutique fundada por Francisco Avilés, con 25 años de trayectoria en estrategia, liderazgo, transformación humana e inteligencia artificial aplicada. La propuesta articula tres dimensiones: Consultoría Estratégica (con IA integrada de forma transversal), Coaching Ontológico y Liderazgo Organizacional. El enfoque parte del contexto real de cada cliente para diseñar rutas claras, medibles y aplicables.
 
 ## Pages
 
-- [Inicio](/): Servicios principales, propuesta de valor, packs de consultoría y preguntas frecuentes.
+- [Inicio](/): Propuesta de valor, las tres dimensiones del marco Anima Praxis y preguntas frecuentes.
 - [Sobre Francisco Avilés](/sobre-francisco): Trayectoria, credenciales, enfoque y experiencia profesional del fundador.
-- [Consultoría estratégica con IA](/consultoria-ia): Planificación estratégica, diagnóstico, plan de negocios e implementación práctica de inteligencia artificial.
-- [Coaching y terapia de profundidad](/coaching-terapia): Coaching ejecutivo, terapia junguiana, prácticas cuerpo-mente, liderazgo consciente y procesos de transición.
-- [Capacitación corporativa](/capacitacion-corporativa): Programas formativos a medida en liderazgo, soft skills, productividad e innovación con IA.
+- [Consultoría Estratégica](/consultoria-ia): Planificación estratégica, metodologías consultivas y transformación organizacional con IA integrada de forma transversal.
+- [Coaching Ontológico](/coaching-terapia): Coaching ejecutivo, liderazgo consciente, procesos de transición y recursos integrales cuerpo-mente.
+- [Liderazgo Organizacional](/capacitacion-corporativa): Desarrollo del liderazgo en todos los niveles de la organización con programas a medida y transferencia a la operación.
 - [Contacto](/contacto): Formulario de contacto, agenda de citas y datos para solicitar información.
 - [Insights](/insights): Artículos y reflexiones sobre estrategia, inteligencia artificial aplicada, liderazgo y desarrollo humano.
 

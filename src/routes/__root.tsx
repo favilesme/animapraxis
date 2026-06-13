@@ -75,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Anima Praxis — Consultoría, IA, coaching y capacitacion" },
+      { title: "Anima Praxis — Consultoría, IA, coaching y formación" },
       {
         name: "description",
         content:
@@ -86,8 +86,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "es_EC" },
       { name: "twitter:card", content: "summary" },
-      { property: "og:title", content: "Anima Praxis — Consultoría, IA, coaching y capacitacion" },
-      { name: "twitter:title", content: "Anima Praxis — Consultoría, IA, coaching y capacitacion" },
+      { property: "og:title", content: "Anima Praxis — Consultoría, IA, coaching y formación" },
+      { name: "twitter:title", content: "Anima Praxis — Consultoría, IA, coaching y formación" },
       
       { property: "og:description", content: "Anima Praxis offers strategic consulting, AI implementation, coaching, and corporate training for clarity and growth." },
       { name: "twitter:description", content: "Anima Praxis offers strategic consulting, AI implementation, coaching, and corporate training for clarity and growth." },

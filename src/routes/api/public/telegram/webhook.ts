@@ -92,7 +92,7 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
           await sendTelegramMessage(
             token,
             chatId,
-            "Estamos teniendo un problema técnico. Por favor escríbenos a info@animapraxis.org o por WhatsApp +593 99 980 1101.",
+            "Estamos teniendo un problema técnico. Por favor escríbenos a info@animapraxis.org o a través de [WhatsApp](https://wa.me/593999801101).",
           );
           return Response.json({ ok: true });
         }

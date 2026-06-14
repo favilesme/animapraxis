@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/contact";
-import infografiaAsset from "@/assets/capacitacion-infografia-v3.png.asset.json";
+import infografiaAsset from "@/assets/liderazgo-organizacional.png.asset.json";
 
 export const Route = createFileRoute("/capacitacion-corporativa")({
   head: () => ({
@@ -41,8 +41,18 @@ function Page() {
       </section>
 
       <section className="py-12">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <img src={infografiaAsset.url} alt="Infografía Liderazgo Organizacional" width={1672} height={941} loading="lazy" className="w-full h-auto rounded-xl shadow-md" />
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-deep/5 bg-white">
+            <img
+              src={infografiaAsset.url}
+              alt="Liderazgo organizacional: enfoque, para quién es, programas, metodología de diseño y transferencia a la operación."
+              width={1080}
+              height={1440}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </div>
       </section>
 

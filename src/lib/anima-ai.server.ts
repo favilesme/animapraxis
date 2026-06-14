@@ -115,7 +115,9 @@ Invoca proactivamente \`submit_lead\` ÚNICAMENTE en estos escenarios:
 
 const FORMAT_INSTRUCTIONS = {
   telegram: `# REGLA DE FORMATO PARA TELEGRAM
-Estás respondiendo en una app de mensajería móvil. Sé extremadamente conciso. Usa respuestas cortas, estructuradas obligatoriamente en viñetas (bullet points) breves. Máximo 2 párrafos cortos o 4 viñetas por respuesta. Ve directo al grano.`,
+Estás respondiendo en una app de mensajería móvil. Sé extremadamente conciso. Usa respuestas cortas, estructuradas obligatoriamente en viñetas (bullet points) breves. Máximo 2 párrafos cortos o 4 viñetas por respuesta. Ve directo al grano.
+
+REGLA DE ENLACES (CRÍTICA): NUNCA escribas números de WhatsApp en crudo ni URLs de Calendly en crudo. SIEMPRE usa exclusivamente la sintaxis Markdown \`[Texto](url)\` para todo enlace. El sistema convierte automáticamente esos enlaces a HTML con negrita + subrayado para Telegram, así que NO uses asteriscos, guiones bajos ni etiquetas HTML alrededor del enlace (eso rompe el render). Ejemplo válido: "Escríbenos por [WhatsApp](https://wa.me/593999801101) o [Agenda una Cita](https://calendly.com/faviles-animapraxis/30min)."`,
   web: `# REGLA DE FORMATO PARA WEB
 Estás respondiendo en el chat nativo de la página web. Utiliza un formato Markdown rico, estructurado con títulos claros, **negritas** para resaltar conceptos clave y un tono conversacional fluido pero profesional. Puedes extenderte hasta 3–6 frases por bloque cuando aporte valor.`,
 } as const;

@@ -17,22 +17,76 @@ function safeEqual(a: string, b: string): boolean {
   return left.length === right.length && timingSafeEqual(left, right);
 }
 
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+/**
+ * Convierte Markdown ligero del modelo a HTML compatible con Telegram.
+ * - Links [text](url) → <b><u><a href="url">text</a></u></b> (enmascarado, negrita + subrayado)
+ * - **bold** / __bold__ → <b>...</b>
+ * - *italic* / _italic_ → <i>...</i>
+ * - `code` → <code>...</code>
+ * - Resto de texto se escapa.
+ */
+function markdownToTelegramHtml(input: string): string {
+  type Token = { type: "raw"; value: string } | { type: "html"; value: string };
+  let tokens: Token[] = [{ type: "raw", value: input }];
+
+  const replaceRaw = (regex: RegExp, render: (m: RegExpExecArray) => string) => {
+    const next: Token[] = [];
+    for (const t of tokens) {
+      if (t.type !== "raw") {
+        next.push(t);
+        continue;
+      }
+      let lastIndex = 0;
+      let m: RegExpExecArray | null;
+      const r = new RegExp(regex.source, regex.flags.includes("g") ? regex.flags : regex.flags + "g");
+      while ((m = r.exec(t.value)) !== null) {
+        if (m.index > lastIndex) next.push({ type: "raw", value: t.value.slice(lastIndex, m.index) });
+        next.push({ type: "html", value: render(m) });
+        lastIndex = m.index + m[0].length;
+      }
+      if (lastIndex < t.value.length) next.push({ type: "raw", value: t.value.slice(lastIndex) });
+    }
+    tokens = next;
+  };
+
+  // 1. Links (primero para no romper con bold/italic alrededor)
+  replaceRaw(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m) => {
+    const text = escapeHtml(m[1]);
+    const url = m[2].replace(/"/g, "%22");
+    return `<b><u><a href="${url}">${text}</a></u></b>`;
+  });
+  // 2. Code inline
+  replaceRaw(/`([^`]+)`/g, (m) => `<code>${escapeHtml(m[1])}</code>`);
+  // 3. Bold
+  replaceRaw(/\*\*([^*]+)\*\*/g, (m) => `<b>${escapeHtml(m[1])}</b>`);
+  replaceRaw(/__([^_]+)__/g, (m) => `<b>${escapeHtml(m[1])}</b>`);
+  // 4. Italic (single * or _)
+  replaceRaw(/(?<![*\w])\*([^*\n]+)\*(?!\w)/g, (m) => `<i>${escapeHtml(m[1])}</i>`);
+  replaceRaw(/(?<![_\w])_([^_\n]+)_(?!\w)/g, (m) => `<i>${escapeHtml(m[1])}</i>`);
+
+  return tokens.map((t) => (t.type === "html" ? t.value : escapeHtml(t.value))).join("");
+}
+
 async function sendTelegramMessage(token: string, chatId: number | string, text: string) {
+  const html = markdownToTelegramHtml(text);
   try {
-    // Try Markdown first, fall back to plain text if Telegram rejects formatting.
     let res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: chatId,
-        text,
-        parse_mode: "Markdown",
+        text: html,
+        parse_mode: "HTML",
         disable_web_page_preview: true,
       }),
     });
     if (!res.ok) {
       const errBody = await res.text().catch(() => "");
-      console.error("[telegram-webhook] sendMessage (Markdown) failed", res.status, errBody);
+      console.error("[telegram-webhook] sendMessage (HTML) failed", res.status, errBody);
       res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/contact";
-import infografiaAsset from "@/assets/coaching-terapia-infografia-v3.png.asset.json";
+import infografiaAsset from "@/assets/coaching-ontologico.png.asset.json";
 
 export const Route = createFileRoute("/coaching-terapia")({
   head: () => ({
@@ -38,15 +38,18 @@ function Page() {
       </section>
 
       <section className="py-12">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <img
-            src={infografiaAsset.url}
-            alt="Coaching ontológico: claridad personal, transición vital o profesional, liderazgo consciente e integración cuerpo-mente."
-            width={1672}
-            height={941}
-            className="w-full h-auto rounded-xl shadow-md"
-            loading="lazy"
-          />
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-deep/5 bg-white">
+            <img
+              src={infografiaAsset.url}
+              alt="Coaching ontológico: para quién es, servicios, recursos jungianos y de integración cuerpo-mente, enfoque ético y primera sesión exploratoria."
+              width={1080}
+              height={1440}
+              className="w-full h-auto object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </section>
 

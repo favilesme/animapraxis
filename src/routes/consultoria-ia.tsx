@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/contact";
-import infografiaAsset from "@/assets/consultoria-ia-infografia-v2.jpg.asset.json";
+import infografiaAsset from "@/assets/consultoria-estrategica.png.asset.json";
 
 export const Route = createFileRoute("/consultoria-ia")({
   head: () => ({
@@ -38,15 +38,18 @@ function Page() {
       </section>
 
       <section className="py-12">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <img
-            src={infografiaAsset.url}
-            alt="Proceso de consultoría estratégica con integración transversal de inteligencia artificial."
-            width={1672}
-            height={941}
-            className="w-full h-auto rounded-xl shadow-md"
-            loading="lazy"
-          />
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-deep/5 bg-white">
+            <img
+              src={infografiaAsset.url}
+              alt="Consultoría estratégica con IA transversal: metodologías consultivas, transformación organizacional y proceso de diagnóstico a resultados."
+              width={1456}
+              height={1126}
+              className="w-full h-auto object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </section>
 

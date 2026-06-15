@@ -6,7 +6,7 @@ export const Route = createFileRoute("/sobre-francisco")({
   head: () => ({
     meta: [
       { title: "Sobre Francisco Avilés — Anima Praxis" },
-      { name: "description", content: "Consultor, coach ontológico con aval ICF, terapeuta Lux Esse y capacitador corporativo con 25 años de trayectoria." },
+      { name: "description", content: "Consultor, coach ontológico con aval ICF e instructor corporativo con 25 años de trayectoria." },
       { property: "og:title", content: "Sobre Francisco Avilés — Anima Praxis" },
       { property: "og:description", content: "Estrategia, IA y desarrollo humano integrados en una práctica boutique." },
       { property: "og:url", content: "/sobre-francisco" },
@@ -21,7 +21,6 @@ const credenciales = [
   "MBA en Negocios Internacionales, ITESM, México",
   "Licenciatura en Administración de Empresas, PUCE, Ecuador",
   "Coach Ontológico Profesional, Coaching Hall International, con aval ICF",
-  "Terapeuta Lux Esse",
   "Especialización en Inteligencia Artificial",
   "IBM Data Science Professional Certificate",
   "Generative AI for Data Science, IBM",
@@ -44,11 +43,11 @@ function Page() {
 
             <h2 className="mt-10 font-display text-2xl text-deep">Historia profesional</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              Francisco Avilés es consultor empresarial, coach ontológico profesional con aval ICF,
-              terapeuta Lux Esse y capacitador corporativo con 25 años de trayectoria profesional. Su
-              trabajo integra estrategia, inteligencia artificial y desarrollo humano para acompañar
-              a personas, líderes, emprendedores y organizaciones en procesos de claridad,
-              transformación y crecimiento.
+              Francisco Avilés es consultor empresarial, coach ontológico profesional con aval ICF
+              e instructor corporativo con 25 años de trayectoria profesional. Su trabajo integra
+              estrategia, inteligencia artificial y desarrollo humano para acompañar a personas,
+              líderes, emprendedores y organizaciones en procesos de claridad, transformación y
+              crecimiento.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               A lo largo de su carrera ha ocupado posiciones ejecutivas y consultivas en organizaciones
@@ -98,8 +97,8 @@ function Page() {
 
           <h2 className="mt-12 font-display text-2xl text-deep">Áreas de experiencia</h2>
           <p className="mt-3 text-muted-foreground leading-relaxed">
-            Pensamiento estratégico, inteligencia artificial aplicada, coaching ontológico, terapia
-            de profundidad, recursos de autorregulación física y emocional, y formación práctica.
+            Pensamiento estratégico, inteligencia artificial aplicada, coaching ontológico,
+            recursos de autorregulación física y emocional, y formación práctica.
           </p>
 
           <h2 className="mt-12 font-display text-2xl text-deep">Formación y credenciales</h2>

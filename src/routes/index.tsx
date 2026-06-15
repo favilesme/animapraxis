@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
 });
 
 const faqSchema: { q: string; a: string }[] = [
-  { q: "¿Quién es Francisco Avilés?", a: "Consultor, coach, terapeuta e instructor especializado en estrategia, liderazgo, transformación humana e inteligencia artificial aplicada." },
+  { q: "¿Quién es Francisco Avilés?", a: "Consultor, coach e instructor especializado en estrategia, liderazgo, transformación humana e inteligencia artificial aplicada." },
   { q: "¿Cómo puedo saber qué servicio necesito?", a: "El asistente puede orientarte mediante algunas preguntas para identificar la opción más adecuada." },
   { q: "¿Las sesiones son presenciales o virtuales?", a: "Se ofrecen modalidades según el servicio y la ubicación del cliente." },
   { q: "¿Atienden personas y empresas?", a: "Sí. Existen servicios para individuos, líderes, equipos y organizaciones." },
@@ -43,9 +43,6 @@ const faqSchema: { q: string; a: string }[] = [
   { q: "¿Qué tipo de coaching ofrece Francisco?", a: "Coaching ejecutivo, liderazgo, desarrollo profesional y procesos de transición personal o laboral." },
   { q: "¿El coaching es para resolver problemas específicos?", a: "Sí. También ayuda a desarrollar claridad, enfoque y capacidad de decisión." },
   { q: "¿Cuánto dura un proceso de coaching?", a: "La duración depende de los objetivos y necesidades de cada persona." },
-  { q: "¿Qué enfoque terapéutico utiliza Francisco?", a: "Integra psicología profunda, trabajo simbólico, desarrollo de consciencia y procesos de transformación personal." },
-  { q: "¿La terapia es adecuada para una crisis de sentido?", a: "Sí. Es uno de los motivos de consulta más frecuentes." },
-  { q: "¿La terapia reemplaza atención médica o psiquiátrica?", a: "No. Es un acompañamiento complementario y no sustituye tratamiento médico o de emergencia." },
   { q: "¿Qué temas cubren las formaciones?", a: "Liderazgo, estrategia, inteligencia artificial, comunicación, equipos, cambio organizacional y desarrollo humano." },
   { q: "¿Qué diferencia tienen las formaciones de Francisco Avilés?", a: "Se diseñan a medida de cada organización, utilizando situaciones y desafíos reales del negocio para asegurar relevancia y aplicación inmediata." },
   { q: "¿Las formaciones incluyen casos prácticos?", a: "Sí. Los contenidos se adaptan a los procesos, objetivos y contexto específico de cada empresa." },
@@ -109,8 +106,8 @@ const faqs = [
     a: "Depende del alcance, tamaño del negocio y nivel de información disponible. En una primera conversación revisamos tu contexto y definimos una ruta de trabajo.",
   },
   {
-    q: "¿El coaching y la terapia de profundidad son para todo el mundo?",
-    a: "Son espacios para personas adultas que buscan claridad, autoconocimiento, gestión emocional o acompañamiento en decisiones y transiciones. En la primera sesión revisamos si el enfoque calza con tu necesidad.",
+    q: "¿El coaching ontológico es para todo el mundo?",
+    a: "Es un espacio para personas adultas que buscan claridad, autoconocimiento, gestión emocional o acompañamiento en decisiones y transiciones. En la primera sesión revisamos si el enfoque calza con tu necesidad.",
   },
   {
     q: "¿Puedo pagar a plazos?",

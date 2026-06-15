@@ -2,7 +2,7 @@ import estrategiaImg from "@/assets/insights/estrategia.jpg";
 import iaImg from "@/assets/insights/ia-aplicada.jpg";
 import liderazgoImg from "@/assets/insights/liderazgo.jpg";
 import coachingImg from "@/assets/insights/coaching.jpg";
-import terapiaImg from "@/assets/insights/terapia.jpg";
+import acompañamientoImg from "@/assets/insights/acompañamiento.jpg";
 import capacitacionImg from "@/assets/insights/capacitacion.jpg";
 
 export type Article = {
@@ -418,25 +418,25 @@ export const articles: Article[] = [
     cta: "Si quieres desarrollar líderes con mayor conciencia, responsabilidad y capacidad de acción, Anima Praxis diseña procesos de coaching ejecutivo conectados con los retos de tu organización. Agenda una conversación con Francisco Avilés y activa un proceso de desarrollo con dirección.",
   },
   {
-    slug: "terapia-de-profundidad-integracion-personal",
-    categoria: "Terapia de Profundidad",
-    titulo: "Terapia de profundidad: integración personal para una vida más consciente",
+    slug: "coaching-ontologico-e-integracion",
+    categoria: "Coaching Ontológico",
+    titulo: "Coaching ontológico: integración personal para una vida más consciente",
     metaDescripcion:
-      "La terapia de profundidad acompaña procesos de integración personal, conciencia y desarrollo humano.",
+      "La coaching ontológico acompaña procesos de integración personal, conciencia y desarrollo humano.",
     resumen:
       "La profundidad acompaña procesos de cambio cuando la persona necesita integrar historia, patrones y decisiones.",
     fecha: "30 de abril de 2026",
     fechaCorta: "30 abril 2026",
     tiempoLectura: "6 min de lectura",
     autor: "Francisco Avilés",
-    imagen: terapiaImg,
+    imagen: acompañamientoImg,
     ctaTarjeta: "Inicia un proceso profundo",
     introduccion: [
-      "La terapia de profundidad acompaña a personas que desean mirar más allá de la conducta visible. Ayuda a reconocer patrones, integrar historia personal y construir una vida con mayor conciencia. En procesos de coaching, aporta una dimensión de integración que fortalece el desarrollo individual.",
+      "La coaching ontológico acompaña a personas que desean mirar más allá de la conducta visible. Ayuda a reconocer patrones, integrar historia personal y construir una vida con mayor conciencia. En procesos de coaching, aporta una dimensión de integración que fortalece el desarrollo individual.",
       "Hay momentos en los que una persona sabe qué debe hacer, pero no logra sostenerlo. Entiende la meta, pero repite patrones. Recibe herramientas, pero vuelve a reaccionar igual. Quiere avanzar, pero algo interno la frena.",
-      "En esos casos, el coaching aporta claridad y acción. La terapia de profundidad aporta integración.",
-      "La American Psychological Association describe la psicoterapia como un tratamiento colaborativo basado en la relación y el diálogo entre persona y profesional.",
-      "La terapia de profundidad, desde enfoques psicodinámicos y de desarrollo interior, trabaja con capas más hondas de la experiencia humana: historia, símbolos, heridas, defensas, deseos, miedos, sentido y patrones relacionales. No se trata de mirar el pasado por curiosidad. Se trata de comprender cómo el pasado sigue participando en el presente.",
+      "En esos casos, el coaching aporta claridad y acción. La coaching ontológico aporta integración.",
+      "La American Psychological Association describe la psicoacompañamiento como un tratamiento colaborativo basado en la relación y el diálogo entre persona y profesional.",
+      "La coaching ontológico, desde enfoques psicodinámicos y de desarrollo interior, trabaja con capas más hondas de la experiencia humana: historia, símbolos, heridas, defensas, deseos, miedos, sentido y patrones relacionales. No se trata de mirar el pasado por curiosidad. Se trata de comprender cómo el pasado sigue participando en el presente.",
     ],
     ideas: [
       {
@@ -455,14 +455,14 @@ export const articles: Article[] = [
           "Una decisión adulta no nace únicamente del impulso, la aprobación externa o el miedo. Nace de mayor conciencia sobre motivaciones, límites y consecuencias.",
       },
       {
-        titulo: "La terapia de profundidad acompaña procesos de coaching",
+        titulo: "La coaching ontológico acompaña procesos de coaching",
         texto:
           "El coaching pregunta: ¿qué quieres construir y qué acción tomarás? La profundidad añade: ¿desde qué historia decides, qué patrón se repite y qué parte de ti necesita integración?",
       },
       {
         titulo: "La profundidad conecta desarrollo personal con vida funcional",
         texto:
-          "Una persona más integrada responde mejor, se relaciona mejor y sostiene mejor su proyecto de vida. La evidencia sobre psicoterapia psicodinámica ha mostrado eficacia en distintos contextos clínicos, y estudios revisados por APA han señalado que sus efectos son comparables a los de otras terapias reconocidas.",
+          "Una persona más integrada responde mejor, se relaciona mejor y sostiene mejor su proyecto de vida. La evidencia sobre psicoacompañamiento psicodinámica ha mostrado eficacia en distintos contextos clínicos, y estudios revisados por APA han señalado que sus efectos son comparables a los de otras acompañamientos reconocidas.",
       },
     ],
     ejemploTitulo: "Ejemplo aplicado al mundo profesional",
@@ -515,7 +515,7 @@ export const articles: Article[] = [
     cta: "Si buscas un proceso que una claridad, acción e integración personal, Anima Praxis acompaña caminos de coaching y profundidad con respeto, criterio y orientación al desarrollo. Agenda una conversación con Francisco Avilés y da un paso hacia una vida más consciente.",
   },
   {
-    slug: "capacitacion-corporativa-personalizada",
+    slug: "liderazgo-organizacional-a-medida",
     categoria: "Formación Corporativa",
     titulo: "Formación corporativa personalizada: aprendizaje conectado con la operación real",
     metaDescripcion:

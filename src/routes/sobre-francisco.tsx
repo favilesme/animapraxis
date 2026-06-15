@@ -21,7 +21,6 @@ const credenciales = [
   "MBA en Negocios Internacionales, ITESM, México",
   "Licenciatura en Administración de Empresas, PUCE, Ecuador",
   "Coach Ontológico Profesional, Coaching Hall International, con aval ICF",
-  
   "Especialización en Inteligencia Artificial",
   "IBM Data Science Professional Certificate",
   "Generative AI for Data Science, IBM",

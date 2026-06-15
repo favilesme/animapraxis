@@ -8,7 +8,7 @@ export const Route = createFileRoute("/insights/")({
       {
         name: "description",
         content:
-          "Artículos sobre estrategia, inteligencia artificial aplicada, liderazgo, coaching, terapia de profundidad y formación corporativa.",
+          "Artículos sobre estrategia, inteligencia artificial aplicada, liderazgo, coaching ontológico y formación corporativa.",
       },
       { property: "og:title", content: "Insights — Anima Praxis" },
       { property: "og:description", content: "Reflexiones sobre estrategia, IA y desarrollo humano." },

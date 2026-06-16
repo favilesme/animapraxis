@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
 });
 
 const faqSchema: { q: string; a: string }[] = [
-  { q: "¿Quién es Francisco Avilés?", a: "Consultor, coach e instructor especializado en estrategia, liderazgo, transformación humana e inteligencia artificial aplicada." },
+  { q: "¿Quién es Francisco Avilés?", a: "Consultor, coach y facilitador especializado en estrategia, liderazgo, transformación humana e inteligencia artificial aplicada." },
   { q: "¿Cómo puedo saber qué servicio necesito?", a: "El asistente puede orientarte mediante algunas preguntas para identificar la opción más adecuada." },
   { q: "¿Las sesiones son presenciales o virtuales?", a: "Se ofrecen modalidades según el servicio y la ubicación del cliente." },
   { q: "¿Atienden personas y empresas?", a: "Sí. Existen servicios para individuos, líderes, equipos y organizaciones." },

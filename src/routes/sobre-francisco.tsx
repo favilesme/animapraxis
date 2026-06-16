@@ -44,7 +44,7 @@ function Page() {
             <h2 className="mt-10 font-display text-2xl text-deep">Historia profesional</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">
               Francisco Avilés es consultor empresarial, coach ontológico profesional con aval ICF
-              e instructor corporativo con 25 años de trayectoria profesional. Su trabajo integra
+              y facilitador corporativo con 25 años de trayectoria profesional. Su trabajo integra
               estrategia, inteligencia artificial y desarrollo humano para acompañar a personas,
               líderes, emprendedores y organizaciones en procesos de claridad, transformación y
               crecimiento.

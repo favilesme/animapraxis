@@ -82,8 +82,21 @@ export function AnimaChat({ className, heightClassName = "h-[560px]" }: Props) {
                   {text}
                 </div>
               ) : (
-                <div className="max-w-[90%] text-sm text-foreground prose prose-sm max-w-none prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-a:font-bold prose-a:underline prose-a:text-primary hover:prose-a:text-primary-hover prose-strong:text-deep">
-                  <ReactMarkdown>{text}</ReactMarkdown>
+                <div className="max-w-[90%] text-sm text-foreground prose prose-sm max-w-none prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-strong:text-deep">
+                  <ReactMarkdown
+                    components={{
+                      a: ({ node, ...props }) => (
+                        <a
+                          {...props}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-bold underline text-primary hover:text-primary-hover transition-colors"
+                        />
+                      ),
+                    }}
+                  >
+                    {text}
+                  </ReactMarkdown>
                 </div>
               )}
             </div>

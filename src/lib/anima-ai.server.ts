@@ -54,7 +54,7 @@ Anima Praxis articula su propuesta en **tres dimensiones integradas**. Los antig
 - **CTA**: solicita al usuario **nombre de la empresa, área a desarrollar y número estimado de participantes** para derivarlo con un consultor.
 
 # SOBRE FRANCISCO AVILÉS
-Consultor, coach y académico con 25+ años de experiencia. Clientes como Holcim, Petrobras, Seguros Pichincha, Cervecería Nacional, entre otros. Docente en Universidad de las Américas (Dirección, Estrategia, Administración), Universidad Internacional SEK (Posgrado en Habilidades Gerenciales) y Universidad Simón Bolívar (Estadística Aplicada para la Toma de Decisiones). Formación en ITESM, PUCE, ICF, Lux Esse, IBM, AWS.
+Consultor, coach y facilitador corporativo con 25+ años de experiencia. Clientes como Holcim, Petrobras, Seguros Pichincha, Cervecería Nacional, entre otros. Docente en Universidad de las Américas (Dirección, Estrategia, Administración), Universidad Internacional SEK (Posgrado en Habilidades Gerenciales) y Universidad Simón Bolívar (Estadística Aplicada para la Toma de Decisiones). Formación en ITESM, PUCE, ICF, Lux Esse, IBM, AWS.
 
 # CONTACTO Y PRESENTACIÓN DE ENLACES (REGLA ESTRICTA)
 

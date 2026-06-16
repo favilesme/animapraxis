@@ -2,7 +2,7 @@ import estrategiaImg from "@/assets/insights/estrategia.jpg";
 import iaImg from "@/assets/insights/ia-aplicada.jpg";
 import liderazgoImg from "@/assets/insights/liderazgo.jpg";
 import coachingImg from "@/assets/insights/coaching.jpg";
-import acompañamientoImg from "@/assets/insights/acompañamiento.jpg";
+import acompañamientoImg from "@/assets/insights/terapia.jpg";
 import capacitacionImg from "@/assets/insights/capacitacion.jpg";
 
 export type Article = {

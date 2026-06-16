@@ -6,7 +6,7 @@ export const Route = createFileRoute("/sobre-francisco")({
   head: () => ({
     meta: [
       { title: "Sobre Francisco Avilés — Anima Praxis" },
-      { name: "description", content: "Consultor, coach ontológico con aval ICF e instructor corporativo con 25 años de trayectoria." },
+      { name: "description", content: "Consultor, coach ontológico con aval ICF y facilitador corporativo con 25 años de trayectoria." },
       { property: "og:title", content: "Sobre Francisco Avilés — Anima Praxis" },
       { property: "og:description", content: "Estrategia, IA y desarrollo humano integrados en una práctica boutique." },
       { property: "og:url", content: "/sobre-francisco" },

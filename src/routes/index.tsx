@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, MapPin, Sparkles, Compass, Layers, Briefcase, Brain, Users } from "lucide-react";
+import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
 import { WHATSAPP_URL, CALENDLY_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
 import { ClientsMarquee } from "@/components/sections/ClientsMarquee";
+import { faqSchema } from "@/data/faq-schema";
+import { dimensiones } from "@/data/dimensiones";
 import francisco from "@/assets/francisco-aviles.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -32,73 +34,7 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const faqSchema: { q: string; a: string }[] = [
-  { q: "¿Quién es Francisco Avilés?", a: "Consultor, coach y facilitador especializado en estrategia, liderazgo, transformación humana e inteligencia artificial aplicada." },
-  { q: "¿Cómo puedo saber qué servicio necesito?", a: "El asistente puede orientarte mediante algunas preguntas para identificar la opción más adecuada." },
-  { q: "¿Las sesiones son presenciales o virtuales?", a: "Se ofrecen modalidades según el servicio y la ubicación del cliente." },
-  { q: "¿Atienden personas y empresas?", a: "Sí. Existen servicios para individuos, líderes, equipos y organizaciones." },
-  { q: "¿Qué temas aborda la consultoría?", a: "Estrategia, planificación, liderazgo, gestión, rentabilidad, transformación organizacional e inteligencia artificial." },
-  { q: "¿La consultoría está dirigida a cualquier empresa?", a: "Principalmente a empresas, emprendedores y equipos que buscan mejorar resultados y tomar mejores decisiones." },
-  { q: "¿La consultoría incluye acompañamiento en la implementación?", a: "Depende del alcance definido para cada proyecto." },
-  { q: "¿Qué tipo de coaching ofrece Francisco?", a: "Coaching ejecutivo, liderazgo, desarrollo profesional y procesos de transición personal o laboral." },
-  { q: "¿El coaching es para resolver problemas específicos?", a: "Sí. También ayuda a desarrollar claridad, enfoque y capacidad de decisión." },
-  { q: "¿Cuánto dura un proceso de coaching?", a: "La duración depende de los objetivos y necesidades de cada persona." },
-  { q: "¿Qué temas cubren las formaciones?", a: "Liderazgo, estrategia, inteligencia artificial, comunicación, equipos, cambio organizacional y desarrollo humano." },
-  { q: "¿Qué diferencia tienen las formaciones de Francisco Avilés?", a: "Se diseñan a medida de cada organización, utilizando situaciones y desafíos reales del negocio para asegurar relevancia y aplicación inmediata." },
-  { q: "¿Las formaciones incluyen casos prácticos?", a: "Sí. Los contenidos se adaptan a los procesos, objetivos y contexto específico de cada empresa." },
-  { q: "¿Cómo aseguran que el aprendizaje se aplique en el trabajo?", a: "Cada programa incorpora herramientas, guías, ejercicios y recursos de seguimiento que facilitan la transferencia del conocimiento a la operación diaria." },
-  { q: "¿Las formaciones generan resultados más allá del evento formativo?", a: "Sí. El diseño busca que los participantes adopten nuevas prácticas, mejoren su desempeño y apliquen lo aprendido en situaciones reales." },
-  { q: "¿Se pueden diseñar programas a medida?", a: "Sí. Cada intervención puede personalizarse según la estrategia, cultura, nivel de madurez y objetivos de la organización." },
-  { q: "¿Las formaciones son para empresas o personas individuales?", a: "Principalmente para empresas, equipos e instituciones que buscan desarrollar capacidades concretas y sostenibles." },
-  { q: "¿Ofrecen acompañamiento posterior a la formación?", a: "Dependiendo del programa, se pueden incorporar sesiones de seguimiento, aplicación práctica y medición de avances para fortalecer la adopción del aprendizaje." },
-  { q: "¿Cómo puedo solicitar información?", a: "Puedes compartir tu necesidad y tus datos de contacto para recibir orientación." },
-  { q: "¿Cómo se agenda una reunión o sesión?", a: "El asistente recopilará tu información y coordinará el siguiente paso." },
-  { q: "¿Cuánto cuesta un servicio?", a: "Los honorarios dependen del tipo de servicio, alcance y duración del proceso." },
-  { q: "¿Qué información debo proporcionar inicialmente?", a: "Nombre, correo, teléfono, ciudad y una breve descripción de tu situación o necesidad." },
-  { q: "¿Francisco trabaja temas de inteligencia artificial?", a: "Sí. Aplica IA para estrategia, productividad, innovación y transformación empresarial." },
-  { q: "¿Ofrece formación en IA para empresas?", a: "Sí. Existen programas de formación y acompañamiento adaptados a distintos niveles de madurez digital." },
-  { q: "¿La IA puede integrarse con procesos de liderazgo y gestión?", a: "Sí. Uno de los enfoques es combinar tecnología, estrategia y desarrollo humano." },
-];
 
-const dimensiones = [
-  {
-    icon: Briefcase,
-    title: "Consultoría Estratégica",
-    href: "/consultoria-ia",
-    desc: "Dimensión enfocada a la empresa, el desarrollo y fortalecimiento de su cultura organizacional, y la estructuración del mapa de dirección estratégico para alcanzar objetivos de alto impacto y asegurar resultados sostenibles.",
-    items: [
-      "Diagnóstico estratégico",
-      "Objetivos y prioridades",
-      "Indicadores de gestión",
-      "Hoja de ruta",
-      "Implementación y seguimiento",
-    ],
-  },
-  {
-    icon: Brain,
-    title: "Coaching Ontológico",
-    href: "/coaching-terapia",
-    desc: "Dimensión dirigida al desarrollo y crecimiento personal y profesional de líderes, ejecutivos y adultos funcionales que requieren un acompañamiento profundo para expandir sus espacios de acción, consciencia y aprendizaje.",
-    items: [
-      "Coaching ejecutivo",
-      "Liderazgo consciente",
-      "Procesos de transición",
-      "Recursos integrales cuerpo-mente",
-    ],
-  },
-  {
-    icon: Users,
-    title: "Gestión del Liderazgo",
-    href: "/capacitacion-corporativa",
-    desc: "Dimensión enfocada en la consolidación del trabajo en equipo empresarial y el desarrollo de competencias integrales para estructurar equipos autogestionados de alto rendimiento.",
-    items: [
-      "Diagnóstico de necesidades de formación",
-      "Diseño de modelos de aprendizaje a medida",
-      "Desarrollo de competencias (Programa de habilidades directivas / Gestión de Liderazgo 360)",
-      "Transferencia efectiva a la operación",
-    ],
-  },
-];
 
 const faqs = [
   {

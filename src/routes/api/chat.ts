@@ -3,7 +3,6 @@ import { convertToModelMessages, stepCountIs, streamText, type UIMessage } from 
 import { z } from "zod";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { ANIMA_MODEL, buildAnimaSystemPrompt, createSubmitLeadTool } from "@/lib/anima-ai.server";
-import { getCachedResponse } from "@/lib/anima-chat-cache";
 
 const MAX_HISTORY_MESSAGES = 10;
 

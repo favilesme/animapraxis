@@ -3,6 +3,9 @@ import { convertToModelMessages, stepCountIs, streamText, type UIMessage } from 
 import { z } from "zod";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { ANIMA_MODEL, buildAnimaSystemPrompt, createSubmitLeadTool } from "@/lib/anima-ai.server";
+import { getCachedResponse } from "@/lib/anima-chat-cache";
+
+const MAX_HISTORY_MESSAGES = 10;
 
 export const Route = createFileRoute("/api/chat")({
   server: {
@@ -26,27 +29,53 @@ export const Route = createFileRoute("/api/chat")({
         }
         const messages = parsed.data;
 
+        // --- Optimización: respuesta cacheada para FAQ simples ---
+        const lastUserMessage = [...messages].reverse().find((m) => m.role === "user");
+        const lastUserText = typeof lastUserMessage?.content === "string"
+          ? lastUserMessage.content
+          : lastUserMessage?.parts?.map((p) => p.text).join(" ") || "";
+        const cached = lastUserText ? getCachedResponse(lastUserText) : undefined;
+        if (cached) {
+          return new Response(
+            JSON.stringify({
+              id: `cached-${Date.now()}`,
+              role: "assistant",
+              content: cached,
+              parts: [{ type: "text", text: cached }],
+            }),
+            {
+              headers: {
+                "Content-Type": "application/json",
+                "X-Anima-Cache": "hit",
+              },
+            },
+          );
+        }
+
         const key = process.env.LOVABLE_API_KEY;
         if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
 
         const gateway = createLovableAiGatewayProvider(key);
         const model = gateway(ANIMA_MODEL);
 
+        // Truncate history to reduce tokens/credits
+        const trimmedMessages = messages.slice(-MAX_HISTORY_MESSAGES);
+
         const result = streamText({
           model,
           system: buildAnimaSystemPrompt("web"),
-          messages: await convertToModelMessages(messages as UIMessage[]),
+          messages: await convertToModelMessages(trimmedMessages as UIMessage[]),
           tools: {
             submit_lead: createSubmitLeadTool({
               baseUrl: request.url,
               origen: "ChatBot Anima Praxis (sitio web)",
             }),
           },
-          stopWhen: stepCountIs(5),
+          stopWhen: stepCountIs(3),
         });
 
         return result.toUIMessageStreamResponse({
-          originalMessages: messages as UIMessage[],
+          originalMessages: trimmedMessages as UIMessage[],
         });
       },
     },

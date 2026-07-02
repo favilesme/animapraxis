@@ -79,7 +79,7 @@ const FORMAT_INSTRUCTIONS = {
   telegram: `# FORMATO TELEGRAM
 Extremadamente conciso. Máximo 2 párrafos cortos o 4 viñetas. Ve al grano.
 
-Enlaces: NUNCA números de WhatsApp ni URLs de Calendly en crudo. SIEMPRE `[Texto](url)`. NO uses asteriscos ni HTML alrededor del enlace. Ejemplo: "Escríbenos por [WhatsApp](https://wa.me/593999801101) o [Agenda una Cita](https://calendly.com/faviles-animapraxis/30min)."`,
+Enlaces: NUNCA números de WhatsApp ni URLs de Calendly en crudo. SIEMPRE \`[Texto](url)\`. NO uses asteriscos ni HTML alrededor del enlace. Ejemplo: "Escríbenos por [WhatsApp](https://wa.me/593999801101) o [Agenda una Cita](https://calendly.com/faviles-animapraxis/30min)."`,
   web: `# FORMATO WEB
 Markdown rico con títulos claros y **negritas** para conceptos clave. Tono conversacional fluido pero profesional. Puedes extenderte 3-6 frases por bloque cuando aporte valor.`,
 } as const;

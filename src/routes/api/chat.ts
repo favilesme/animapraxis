@@ -4,6 +4,8 @@ import { z } from "zod";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { ANIMA_MODEL, buildAnimaSystemPrompt, createSubmitLeadTool } from "@/lib/anima-ai.server";
 
+const MAX_HISTORY_MESSAGES = 10;
+
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
@@ -32,21 +34,24 @@ export const Route = createFileRoute("/api/chat")({
         const gateway = createLovableAiGatewayProvider(key);
         const model = gateway(ANIMA_MODEL);
 
+        // Truncate history to reduce tokens/credits
+        const trimmedMessages = messages.slice(-MAX_HISTORY_MESSAGES);
+
         const result = streamText({
           model,
           system: buildAnimaSystemPrompt("web"),
-          messages: await convertToModelMessages(messages as UIMessage[]),
+          messages: await convertToModelMessages(trimmedMessages as UIMessage[]),
           tools: {
             submit_lead: createSubmitLeadTool({
               baseUrl: request.url,
               origen: "ChatBot Anima Praxis (sitio web)",
             }),
           },
-          stopWhen: stepCountIs(5),
+          stopWhen: stepCountIs(3),
         });
 
         return result.toUIMessageStreamResponse({
-          originalMessages: messages as UIMessage[],
+          originalMessages: trimmedMessages as UIMessage[],
         });
       },
     },

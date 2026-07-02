@@ -3,8 +3,9 @@ import { createHash, timingSafeEqual } from "crypto";
 import { generateText, stepCountIs, type ModelMessage } from "ai";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { ANIMA_MODEL, buildAnimaSystemPrompt, createSubmitLeadTool } from "@/lib/anima-ai.server";
+import { getCachedResponse } from "@/lib/anima-chat-cache";
 
-const MAX_HISTORY_MESSAGES = 20;
+const MAX_HISTORY_MESSAGES = 10;
 const PRODUCTION_BASE_URL = "https://animapraxis.org";
 
 function deriveWebhookSecret(token: string): string {
@@ -122,7 +123,6 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
         let update: any;
         try {
           update = await request.json();
-          console.log("Mensaje entrante de Telegram:", JSON.stringify(update));
         } catch (err) {
           console.error("[telegram-webhook] Invalid JSON body", err);
           return Response.json({ ok: true });
@@ -139,6 +139,13 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
         // Strip "/start" or other simple bot commands of trailing args
         const userText = rawText.replace(/^\/start(?:@\w+)?\s*/i, "").trim() ||
           "Hola, ¿en qué pueden ayudarme?";
+
+        // --- Optimización: respuesta cacheada para FAQ simples ---
+        const cached = getCachedResponse(userText);
+        if (cached) {
+          await sendTelegramMessage(token, chatId, cached);
+          return Response.json({ ok: true, cached: true });
+        }
 
         const lovableKey = process.env.LOVABLE_API_KEY;
         if (!lovableKey) {
@@ -188,7 +195,7 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
                 origen: "ChatBot Anima Praxis (Telegram)",
               }),
             },
-            stopWhen: stepCountIs(5),
+            stopWhen: stepCountIs(3),
           });
 
           const replyText = (result.text ?? "").trim() ||

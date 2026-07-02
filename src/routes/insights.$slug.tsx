@@ -1,8 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { articles, getArticleBySlug, type Article } from "@/data/articles";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const WA_URL =
-  "https://wa.me/593984220189?text=Hola%20Anima%20Praxis%2C%20me%20interesa%20conversar%20a%20partir%20de%20uno%20de%20sus%20insights.";
+  `${WHATSAPP_URL}?text=Hola%20Anima%20Praxis%2C%20me%20interesa%20conversar%20a%20partir%20de%20uno%20de%20sus%20insights.`;
 
 export const Route = createFileRoute("/insights/$slug")({
   loader: ({ params }) => {

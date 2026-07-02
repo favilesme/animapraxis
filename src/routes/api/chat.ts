@@ -28,29 +28,6 @@ export const Route = createFileRoute("/api/chat")({
         }
         const messages = parsed.data;
 
-        // --- Optimización: respuesta cacheada para FAQ simples ---
-        const lastUserMessage = [...messages].reverse().find((m) => m.role === "user");
-        const lastUserText = typeof lastUserMessage?.content === "string"
-          ? lastUserMessage.content
-          : lastUserMessage?.parts?.map((p) => p.text).join(" ") || "";
-        const cached = lastUserText ? getCachedResponse(lastUserText) : undefined;
-        if (cached) {
-          return new Response(
-            JSON.stringify({
-              id: `cached-${Date.now()}`,
-              role: "assistant",
-              content: cached,
-              parts: [{ type: "text", text: cached }],
-            }),
-            {
-              headers: {
-                "Content-Type": "application/json",
-                "X-Anima-Cache": "hit",
-              },
-            },
-          );
-        }
-
         const key = process.env.LOVABLE_API_KEY;
         if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
 

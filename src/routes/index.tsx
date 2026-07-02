@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, MapPin, Sparkles, Compass, Layers, Briefcase, Brain, Users } from "lucide-react";
+import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
 import { WHATSAPP_URL, CALENDLY_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
 import { ClientsMarquee } from "@/components/sections/ClientsMarquee";
 import { faqSchema } from "@/data/faq-schema";
+import { dimensiones } from "@/data/dimensiones";
 import francisco from "@/assets/francisco-aviles.png.asset.json";
 
 export const Route = createFileRoute("/")({

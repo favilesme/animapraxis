@@ -3,7 +3,7 @@ import { createHash, timingSafeEqual } from "crypto";
 import { generateText, stepCountIs, type ModelMessage } from "ai";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { ANIMA_MODEL, buildAnimaSystemPrompt, createSubmitLeadTool } from "@/lib/anima-ai.server";
-import { getCachedResponse } from "@/lib/anima-chat-cache";
+
 
 const MAX_HISTORY_MESSAGES = 10;
 const PRODUCTION_BASE_URL = "https://animapraxis.org";

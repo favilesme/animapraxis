@@ -3,7 +3,7 @@ import { createHash, timingSafeEqual } from "crypto";
 import { generateText, stepCountIs, type ModelMessage } from "ai";
 import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { ANIMA_MODEL, buildAnimaSystemPrompt, createSubmitLeadTool } from "@/lib/anima-ai.server";
-import { getCachedResponse } from "@/lib/anima-chat-cache";
+
 
 const MAX_HISTORY_MESSAGES = 10;
 const PRODUCTION_BASE_URL = "https://animapraxis.org";
@@ -140,12 +140,8 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
         const userText = rawText.replace(/^\/start(?:@\w+)?\s*/i, "").trim() ||
           "Hola, ¿en qué pueden ayudarme?";
 
-        // --- Optimización: respuesta cacheada para FAQ simples ---
-        const cached = getCachedResponse(userText);
-        if (cached) {
-          await sendTelegramMessage(token, chatId, cached);
-          return Response.json({ ok: true, cached: true });
-        }
+
+
 
         const lovableKey = process.env.LOVABLE_API_KEY;
         if (!lovableKey) {

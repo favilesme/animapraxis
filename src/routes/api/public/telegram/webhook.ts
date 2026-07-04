@@ -140,12 +140,8 @@ export const Route = createFileRoute("/api/public/telegram/webhook")({
         const userText = rawText.replace(/^\/start(?:@\w+)?\s*/i, "").trim() ||
           "Hola, ¿en qué pueden ayudarme?";
 
-        // --- Optimización: respuesta cacheada para FAQ simples ---
-        const cached = getCachedResponse(userText);
-        if (cached) {
-          await sendTelegramMessage(token, chatId, cached);
-          return Response.json({ ok: true, cached: true });
-        }
+
+
 
         const lovableKey = process.env.LOVABLE_API_KEY;
         if (!lovableKey) {

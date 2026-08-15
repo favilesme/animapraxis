@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
 const faqs = [
   {
     q: "¿Cuánto dura un proceso de planificación estratégica?",
-    a: "Depende del alcance, tamaño del negocio y nivel de información disponible. En una primera conversación revisamos tu contexto y definimos una ruta de trabajo.",
+    a: "Depende del alcance, tamaño del negocio y nivel de información disponible. En una primera conversación revisamos tu situación y definimos una ruta de trabajo.",
   },
   {
     q: "¿El coaching ontológico es para todo el mundo?",

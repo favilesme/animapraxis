@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#192538">
+  <title>Backoffice Anima Praxis | Presentación interactiva</title>
+  <link rel="icon" href="assets/anima-praxis-simbolo.png">
+  <style>
+    :root {
+      --navy:#192538; --navy-2:#0d1728; --slate:#5a626f; --gold:#d6a871;
+      --gold-light:#e6c99f; --paper:#f6f3ee; --white:#fff; --ink:#172133;
+      --line:rgba(25,37,56,.14); --shadow:0 24px 70px rgba(10,18,31,.15);
+      --ease:cubic-bezier(.2,.72,.2,1);
+    }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--navy-2); }
+    body { color:var(--ink); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    button,a { font:inherit; }
+    button { cursor:pointer; }
+    a { color:inherit; }
+    :focus-visible { outline:3px solid #f0be77; outline-offset:3px; }
+    .deck { position:relative; width:100%; height:100%; }
+    .slide { position:absolute; inset:0; display:none; overflow:auto; padding:clamp(72px,7vw,112px) clamp(24px,7vw,112px) 88px; background:var(--paper); opacity:0; transform:translateX(24px); }
+    .slide.active { display:block; animation:slideIn .55s var(--ease) forwards; }
+    .slide.leaving { display:block; animation:slideOut .25s ease forwards; pointer-events:none; }
+    .slide.dark { color:#fff; background:radial-gradient(circle at 78% 22%,rgba(34,62,112,.45),transparent 34%),linear-gradient(145deg,#070e1d,#17243a 62%,#101a2b); }
+    .slide::before { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg,rgba(214,168,113,.05) 1px,transparent 1px),linear-gradient(rgba(214,168,113,.04) 1px,transparent 1px); background-size:80px 80px; mask-image:linear-gradient(to bottom,black,transparent 75%); }
+    .slide-content { position:relative; z-index:1; width:min(1500px,100%); min-height:calc(100vh - 180px); margin:auto; display:flex; flex-direction:column; justify-content:center; }
+    .eyebrow { margin:0 0 12px; color:#956c3e; font-size:clamp(10px,.82vw,13px); font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
+    .dark .eyebrow { color:var(--gold-light); }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2 { font-family:Georgia,"Times New Roman",serif; font-weight:400; line-height:1.02; letter-spacing:-.035em; }
+    h1 { max-width:950px; margin-bottom:22px; font-size:clamp(44px,6.6vw,108px); }
+    h2 { max-width:1120px; margin-bottom:18px; font-size:clamp(34px,4.35vw,70px); }
+    h3 { margin-bottom:9px; font-size:clamp(17px,1.35vw,23px); line-height:1.22; }
+    p { color:#5d6673; line-height:1.55; }
+    .dark p { color:#ced6e3; }
+    .lead { max-width:920px; font-size:clamp(17px,1.45vw,25px); line-height:1.5; }
+    .gold { color:var(--gold-light); }
+    .muted { color:#7a8290; }
+    .demo-pill,.tag { display:inline-flex; align-items:center; width:max-content; padding:7px 11px; border:1px solid rgba(214,168,113,.55); border-radius:999px; color:#855d31; background:#fffaf2; font-size:10px; font-weight:850; letter-spacing:.12em; text-transform:uppercase; }
+    .dark .demo-pill,.dark .tag { color:var(--gold-light); background:rgba(214,168,113,.08); }
+    .primary,.secondary { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:13px 20px; border-radius:6px; border:1px solid transparent; text-decoration:none; font-weight:800; transition:.2s ease; }
+    .primary { color:#10192a; background:linear-gradient(135deg,var(--gold-light),var(--gold)); box-shadow:0 12px 32px rgba(214,168,113,.2); }
+    .primary:hover { transform:translateY(-2px); filter:brightness(1.04); }
+    .secondary { border-color:rgba(255,255,255,.3); color:#fff; background:rgba(255,255,255,.04); }
+    .secondary:hover { background:rgba(255,255,255,.1); }
+    .light-secondary { border-color:var(--line); color:var(--navy); background:#fff; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+    .brand-mini { position:absolute; top:-32px; left:0; display:flex; align-items:center; gap:10px; font-family:Georgia,serif; font-size:17px; }
+    .brand-mini img { width:36px; height:36px; border-radius:50%; object-fit:cover; }
+    .dark .brand-mini { color:#fff; }
+    .knowledge-mini { position:absolute; z-index:2; top:-36px; right:0; display:flex; align-items:center; gap:8px; padding:7px 12px 7px 8px; border:1px solid rgba(214,168,113,.35); border-radius:999px; color:#72502d; background:rgba(255,255,255,.72); font-size:11px; font-weight:800; letter-spacing:.04em; backdrop-filter:blur(10px); }
+    .knowledge-mini i { width:22px; height:22px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#f4d29e,#b97f41); box-shadow:0 0 0 5px rgba(214,168,113,.12); }
+    .dark .knowledge-mini { color:var(--gold-light); background:rgba(6,12,24,.65); }
+
+    /* Global navigation */
+    .topbar { position:fixed; z-index:40; top:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; height:62px; padding:0 26px; color:#fff; background:linear-gradient(180deg,rgba(5,10,19,.86),rgba(5,10,19,.5),transparent); }
+    .top-brand { display:flex; align-items:center; gap:10px; font-family:Georgia,serif; font-size:16px; }
+    .top-brand img { width:30px; height:30px; border-radius:50%; object-fit:cover; }
+    .menu-btn,.icon-btn { display:inline-grid; place-items:center; min-width:42px; height:42px; border:1px solid rgba(255,255,255,.22); border-radius:50%; color:#fff; background:rgba(7,14,27,.48); backdrop-filter:blur(12px); }
+    .menu-btn { display:flex; gap:10px; width:auto; padding:0 16px; border-radius:999px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .menu-btn b { font-size:17px; }
+    .controls { position:fixed; z-index:40; right:24px; bottom:23px; display:flex; align-items:center; gap:9px; }
+    .count { min-width:74px; color:#fff; text-align:center; font-size:12px; font-weight:800; text-shadow:0 2px 10px #000; }
+    .progress-track { position:fixed; z-index:45; left:0; bottom:0; width:100%; height:5px; background:rgba(255,255,255,.12); }
+    .progress-bar { width:7.142%; height:100%; background:linear-gradient(90deg,var(--gold),var(--gold-light)); transition:width .45s var(--ease); }
+    .pptx-export .topbar,.pptx-export .menu-btn,.pptx-export .controls,.pptx-export .progress-track,.pptx-export .menu-panel,.pptx-export .actions,.pptx-export .close-links,.pptx-export #replay-progress { display:none!important; }
+    .menu-panel { position:fixed; z-index:60; inset:0; display:grid; grid-template-columns:minmax(280px,450px) 1fr; visibility:hidden; opacity:0; background:rgba(4,8,16,.84); backdrop-filter:blur(16px); transition:.22s ease; }
+    .menu-panel.open { visibility:visible; opacity:1; }
+    .menu-sheet { padding:40px 36px; overflow:auto; color:#fff; background:#101a2b; transform:translateX(-30px); transition:.3s var(--ease); }
+    .menu-panel.open .menu-sheet { transform:none; }
+    .menu-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; }
+    .menu-head strong { font-family:Georgia,serif; font-size:24px; }
+    .menu-close { border:0; color:#fff; background:transparent; font-size:30px; }
+    .menu-list { display:grid; gap:4px; }
+    .menu-list a { display:flex; gap:13px; align-items:center; padding:12px 10px; border-bottom:1px solid rgba(255,255,255,.08); color:#d8deea; text-decoration:none; }
+    .menu-list a:hover,.menu-list a.current { color:var(--gold-light); background:rgba(255,255,255,.04); }
+    .menu-list span { width:25px; color:#8290a3; font-size:11px; }
+
+    /* Cover */
+    .cover .slide-content { justify-content:flex-end; padding-bottom:5vh; }
+    .cover-visual { position:absolute; inset:0; overflow:hidden; }
+    .cover-visual img { position:absolute; top:6%; right:-8%; width:min(67vw,1280px); opacity:.46; filter:saturate(.88) contrast(1.05); mix-blend-mode:screen; }
+    .cover-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,#070e1d 6%,rgba(7,14,29,.96) 36%,rgba(7,14,29,.35) 75%),linear-gradient(0deg,#070e1d,transparent 62%); }
+    .cover-copy { position:relative; z-index:2; max-width:1100px; }
+    .cover-copy h1 span { color:var(--gold-light); }
+    .cover-kicker { display:flex; align-items:center; gap:13px; margin-bottom:18px; color:var(--gold-light); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    .cover-kicker::before { content:""; width:46px; height:1px; background:var(--gold); }
+
+    /* Cards and flow */
+    .grid-4,.grid-3,.grid-5 { display:grid; gap:18px; margin-top:26px; }
+    .grid-4 { grid-template-columns:repeat(4,1fr); }
+    .grid-3 { grid-template-columns:repeat(3,1fr); }
+    .grid-5 { grid-template-columns:repeat(5,1fr); }
+    .card { position:relative; min-height:180px; padding:24px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.78); box-shadow:0 12px 38px rgba(25,37,56,.06); }
+    .card.clickable { color:inherit; text-decoration:none; transition:.22s var(--ease); }
+    .card.clickable:hover { transform:translateY(-5px); border-color:rgba(214,168,113,.65); box-shadow:var(--shadow); }
+    .card-index { display:block; margin-bottom:28px; color:#a67643; font-size:12px; font-weight:900; letter-spacing:.12em; }
+    .card p { margin-bottom:0; font-size:14px; }
+    .card-arrow { position:absolute; right:20px; bottom:16px; color:#a67643; font-size:21px; }
+    .knowledge-card { color:#fff; background:linear-gradient(145deg,#172943,#0c1729); border-color:rgba(214,168,113,.4); }
+    .knowledge-card p { color:#cfd8e5; }
+    .knowledge-orbit { position:absolute; right:20px; top:20px; width:46px; height:46px; border:1px solid rgba(230,201,159,.6); border-radius:50%; }
+    .knowledge-orbit::after { content:""; position:absolute; width:12px; height:12px; top:-6px; left:16px; border-radius:50%; background:var(--gold); box-shadow:0 0 18px var(--gold); }
+    .architecture { display:grid; grid-template-columns:1fr 70px 1.1fr 70px 1fr; align-items:center; gap:9px; margin-top:22px; }
+    .arch-column { display:grid; gap:10px; }
+    .arch-node { display:block; padding:15px 17px; border:1px solid var(--line); border-radius:9px; color:var(--ink); background:#fff; text-align:center; text-decoration:none; font-size:13px; font-weight:800; transition:.2s ease; }
+    .arch-node:hover { border-color:var(--gold); transform:scale(1.025); }
+    .arch-node.core { padding:26px 18px; color:#fff; border-color:#c9955d; background:radial-gradient(circle at 50% 0,#2e486d,#122039 70%); box-shadow:0 20px 50px rgba(18,32,57,.25); }
+    .arch-node.core small { display:block; margin-top:8px; color:var(--gold-light); font-weight:500; }
+    .connector { height:1px; background:linear-gradient(90deg,var(--gold),rgba(214,168,113,.15)); position:relative; }
+    .connector::after { content:"›"; position:absolute; right:-3px; top:-13px; color:var(--gold); font-size:25px; }
+    .outcome-band { display:flex; justify-content:center; gap:10px; margin-top:18px; }
+    .outcome-band span { padding:9px 14px; border-radius:999px; color:#fff; background:var(--navy); font-size:12px; font-weight:750; }
+
+    /* Strategy and knowledge */
+    .strategy-flow { display:grid; grid-template-columns:1fr 80px 1fr 80px 1fr; align-items:center; margin-top:34px; }
+    .strategy-step { min-height:185px; padding:28px; border-top:5px solid var(--gold); background:#fff; box-shadow:var(--shadow); }
+    .strategy-step b { display:block; margin-bottom:20px; color:#9b6d3a; font-size:12px; letter-spacing:.1em; }
+    .strategy-step p { margin:0; font-size:15px; }
+    .strategy-arrow { color:#b47d42; text-align:center; font-size:36px; }
+    .culture-note { margin-top:24px; padding:15px 18px; border-left:4px solid var(--gold); background:rgba(214,168,113,.1); font-weight:700; }
+    .knowledge-stage { position:relative; min-height:460px; margin-top:10px; }
+    .knowledge-core { position:absolute; z-index:3; left:50%; top:50%; display:grid; place-items:center; width:250px; height:250px; padding:35px; border:1px solid var(--gold-light); border-radius:50%; color:#fff; background:radial-gradient(circle at 36% 28%,#39547b,#14233b 55%,#091321); box-shadow:0 0 0 20px rgba(214,168,113,.07),0 0 0 40px rgba(214,168,113,.035),0 28px 80px rgba(11,21,38,.35); text-align:center; transform:translate(-50%,-50%); }
+    .knowledge-core::before { content:""; position:absolute; inset:16px; border:1px dashed rgba(230,201,159,.35); border-radius:50%; animation:spin 18s linear infinite; }
+    .knowledge-core h3 { font-family:Georgia,serif; font-size:26px; }
+    .knowledge-core p { margin:0; color:var(--gold-light); font-size:12px; }
+    .orbit-item { position:absolute; z-index:4; width:190px; padding:15px; border:1px solid var(--line); border-radius:9px; background:#fff; box-shadow:0 10px 32px rgba(25,37,56,.09); text-align:center; font-size:13px; font-weight:800; }
+    .orbit-item:nth-of-type(1) { left:3%; top:8%; }.orbit-item:nth-of-type(2) { left:3%; bottom:8%; }
+    .orbit-item:nth-of-type(3) { right:3%; top:8%; }.orbit-item:nth-of-type(4) { right:3%; bottom:8%; }
+    .orbit-item:nth-of-type(5) { left:50%; top:0; transform:translateX(-50%); }
+    .orbit-item:nth-of-type(6) { left:50%; bottom:0; transform:translateX(-50%); border-color:var(--gold); }
+    .knowledge-stage svg { position:absolute; inset:0; width:100%; height:100%; }
+    .knowledge-stage line { stroke:rgba(214,168,113,.7); stroke-width:1.2; stroke-dasharray:5 6; }
+
+    /* Charts */
+    .chart-layout { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:22px; }
+    .chart-card { min-height:385px; padding:24px 26px 18px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.9); box-shadow:0 18px 50px rgba(16,29,49,.08); }
+    .chart-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+    .chart-head h3 { margin:0; font-family:Georgia,serif; font-size:25px; }
+    .chart-head small { display:block; margin-top:5px; color:#79818d; }
+    .chart-3d { position:relative; display:grid; grid-template-columns:repeat(3,1fr); align-items:end; gap:20px; height:270px; margin-top:18px; padding:20px 18px 50px 54px; border-left:1px solid #b7bdc5; border-bottom:1px solid #b7bdc5; background:repeating-linear-gradient(to top,rgba(25,37,56,.08) 0 1px,transparent 1px calc((100% - 50px)/7)); perspective:800px; }
+    .chart-scale { position:absolute; left:7px; top:10px; bottom:42px; display:flex; flex-direction:column; justify-content:space-between; color:#7a8290; font-size:10px; }
+    .bar-wrap { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
+    .bar { position:relative; width:min(56px,55%); height:var(--height); min-height:3px; background:linear-gradient(90deg,#a87945,var(--gold) 65%,#efcf9f); box-shadow:10px 14px 20px rgba(33,39,48,.15); transform:rotateY(-13deg); transform-origin:bottom; transition:height 1s var(--ease); }
+    .bar::before { content:""; position:absolute; left:6px; right:-7px; top:-9px; height:10px; background:#f0d2a7; transform:skewX(-45deg); transform-origin:bottom; }
+    .bar::after { content:""; position:absolute; right:-8px; top:-5px; width:8px; height:calc(100% + 5px); background:#976b3d; transform:skewY(-45deg); transform-origin:left; }
+    .bar.blue { background:linear-gradient(90deg,#172b49,#345784 65%,#5478a9); }
+    .bar.blue::before { background:#6689b8; }.bar.blue::after { background:#10213b; }
+    .bar-value { position:absolute; bottom:calc(var(--height) + 9px); z-index:3; color:#3d4652; font-size:12px; font-weight:900; transition:bottom 1s var(--ease); }
+    .bar-label { position:absolute; top:calc(100% + 11px); width:115px; color:#515966; text-align:center; font-size:10px; font-weight:800; line-height:1.25; }
+    .chart-card.progress-chart.is-reset .bar { height:2px; transition:none; }
+    .chart-card.progress-chart.is-reset .bar-value { bottom:10px; opacity:0; transition:none; }
+    .chart-note { margin:8px 0 0; color:#7e5c35; font-size:11px; font-weight:750; text-align:center; }
+    .progress-summary { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }
+    .progress-summary div { padding:11px; border-radius:8px; background:rgba(214,168,113,.1); text-align:center; }
+    .progress-summary b,.progress-summary span { display:block; }.progress-summary b { color:#986939; font-size:20px; }.progress-summary span { font-size:10px; }
+
+    /* Product mockups */
+    .app-shell { display:grid; grid-template-columns:210px 1fr; min-height:440px; margin-top:18px; overflow:hidden; border:1px solid rgba(25,37,56,.16); border-radius:14px; background:#fff; box-shadow:var(--shadow); }
+    .app-side { padding:21px 16px; color:#fff; background:#15233a; }
+    .app-logo { display:flex; align-items:center; gap:9px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,.1); font-family:Georgia,serif; }
+    .app-logo img { width:30px; height:30px; border-radius:50%; object-fit:cover; }
+    .app-side nav { display:grid; gap:5px; margin-top:22px; }
+    .app-side span { padding:10px 11px; border-radius:6px; color:#aebacd; font-size:12px; }
+    .app-side span.active { color:#fff; background:rgba(214,168,113,.16); border-left:3px solid var(--gold); }
+    .app-main { padding:24px 28px; background:#f6f7f9; }
+    .app-head { display:flex; justify-content:space-between; gap:14px; margin-bottom:18px; }
+    .app-head h3 { margin:0; font-size:22px; }.app-head small { color:#7c8490; }
+    .status { height:max-content; padding:7px 10px; border-radius:999px; color:#865c2d; background:#f6e7d4; font-size:10px; font-weight:850; }
+    .app-grid { display:grid; grid-template-columns:1.35fr .9fr; gap:15px; }
+    .panel { padding:18px; border:1px solid #e0e4e9; border-radius:9px; background:#fff; }
+    .panel h4 { margin:0 0 12px; font-size:13px; }.panel p { margin:0; font-size:12px; }
+    .session-card { min-height:135px; border-left:4px solid var(--gold); }
+    .objective { margin-top:12px!important; padding:10px; border-radius:6px; background:#f6f1ea; color:#4b5562!important; }
+    .task-list { display:grid; gap:8px; }
+    .task-list div { display:flex; align-items:center; gap:9px; padding:9px; border:1px solid #edf0f3; border-radius:7px; color:#555e69; font-size:11px; }
+    .task-list i { display:grid; place-items:center; width:20px; height:20px; border:1px solid #c5cad1; border-radius:50%; font-style:normal; }
+    .assistant-card { color:#fff; background:linear-gradient(145deg,#203a5d,#101c30); }
+    .assistant-card p { color:#ced9e6; }.assistant-card b { color:var(--gold-light); }
+    .human-ai { display:flex; align-items:center; gap:8px; margin-top:14px; }
+    .human-ai span { flex:1; padding:9px; border:1px solid rgba(255,255,255,.14); border-radius:7px; text-align:center; font-size:10px; }
+    .journey { display:grid; grid-template-columns:repeat(7,1fr); gap:16px; margin-top:42px; }
+    .journey-step { position:relative; min-height:160px; padding:21px 14px; border-top:4px solid var(--gold); background:#fff; box-shadow:0 12px 35px rgba(25,37,56,.08); }
+    .journey-step:not(:last-child)::after { content:"›"; position:absolute; right:-13px; top:50%; color:#b37e46; font-size:24px; transform:translateY(-50%); }
+    .journey-step b { display:block; margin-bottom:30px; color:#a16f39; font-size:11px; }.journey-step p { margin:0; font-size:12px; }
+    .impact-band { display:flex; gap:12px; margin-top:22px; }
+    .impact-band span { flex:1; padding:13px 16px; border-radius:8px; color:#fff; background:var(--navy); font-size:12px; text-align:center; }
+    .impact-band span:last-child { background:#8c673e; }
+    .leadership-wrap { display:grid; grid-template-columns:260px 1fr; gap:22px; margin-top:24px; }
+    .lead-tabs { display:grid; gap:9px; }
+    .lead-tab { padding:17px; border:1px solid var(--line); border-radius:8px; color:#525b67; background:#fff; text-align:left; font-weight:800; }
+    .lead-tab.active { color:#fff; border-color:var(--navy); background:var(--navy); box-shadow:0 12px 26px rgba(25,37,56,.2); }
+    .lead-panel { display:none; min-height:310px; padding:30px; border:1px solid var(--line); border-radius:12px; background:#fff; box-shadow:var(--shadow); }
+    .lead-panel.active { display:grid; grid-template-columns:1.15fr .85fr; gap:24px; animation:fadeUp .35s ease; }
+    .lead-panel ul { margin:18px 0 0; padding:0; list-style:none; }
+    .lead-panel li { padding:10px 0; border-bottom:1px solid var(--line); color:#5d6571; font-size:13px; }
+    .skill-meter { display:grid; place-items:center; min-height:220px; border-radius:12px; background:radial-gradient(circle,#304b72,#14233a 68%); color:#fff; text-align:center; }
+    .skill-meter b { font-family:Georgia,serif; font-size:48px; font-weight:400; }.skill-meter small { color:var(--gold-light); }
+
+    /* Integration, journey and value */
+    .integration-line { display:grid; grid-template-columns:repeat(8,1fr); gap:9px; margin-top:30px; }
+    .integration-line article { position:relative; min-height:190px; padding:20px 13px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .integration-line article:not(:last-child)::after { content:"›"; position:absolute; z-index:2; right:-9px; top:51%; color:#b47e43; font-size:21px; }
+    .integration-line b { display:block; margin-bottom:34px; color:#a57139; font-size:12px; }.integration-line p { margin:0; font-size:11px; }
+    .integration-line .core-step { color:#fff; background:var(--navy); }.integration-line .core-step p { color:#d6deea; }
+    .user-journey { position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:22px 18px; margin-top:28px; counter-reset:journey; }
+    .user-journey::before { content:""; position:absolute; left:5%; right:5%; top:64px; height:2px; background:linear-gradient(90deg,var(--gold),var(--navy),var(--gold)); }
+    .user-step { position:relative; z-index:1; min-height:145px; padding:20px; border:1px solid var(--line); border-radius:10px; background:#fff; counter-increment:journey; }
+    .user-step::before { content:counter(journey,decimal-leading-zero); display:grid; place-items:center; width:36px; height:36px; margin-bottom:22px; border-radius:50%; color:#fff; background:var(--navy); font-size:10px; font-weight:900; }
+    .user-step p { margin:0; font-size:12px; }
+    .value-grid { display:grid; grid-template-columns:1.25fr repeat(5,1fr); gap:12px; margin-top:30px; }
+    .value-core { display:grid; place-items:center; min-height:235px; padding:25px; border-radius:50% 10px 50% 10px; color:#fff; background:radial-gradient(circle at top,#395579,#14233a 70%); text-align:center; }
+    .value-core h3 { font-family:Georgia,serif; font-size:24px; }.value-core p { color:var(--gold-light); font-size:12px; }
+    .value-item { min-height:235px; padding:22px 16px; border-top:4px solid var(--gold); background:#fff; box-shadow:0 12px 32px rgba(25,37,56,.08); }
+    .value-item b { display:block; margin-bottom:45px; color:#a67642; font-size:12px; }.value-item p { margin:0; font-size:12px; }
+    .close-layout { display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:60px; }
+    .close-mark { position:relative; display:grid; place-items:center; }
+    .close-mark img { width:min(420px,70vw); aspect-ratio:1; border-radius:50%; object-fit:cover; box-shadow:0 0 0 20px rgba(230,201,159,.06),0 36px 90px rgba(0,0,0,.38); }
+    .close-links { display:flex; flex-wrap:wrap; gap:9px; margin-top:26px; }
+    .close-links a { padding:10px 13px; border:1px solid rgba(255,255,255,.2); border-radius:6px; color:#d9e0eb; text-decoration:none; font-size:11px; font-weight:750; }
+    .close-links a:hover { color:#fff; border-color:var(--gold); }
+    .contact-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .contact-row a { color:var(--gold-light); text-decoration:none; font-weight:800; }
+
+    .slide-menu-title { position:absolute; z-index:2; left:clamp(24px,7vw,112px); bottom:32px; display:flex; align-items:center; gap:9px; color:#66707d; font-size:11px; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    .slide-menu-title::before { content:""; width:24px; height:2px; background:var(--gold); }
+    .dark .slide-menu-title { color:#aeb9c9; }
+    .slide-number { position:absolute; z-index:2; right:clamp(24px,7vw,112px); bottom:32px; color:#7e8793; font-size:11px; font-weight:800; letter-spacing:.15em; }
+    .dark .slide-number { color:#8995a8; }
+    .sr-only { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+
+    @keyframes slideIn { to { opacity:1; transform:none; } }
+    @keyframes slideOut { to { opacity:0; transform:translateX(-18px); } }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
+    @media (max-width:1100px) {
+      .grid-4 { grid-template-columns:repeat(2,1fr); }.grid-5 { grid-template-columns:repeat(3,1fr); }
+      .architecture { grid-template-columns:1fr 40px 1.1fr 40px 1fr; }
+      .journey { grid-template-columns:repeat(4,1fr); }.integration-line { grid-template-columns:repeat(4,1fr); }
+      .value-grid { grid-template-columns:repeat(3,1fr); }.value-core { border-radius:12px; }
+      .user-journey { grid-template-columns:repeat(3,1fr); }.user-journey::before { display:none; }
+    }
+    @media (max-height:800px) and (min-width:761px) {
+      .slide { padding:72px 5vw 68px; }
+      .slide-content { min-height:calc(100vh - 140px); }
+      .brand-mini { top:-34px; }.knowledge-mini { top:-18px; }
+      h2 { max-width:1050px; margin-bottom:12px; font-size:clamp(32px,4vw,56px); }
+      .grid-4,.grid-3,.grid-5 { margin-top:16px; }.card { min-height:150px; padding:19px; }.card-index { margin-bottom:18px; }
+      .knowledge-stage { min-height:350px; }.knowledge-core { width:195px; height:195px; padding:25px; }.knowledge-core h3 { font-size:22px; }.orbit-item { padding:11px; }
+      .strategy-flow { margin-top:20px; }.strategy-step { min-height:150px; padding:20px; }.strategy-step b { margin-bottom:14px; }
+      .chart-layout { margin-top:12px; }.chart-card { min-height:340px; padding:18px 22px 12px; }.chart-3d { height:230px; margin-top:8px; }
+      .app-shell { min-height:385px; margin-top:10px; }.app-main { padding:18px 22px; }.panel { padding:14px; }.session-card { min-height:112px; }
+      .journey { margin-top:24px; }.journey-step { min-height:130px; padding:16px 12px; }.journey-step b { margin-bottom:18px; }
+      .leadership-wrap { margin-top:14px; }.lead-panel { min-height:270px; padding:22px; }.skill-meter { min-height:190px; }
+      .integration-line { margin-top:18px; }.integration-line article { min-height:150px; padding:16px 11px; }.integration-line b { margin-bottom:22px; }
+      .user-journey { margin-top:16px; }.user-step { min-height:118px; padding:15px; }.user-step::before { width:30px; height:30px; margin-bottom:12px; }
+      .value-grid { margin-top:18px; }.value-core,.value-item { min-height:190px; padding:18px 14px; }.value-item b { margin-bottom:28px; }
+    }
+    @media (max-width:760px) {
+      html,body { overflow:hidden; }.slide { padding:82px 20px 100px; }
+      .slide-content { display:block; min-height:auto; }.brand-mini,.knowledge-mini { position:relative; top:auto; right:auto; left:auto; width:max-content; margin-bottom:22px; }
+      .top-brand span { display:none; }.controls { right:14px; bottom:18px; }.controls .count { min-width:55px; }.icon-btn { min-width:40px; height:40px; }
+      .menu-panel { grid-template-columns:1fr; }.menu-sheet { width:100%; }.menu-panel::after { display:none; }
+      h1 { font-size:clamp(43px,15vw,70px); }.cover .slide-content { justify-content:flex-end; min-height:calc(100vh - 180px); }.cover-visual img { top:15%; right:-70%; width:180vw; }
+      .grid-4,.grid-3,.grid-5,.chart-layout,.strategy-flow,.leadership-wrap,.close-layout,.value-grid { grid-template-columns:1fr; }
+      .architecture { grid-template-columns:1fr; }.connector { width:1px; height:26px; margin:auto; background:var(--gold); }.connector::after { content:"⌄"; top:8px; right:-8px; }
+      .strategy-arrow { transform:rotate(90deg); }.knowledge-stage { display:grid; gap:9px; min-height:auto; }.knowledge-stage svg { display:none; }.knowledge-core,.orbit-item { position:relative!important; inset:auto!important; width:100%; height:auto; transform:none!important; border-radius:10px; }.knowledge-core { padding:28px; }.orbit-item { width:100%; }
+      .chart-card { padding:20px 13px; }.chart-3d { gap:8px; padding-left:38px; }.bar-label { width:88px; font-size:9px; }
+      .app-shell { grid-template-columns:1fr; }.app-side { display:none; }.app-main { padding:18px 14px; }.app-grid { grid-template-columns:1fr; }
+      .journey,.integration-line,.user-journey { grid-template-columns:1fr; }.journey-step:not(:last-child)::after,.integration-line article:not(:last-child)::after { content:"⌄"; right:50%; top:auto; bottom:-20px; }
+      .lead-panel.active { grid-template-columns:1fr; }.impact-band,.contact-row { flex-direction:column; }
+      .value-core,.value-item { min-height:auto; }.value-item b { margin-bottom:18px; }.close-mark { order:-1; }.close-mark img { width:min(280px,68vw); }
+      .slide-menu-title,.slide-number { bottom:73px; }.slide-menu-title { left:14px; max-width:52vw; padding:6px 9px; border:1px solid rgba(25,37,56,.1); border-radius:6px; background:rgba(246,243,238,.92); box-shadow:0 6px 20px rgba(25,37,56,.09); font-size:9px; line-height:1.25; backdrop-filter:blur(8px); }.dark .slide-menu-title { border-color:rgba(255,255,255,.15); background:rgba(9,17,31,.88); }.cover-copy .lead { font-size:17px; }
+    }
+    @media print {
+      html,body { height:auto; overflow:visible; background:white; }.topbar,.controls,.progress-track,.menu-panel { display:none!important; }
+      .slide { position:relative; display:block!important; width:100%; height:100vh; opacity:1!important; transform:none!important; page-break-after:always; overflow:hidden; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="Navegación principal">
+    <div class="top-brand"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis · Backoffice</span></div>
+    <button class="menu-btn" id="menu-open" type="button" aria-controls="menu-panel" aria-expanded="false"><b>☰</b> Menú</button>
+  </header>
+
+  <main class="deck" id="deck" aria-live="polite">
+    <section class="slide dark cover active" id="inicio" data-title="Portada" aria-label="Pantalla 1 de 14">
+      <div class="cover-visual"><img src="assets/anima-praxis-marca.png" alt=""></div>
+      <div class="slide-content">
+        <div class="cover-copy">
+          <div class="cover-kicker">Presentación ejecutiva interactiva</div>
+          <h1>Backoffice<br><span>Anima Praxis</span></h1>
+          <p class="lead">Estrategia, Cultura, Coaching y Liderazgo conectados en un mismo sistema de desarrollo.</p>
+          <div class="actions"><a class="primary" href="#modelo">Conocer el modelo <span aria-hidden="true">→</span></a></div>
+        </div>
+      </div>
+      <div class="slide-number">01 · 14</div>
+    </section>
+
+    <section class="slide" id="modelo" data-title="Visión del servicio" aria-label="Pantalla 2 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div>
+        <p class="eyebrow">Visión del servicio</p>
+        <h2>Desarrollar personas y líderes desde el carácter, la estrategia y la cultura de su propia organización.</h2>
+        <div class="grid-4">
+          <a class="card clickable" href="#estrategia"><span class="card-index">01 · ORIGEN</span><h3>Plan Estratégico y Cultura</h3><p>Dirección, carácter y comportamientos esperados.</p><span class="card-arrow">↗</span></a>
+          <a class="card clickable knowledge-card" href="#conocimiento"><span class="knowledge-orbit"></span><span class="card-index gold">02 · NÚCLEO</span><h3>Base de Conocimiento</h3><p>La referencia común que articula el sistema.</p><span class="card-arrow gold">↗</span></a>
+          <a class="card clickable" href="#coaching"><span class="card-index">03 · PERSONA</span><h3>Coaching y Desarrollo Personal</h3><p>Acompañamiento humano con soporte de IA.</p><span class="card-arrow">↗</span></a>
+          <a class="card clickable" href="#liderazgo"><span class="card-index">04 · LÍDER</span><h3>Liderazgo 360</h3><p>Modelos, habilidades, formación y práctica.</p><span class="card-arrow">↗</span></a>
+        </div>
+        <div class="actions"><a class="secondary light-secondary" href="#evaluacion">Evaluación Base y Progreso →</a></div>
+      </div>
+      <div class="slide-number">02 · 14</div>
+    </section>
+
+    <section class="slide" id="arquitectura" data-title="Arquitectura del Backoffice" aria-label="Pantalla 3 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div>
+        <p class="eyebrow">Arquitectura del Backoffice</p>
+        <h2>Un sistema de alineamiento, desarrollo y progreso.</h2>
+        <div class="architecture" aria-label="Mapa interactivo del modelo">
+          <div class="arch-column">
+            <a class="arch-node" href="#estrategia">Plan Estratégico</a><a class="arch-node" href="#estrategia">Cultura</a>
+          </div><div class="connector" aria-hidden="true"></div>
+          <div class="arch-column">
+            <a class="arch-node core" href="#conocimiento">Base de Conocimiento Organizacional<small>Núcleo común de alineamiento</small></a>
+            <a class="arch-node" href="#evaluacion">Evaluación Base · 3 dimensiones</a>
+          </div><div class="connector" aria-hidden="true"></div>
+          <div class="arch-column">
+            <a class="arch-node" href="#coaching">Coaching</a><a class="arch-node" href="#liderazgo">Liderazgo 360</a><a class="arch-node" href="#progreso">Seguimiento y Progreso</a>
+          </div>
+        </div>
+        <div class="outcome-band"><span>Desarrollo de personas y líderes</span><span>Alineamiento con la organización</span></div>
+      </div>
+      <div class="slide-number">03 · 14</div>
+    </section>
+
+    <section class="slide" id="estrategia" data-title="Plan Estratégico y Cultura" aria-label="Pantalla 4 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div><div class="knowledge-mini"><i></i>Alimenta la Base de Conocimiento</div>
+        <p class="eyebrow">Capa 01 · Dirección y carácter</p>
+        <h2>La organización define primero quién quiere ser y cómo espera actuar.</h2>
+        <div class="strategy-flow">
+          <article class="strategy-step"><b>01 · ESTRATEGIA</b><h3>Hacia dónde se dirige</h3><p>Orienta la dirección y los criterios que alinean a la organización.</p></article><div class="strategy-arrow">→</div>
+          <article class="strategy-step"><b>02 · CULTURA</b><h3>Qué carácter quiere construir</h3><p>Establece principios que orientan la actuación colectiva.</p></article><div class="strategy-arrow">→</div>
+          <article class="strategy-step"><b>03 · CONDUCTA</b><h3>Qué comportamientos espera</h3><p>Traduce la referencia organizacional en comportamientos observables.</p></article>
+        </div>
+        <div class="culture-note">Esta capa alimenta el criterio de evaluación del <strong>Alineamiento a la Cultura</strong>.</div>
+        <div class="actions"><a class="primary" href="#conocimiento">Ver el núcleo articulador →</a></div>
+      </div>
+      <div class="slide-number">04 · 14</div>
+    </section>
+
+    <section class="slide" id="conocimiento" data-title="Base de Conocimiento" aria-label="Pantalla 5 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div>
+        <p class="eyebrow">Núcleo del sistema</p>
+        <h2>Una misma referencia organizacional para desarrollar personas y líderes.</h2>
+        <div class="knowledge-stage">
+          <svg aria-hidden="true"><line x1="50%" y1="50%" x2="12%" y2="18%"/><line x1="50%" y1="50%" x2="12%" y2="82%"/><line x1="50%" y1="50%" x2="88%" y2="18%"/><line x1="50%" y1="50%" x2="88%" y2="82%"/><line x1="50%" y1="50%" x2="50%" y2="6%"/><line x1="50%" y1="50%" x2="50%" y2="94%"/></svg>
+          <div class="orbit-item">Estrategia</div><div class="orbit-item">Principios organizacionales</div><div class="orbit-item">Cultura</div><div class="orbit-item">Comportamientos esperados</div><div class="orbit-item">Criterios de alineamiento</div><div class="orbit-item">Evaluación · Coaching · Liderazgo 360</div>
+          <div class="knowledge-core"><div><h3>Base de Conocimiento</h3><p>Propia de cada organización</p></div></div>
+        </div>
+      </div>
+      <div class="slide-number">05 · 14</div>
+    </section>
+
+    <section class="slide" id="evaluacion" data-title="Evaluación Base" aria-label="Pantalla 6 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div><div class="knowledge-mini"><i></i>Referencia organizacional común</div>
+        <p class="eyebrow">Punto de partida</p>
+        <h2>Una línea base en tres dimensiones, con escala máxima de 7.</h2>
+        <div class="chart-layout">
+          <div class="chart-card">
+            <div class="chart-head"><div><h3>Evaluación Base</h3><small>Perfil inicial ilustrativo</small></div><span class="demo-pill">Datos DEMO</span></div>
+            <div class="chart-3d" role="img" aria-label="Gráfica demo: Alineamiento a la Cultura 3.8 de 7, Desarrollo Personal 4.1 de 7, Desarrollo del Liderazgo 2.9 de 7">
+              <div class="chart-scale"><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div>
+              <div class="bar-wrap"><span class="bar-value" style="--height:103px">3.8</span><div class="bar" style="--height:103px"></div><span class="bar-label">Alineamiento<br>a la Cultura</span></div>
+              <div class="bar-wrap"><span class="bar-value" style="--height:111px">4.1</span><div class="bar" style="--height:111px"></div><span class="bar-label">Desarrollo<br>Personal</span></div>
+              <div class="bar-wrap"><span class="bar-value" style="--height:78px">2.9</span><div class="bar" style="--height:78px"></div><span class="bar-label">Desarrollo del<br>Liderazgo</span></div>
+            </div>
+            <p class="chart-note">Valores ilustrativos · No representan resultados reales.</p>
+          </div>
+          <div class="card" style="min-height:385px">
+            <span class="card-index">LA LÓGICA DE EVALUACIÓN</span><h3>Diagnosticar para orientar el desarrollo.</h3>
+            <p>La evaluación registra el punto de partida. El proceso de Coaching impulsa el Desarrollo Personal; Liderazgo 360 fortalece el Desarrollo del Liderazgo; ambos contribuyen al Alineamiento a la Cultura.</p>
+            <div class="progress-summary"><div><b>7</b><span>Máximo por dimensión</span></div><div><b>3</b><span>Dimensiones comunes</span></div><div><b>1</b><span>Línea base personal</span></div></div>
+            <div class="actions"><a class="primary" href="#progreso">Comparar evolución →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">06 · 14</div>
+    </section>
+
+    <section class="slide" id="coaching" data-title="Coaching y Desarrollo Personal" aria-label="Pantalla 7 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div><div class="knowledge-mini"><i></i>Alineado a estrategia y cultura</div>
+        <p class="eyebrow">Módulo 01 · DEMO conceptual</p>
+        <h2>Acompañamiento humano y soporte digital dentro de un mismo proceso.</h2>
+        <div class="app-shell" aria-label="Interfaz demostrativa del módulo de Coaching">
+          <aside class="app-side"><div class="app-logo"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Backoffice</span></div><nav><span>Inicio</span><span class="active">Mi proceso</span><span>Recursos</span><span>Tareas</span><span>Logros</span></nav></aside>
+          <div class="app-main">
+            <div class="app-head"><div><small>COACHING Y DESARROLLO PERSONAL</small><h3>Mi proceso de desarrollo</h3></div><span class="status">DEMO</span></div>
+            <div class="app-grid">
+              <div class="panel session-card"><h4>Sesión actual</h4><p class="muted">Acompañamiento con coach humano</p><p class="objective"><b>Objetivo de desarrollo:</b> [DEMO] Fortalecer una práctica alineada al rol.</p></div>
+              <div class="panel assistant-card"><h4>Asistente de IA</h4><p>Apoya la reflexión, organiza recursos y acompaña las tareas entre sesiones.</p><div class="human-ai"><span><b>Coach</b><br>orienta</span><span>+</span><span><b>IA</b><br>apoya</span></div></div>
+              <div class="panel"><h4>Próximas tareas · DEMO</h4><div class="task-list"><div><i>1</i>Registrar una reflexión</div><div><i>2</i>Revisar un recurso asignado</div></div></div>
+              <div class="panel"><h4>Recursos y logros</h4><div class="task-list"><div><i>R</i>Recursos de coaching</div><div><i>✓</i>Logros registrados</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">07 · 14</div>
+    </section>
+
+    <section class="slide" id="experiencia" data-title="Experiencia de Coaching" aria-label="Pantalla 8 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div><div class="knowledge-mini"><i></i>La cultura orienta el recorrido</div>
+        <p class="eyebrow">Experiencia de Coaching</p>
+        <h2>De la intención a una práctica observable y acompañada.</h2>
+        <div class="journey">
+          <article class="journey-step"><b>01</b><h3>Objetivo</h3><p>Se define el foco de desarrollo.</p></article><article class="journey-step"><b>02</b><h3>Conversación</h3><p>El coach acompaña la reflexión.</p></article><article class="journey-step"><b>03</b><h3>Recursos</h3><p>Se accede a contenidos pertinentes.</p></article><article class="journey-step"><b>04</b><h3>Acción</h3><p>La reflexión se traduce en práctica.</p></article><article class="journey-step"><b>05</b><h3>Tareas</h3><p>Se registra el compromiso.</p></article><article class="journey-step"><b>06</b><h3>Seguimiento</h3><p>La IA apoya entre sesiones.</p></article><article class="journey-step"><b>07</b><h3>Logros</h3><p>El avance queda visible.</p></article>
+        </div>
+        <div class="impact-band"><span>Impacta: Desarrollo Personal</span><span>Fortalece: Alineamiento a la Cultura</span></div>
+      </div>
+      <div class="slide-number">08 · 14</div>
+    </section>
+
+    <section class="slide" id="liderazgo" data-title="Liderazgo 360" aria-label="Pantalla 9 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div><div class="knowledge-mini"><i></i>Misma referencia estratégica y cultural</div>
+        <p class="eyebrow">Módulo 02 · Desarrollo de Liderazgo 360</p>
+        <h2>Tres ejes para acompañar el desarrollo del líder.</h2>
+        <div class="leadership-wrap">
+          <div class="lead-tabs" role="tablist" aria-label="Ejes de Liderazgo 360">
+            <button class="lead-tab active" type="button" role="tab" aria-selected="true" aria-controls="panel-transformacional" data-panel="transformacional">Liderazgo Transformacional</button>
+            <button class="lead-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-situacional" data-panel="situacional">Liderazgo Situacional</button>
+            <button class="lead-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-habilidades" data-panel="habilidades">Habilidades de Liderazgo</button>
+          </div>
+          <div>
+            <article class="lead-panel active" id="panel-transformacional" role="tabpanel"><div><span class="demo-pill">Contenido DEMO</span><h3 style="margin-top:18px">Liderazgo Transformacional</h3><p>Referencia para el acompañamiento al desarrollo del líder.</p><ul><li>Contenidos formativos</li><li>Actividades de desarrollo</li><li>Seguimiento del aprendizaje</li></ul></div><div class="skill-meter"><div><b>360</b><br><small>DESARROLLO DEL LÍDER</small></div></div></article>
+            <article class="lead-panel" id="panel-situacional" role="tabpanel" hidden><div><span class="demo-pill">Contenido DEMO</span><h3 style="margin-top:18px">Liderazgo Situacional</h3><p>Referencia para analizar y practicar respuestas ajustadas al contexto.</p><ul><li>Recursos de formación</li><li>Actividades aplicadas</li><li>Acompañamiento al desarrollo</li></ul></div><div class="skill-meter"><div><b>↗</b><br><small>PRÁCTICA Y CONTEXTO</small></div></div></article>
+            <article class="lead-panel" id="panel-habilidades" role="tabpanel" hidden><div><span class="demo-pill">Contenido DEMO</span><h3 style="margin-top:18px">Habilidades de Liderazgo</h3><p>Espacio para trabajar habilidades dentro del proceso de desarrollo.</p><ul><li>Contenidos formativos</li><li>Actividades y práctica</li><li>Seguimiento del avance</li></ul></div><div class="skill-meter"><div><b>+</b><br><small>HABILIDADES EN DESARROLLO</small></div></div></article>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">09 · 14</div>
+    </section>
+
+    <section class="slide" id="progreso" data-title="Progreso y Evolución" aria-label="Pantalla 10 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div><div class="knowledge-mini"><i></i>Comparación sobre la misma referencia</div>
+        <p class="eyebrow">Progreso y evolución · Datos DEMO</p>
+        <h2>El antes y el después, comparados sobre la misma escala.</h2>
+        <div class="chart-layout">
+          <div class="chart-card">
+            <div class="chart-head"><div><h3>Evaluación Inicial</h3><small>Línea base</small></div><span class="demo-pill">DEMO</span></div>
+            <div class="chart-3d" role="img" aria-label="Evaluación inicial demo: 3.8, 4.1 y 2.9 de 7">
+              <div class="chart-scale"><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div>
+              <div class="bar-wrap"><span class="bar-value" style="--height:103px">3.8</span><div class="bar blue" style="--height:103px"></div><span class="bar-label">Alineamiento<br>a la Cultura</span></div><div class="bar-wrap"><span class="bar-value" style="--height:111px">4.1</span><div class="bar blue" style="--height:111px"></div><span class="bar-label">Desarrollo<br>Personal</span></div><div class="bar-wrap"><span class="bar-value" style="--height:78px">2.9</span><div class="bar blue" style="--height:78px"></div><span class="bar-label">Desarrollo del<br>Liderazgo</span></div>
+            </div>
+          </div>
+          <div class="chart-card progress-chart">
+            <div class="chart-head"><div><h3>Evaluación de Progreso</h3><small>Estado posterior ilustrativo</small></div><button class="demo-pill" id="replay-progress" type="button">Repetir animación</button></div>
+            <div class="chart-3d" role="img" aria-label="Evaluación de progreso demo: 5.6, 5.9 y 5.2 de 7">
+              <div class="chart-scale"><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div>
+              <div class="bar-wrap"><span class="bar-value" style="--height:151px">5.6</span><div class="bar" style="--height:151px"></div><span class="bar-label">Alineamiento<br>a la Cultura</span></div><div class="bar-wrap"><span class="bar-value" style="--height:159px">5.9</span><div class="bar" style="--height:159px"></div><span class="bar-label">Desarrollo<br>Personal</span></div><div class="bar-wrap"><span class="bar-value" style="--height:140px">5.2</span><div class="bar" style="--height:140px"></div><span class="bar-label">Desarrollo del<br>Liderazgo</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="chart-note">Comparación ilustrativa del modelo. No representa resultados reales ni una validación psicométrica.</p>
+      </div>
+      <div class="slide-number">10 · 14</div>
+    </section>
+
+    <section class="slide" id="integracion" data-title="Sistema Integrado" aria-label="Pantalla 11 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div>
+        <p class="eyebrow">Un sistema · Tres áreas conectadas</p>
+        <h2>Una secuencia común convierte la referencia organizacional en desarrollo visible.</h2>
+        <div class="integration-line">
+          <article><b>01</b><h3>Estrategia</h3><p>Define dirección.</p></article><article><b>02</b><h3>Cultura</h3><p>Define carácter y comportamientos.</p></article><article class="core-step"><b class="gold">03</b><h3>Base de Conocimiento</h3><p>Conserva la referencia común.</p></article><article><b>04</b><h3>Evaluación</h3><p>Establece la línea de partida.</p></article><article><b>05</b><h3>Coaching</h3><p>Trabaja el desarrollo personal.</p></article><article><b>06</b><h3>Liderazgo 360</h3><p>Trabaja el desarrollo del líder.</p></article><article><b>07</b><h3>Progreso</h3><p>Hace visible la evolución.</p></article><article><b>08</b><h3>Alineamiento</h3><p>Conecta desarrollo y organización.</p></article>
+        </div>
+        <div class="actions"><a class="primary" href="#arquitectura">Volver al mapa general</a></div>
+      </div>
+      <div class="slide-number">11 · 14</div>
+    </section>
+
+    <section class="slide" id="experiencia-usuario" data-title="Experiencia del Usuario" aria-label="Pantalla 12 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div><span class="demo-pill">Ejemplo de experiencia</span>
+        <p class="eyebrow" style="margin-top:16px">Recorrido ficticio · Sin datos personales</p>
+        <h2>La persona avanza con una ruta clara y un progreso visible.</h2>
+        <div class="user-journey">
+          <article class="user-step"><h3>Accede</h3><p>Un líder ingresa al Backoffice.</p></article><article class="user-step"><h3>Evalúa</h3><p>Registra su evaluación base.</p></article><article class="user-step"><h3>Comprende</h3><p>Visualiza su perfil inicial.</p></article><article class="user-step"><h3>Enfoca</h3><p>Identifica un objetivo.</p></article><article class="user-step"><h3>Se acompaña</h3><p>Recibe Coaching y utiliza recursos.</p></article><article class="user-step"><h3>Actúa</h3><p>Registra tareas y aprendizajes.</p></article><article class="user-step"><h3>Desarrolla</h3><p>Trabaja una habilidad de liderazgo.</p></article><article class="user-step"><h3>Revisa</h3><p>Consulta su avance.</p></article><article class="user-step"><h3>Compara</h3><p>Observa sus tres dimensiones.</p></article><article class="user-step"><h3>Continúa</h3><p>Ajusta su siguiente foco.</p></article>
+        </div>
+      </div>
+      <div class="slide-number">12 · 14</div>
+    </section>
+
+    <section class="slide" id="valor" data-title="Valor del Modelo" aria-label="Pantalla 13 de 14">
+      <div class="slide-content">
+        <div class="brand-mini"><img src="assets/anima-praxis-simbolo.png" alt=""><span>Anima Praxis</span></div>
+        <p class="eyebrow">Valor del modelo</p>
+        <h2>Una referencia compartida. Cinco expresiones de valor.</h2>
+        <div class="value-grid">
+          <div class="value-core"><div><h3>Base de Conocimiento Organizacional</h3><p>El núcleo común</p></div></div>
+          <article class="value-item"><b>01</b><h3>Alineamiento</h3><p>La cultura orienta el desarrollo.</p></article><article class="value-item"><b>02</b><h3>Desarrollo personal</h3><p>El Coaching acompaña objetivos y acciones.</p></article><article class="value-item"><b>03</b><h3>Desarrollo del liderazgo</h3><p>Modelos, habilidades y recursos conectados.</p></article><article class="value-item"><b>04</b><h3>Seguimiento continuo</h3><p>Tareas, recursos y logros en un mismo proceso.</p></article><article class="value-item"><b>05</b><h3>Progreso visible</h3><p>Comparación clara sobre una escala común.</p></article>
+        </div>
+      </div>
+      <div class="slide-number">13 · 14</div>
+    </section>
+
+    <section class="slide dark" id="cierre" data-title="Cierre" aria-label="Pantalla 14 de 14">
+      <div class="slide-content">
+        <div class="close-layout">
+          <div>
+            <p class="eyebrow">Backoffice Anima Praxis</p>
+            <h2>Estrategia y cultura convertidas en desarrollo.</h2>
+            <p class="lead">Conciencia que transforma. Acción que enraíza.</p>
+            <div class="close-links"><a href="#arquitectura">Volver al modelo</a><a href="#evaluacion">Ver Evaluación Base</a><a href="#coaching">Ver Coaching</a><a href="#liderazgo">Ver Liderazgo 360</a><a href="#progreso">Ver Progreso</a></div>
+            <div class="contact-row"><a href="mailto:faviles@animapraxis.org">faviles@animapraxis.org</a><a href="https://wa.me/593999801101?text=Hola%20Francisco%2C%20quisiera%20conocer%20el%20Backoffice%20de%20Anima%20Praxis." target="_blank" rel="noreferrer">WhatsApp · +593 99 980 1101</a></div>
+          </div>
+          <div class="close-mark"><img src="assets/anima-praxis-simbolo.png" alt="Símbolo oficial de Anima Praxis"></div>
+        </div>
+      </div>
+      <div class="slide-number">14 · 14</div>
+    </section>
+  </main>
+
+  <nav class="controls" aria-label="Controles de presentación">
+    <button class="icon-btn" id="prev" type="button" aria-label="Pantalla anterior" title="Anterior (←)">←</button>
+    <span class="count" id="count">01 / 14</span>
+    <button class="icon-btn" id="next" type="button" aria-label="Pantalla siguiente" title="Siguiente (→)">→</button>
+    <button class="icon-btn" id="fullscreen" type="button" aria-label="Activar pantalla completa" title="Pantalla completa (F)">⛶</button>
+  </nav>
+  <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress"></div></div>
+
+  <div class="menu-panel" id="menu-panel" aria-hidden="true">
+    <div class="menu-sheet" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+      <div class="menu-head"><strong id="menu-title">Mapa de la presentación</strong><button class="menu-close" id="menu-close" type="button" aria-label="Cerrar menú">×</button></div>
+      <nav class="menu-list">
+        <a href="#inicio"><span>01</span>Portada</a><a href="#modelo"><span>02</span>Visión del servicio</a><a href="#arquitectura"><span>03</span>Arquitectura del Backoffice</a><a href="#estrategia"><span>04</span>Plan Estratégico y Cultura</a><a href="#conocimiento"><span>05</span>Base de Conocimiento</a><a href="#evaluacion"><span>06</span>Evaluación Base</a><a href="#coaching"><span>07</span>Coaching y Desarrollo Personal</a><a href="#experiencia"><span>08</span>Experiencia de Coaching</a><a href="#liderazgo"><span>09</span>Liderazgo 360</a><a href="#progreso"><span>10</span>Progreso y Evolución</a><a href="#integracion"><span>11</span>Sistema Integrado</a><a href="#experiencia-usuario"><span>12</span>Experiencia del Usuario</a><a href="#valor"><span>13</span>Valor del Modelo</a><a href="#cierre"><span>14</span>Cierre</a>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      if (new URLSearchParams(location.search).get('export') === 'pptx') document.body.classList.add('pptx-export');
+      const slides = [...document.querySelectorAll('.slide')];
+      const menuPanel = document.querySelector('#menu-panel');
+      const menuOpen = document.querySelector('#menu-open');
+      const menuClose = document.querySelector('#menu-close');
+      const count = document.querySelector('#count');
+      const progress = document.querySelector('#progress');
+      const prev = document.querySelector('#prev');
+      const next = document.querySelector('#next');
+      let current = Math.max(0, slides.findIndex(slide => `#${slide.id}` === location.hash));
+      let transitioning = false;
+
+      slides.forEach(slide => {
+        const menuTitle = document.createElement('div');
+        menuTitle.className = 'slide-menu-title';
+        menuTitle.textContent = slide.dataset.title;
+        menuTitle.setAttribute('aria-label', `Sección: ${slide.dataset.title}`);
+        slide.append(menuTitle);
+      });
+
+      function two(value) { return String(value).padStart(2, '0'); }
+      function replayProgress() {
+        const card = document.querySelector('.progress-chart');
+        if (!card) return;
+        card.classList.add('is-reset');
+        card.getBoundingClientRect();
+        setTimeout(() => card.classList.remove('is-reset'), 90);
+      }
+      function show(index, updateHash = true) {
+        if (transitioning) return;
+        index = Math.max(0, Math.min(index, slides.length - 1));
+        const previous = slides[current];
+        const target = slides[index];
+        if (previous !== target) {
+          transitioning = true;
+          previous.classList.remove('active'); previous.classList.add('leaving');
+          setTimeout(() => { previous.classList.remove('leaving'); transitioning = false; }, 270);
+        }
+        current = index; target.classList.add('active'); target.scrollTop = 0;
+        count.textContent = `${two(current + 1)} / ${two(slides.length)}`;
+        progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+        prev.disabled = current === 0; next.disabled = current === slides.length - 1;
+        document.title = `${target.dataset.title} | Backoffice Anima Praxis`;
+        document.querySelectorAll('.menu-list a').forEach(a => a.classList.toggle('current', a.hash === `#${target.id}`));
+        if (updateHash) history.replaceState(null, '', `#${target.id}`);
+        if (target.id === 'progreso') setTimeout(replayProgress, 220);
+      }
+      function closeMenu() { menuPanel.classList.remove('open'); menuPanel.setAttribute('aria-hidden','true'); menuOpen.setAttribute('aria-expanded','false'); menuOpen.focus(); }
+      function openMenu() { menuPanel.classList.add('open'); menuPanel.setAttribute('aria-hidden','false'); menuOpen.setAttribute('aria-expanded','true'); menuClose.focus(); }
+      function navigateHash(hash) { const index = slides.findIndex(slide => `#${slide.id}` === hash); if (index >= 0) show(index); }
+
+      document.addEventListener('click', event => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) return;
+        event.preventDefault(); navigateHash(link.hash);
+        if (menuPanel.classList.contains('open')) closeMenu();
+      });
+      prev.addEventListener('click', () => show(current - 1));
+      next.addEventListener('click', () => show(current + 1));
+      menuOpen.addEventListener('click', openMenu); menuClose.addEventListener('click', closeMenu);
+      menuPanel.addEventListener('click', event => { if (event.target === menuPanel) closeMenu(); });
+      document.querySelector('#fullscreen').addEventListener('click', async () => {
+        try { if (!document.fullscreenElement) await document.documentElement.requestFullscreen(); else await document.exitFullscreen(); } catch (_) {}
+      });
+      document.querySelector('#replay-progress').addEventListener('click', replayProgress);
+      document.querySelectorAll('.lead-tab').forEach(tab => tab.addEventListener('click', () => {
+        document.querySelectorAll('.lead-tab').forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected','false'); });
+        document.querySelectorAll('.lead-panel').forEach(panel => { panel.classList.remove('active'); panel.hidden = true; });
+        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+        const panel = document.querySelector(`#panel-${tab.dataset.panel}`); panel.hidden = false; panel.classList.add('active');
+      }));
+      window.addEventListener('hashchange', () => navigateHash(location.hash));
+      document.addEventListener('keydown', event => {
+        const tag = document.activeElement.tagName;
+        if (['INPUT','TEXTAREA','SELECT'].includes(tag)) return;
+        if (event.key === 'Escape' && menuPanel.classList.contains('open')) return closeMenu();
+        if (menuPanel.classList.contains('open')) return;
+        if (['ArrowRight','PageDown'].includes(event.key) || event.key === ' ') { event.preventDefault(); show(current + 1); }
+        if (['ArrowLeft','PageUp'].includes(event.key)) { event.preventDefault(); show(current - 1); }
+        if (event.key === 'Home') show(0); if (event.key === 'End') show(slides.length - 1);
+        if (event.key.toLowerCase() === 'm') openMenu();
+        if (event.key.toLowerCase() === 'f') document.querySelector('#fullscreen').click();
+      });
+      slides.forEach(slide => slide.classList.remove('active','leaving'));
+      show(current, !location.hash);
+    })();
+  </script>
+</body>
+</html>

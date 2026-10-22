@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { articles } from "@/data/articles";
+import { ArrowRight } from "lucide-react";
+import { categories, getArticlesByCategory } from "@/data/insightsData";
+import { ArticleCard } from "@/components/insights/ArticleCard";
 
 export const Route = createFileRoute("/insights/")({
   head: () => ({
@@ -8,11 +10,16 @@ export const Route = createFileRoute("/insights/")({
       {
         name: "description",
         content:
-          "Artículos sobre estrategia, inteligencia artificial aplicada, liderazgo, coaching ontológico y formación corporativa.",
+          "Artículos sobre estrategia, coaching, liderazgo e inteligencia artificial aplicada para líderes y organizaciones.",
       },
       { property: "og:title", content: "Insights — Anima Praxis" },
-      { property: "og:description", content: "Reflexiones sobre estrategia, IA y desarrollo humano." },
-      { property: "og:url", content: "/insights" },
+      {
+        property: "og:description",
+        content:
+          "Reflexiones sobre estrategia, coaching, liderazgo e IA aplicada.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/insights" }],
   }),
@@ -25,62 +32,45 @@ function Page() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="text-center">
           <h1 className="font-display text-4xl sm:text-5xl text-deep">
-            Ideas para estrategia, inteligencia artificial y desarrollo humano
+            Ideas para estrategia, coaching, liderazgo e inteligencia artificial
           </h1>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Reflexiones desde Anima Praxis para líderes, equipos y personas que buscan
-            decidir mejor y crecer con sentido.
+            Reflexiones desde Anima Praxis para líderes, equipos y personas que
+            buscan decidir mejor y crecer con sentido.
           </p>
         </header>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {articles.map((a) => (
-            <article
-              key={a.slug}
-              className="group rounded-2xl border border-border bg-cream/40 overflow-hidden flex flex-col hover:shadow-lg transition-shadow"
-            >
-              <Link
-                to="/insights/$slug"
-                params={{ slug: a.slug }}
-                className="block aspect-video overflow-hidden bg-deep/10"
-              >
-                <img
-                  src={a.imagen}
-                  alt={a.titulo}
-                  loading="lazy"
-                  width={1280}
-                  height={720}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </Link>
-              <div className="p-6 flex flex-col gap-3 flex-1">
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary-hover">
-                  {a.categoria}
-                </span>
-                <h2 className="font-display text-xl text-deep leading-snug">
+        <div className="mt-16 space-y-16">
+          {categories.map((category) => {
+            const list = getArticlesByCategory(category);
+            if (list.length === 0) return null;
+            return (
+              <section key={category.slug}>
+                <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-4">
+                  <div>
+                    <h2 className="font-display text-3xl text-deep">
+                      {category.nombre}
+                    </h2>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {category.descripcion}
+                    </p>
+                  </div>
                   <Link
-                    to="/insights/$slug"
-                    params={{ slug: a.slug }}
-                    className="hover:text-primary-hover transition-colors"
+                    to={category.path}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary-hover transition-colors duration-300 hover:text-deep"
                   >
-                    {a.titulo}
+                    Ver todos los artículos de {category.nombre}
+                    <ArrowRight className="h-4 w-4" aria-hidden />
                   </Link>
-                </h2>
-                <p className="text-sm text-muted-foreground">{a.resumen}</p>
-                <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-2">
-                  <span>{a.fechaCorta}</span>
-                  <span>{a.tiempoLectura}</span>
                 </div>
-                <Link
-                  to="/insights/$slug"
-                  params={{ slug: a.slug }}
-                  className="mt-2 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:bg-primary-hover transition-colors"
-                >
-                  Leer artículo
-                </Link>
-              </div>
-            </article>
-          ))}
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {list.map((a) => (
+                    <ArticleCard key={a.slug} article={a} />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       </div>
     </section>

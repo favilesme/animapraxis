@@ -21,6 +21,10 @@ import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
+import { Route as InsightsLiderazgoRouteImport } from './routes/insights.liderazgo'
+import { Route as InsightsIaAplicadaRouteImport } from './routes/insights.ia-aplicada'
+import { Route as InsightsEstrategiaRouteImport } from './routes/insights.estrategia'
+import { Route as InsightsCoachingRouteImport } from './routes/insights.coaching'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -90,6 +94,26 @@ const SitemapXmlRoute = SitemapXmlRouteImport.update({
   path: '/sitemap/xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsLiderazgoRoute = InsightsLiderazgoRouteImport.update({
+  id: '/insights/liderazgo',
+  path: '/insights/liderazgo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIaAplicadaRoute = InsightsIaAplicadaRouteImport.update({
+  id: '/insights/ia-aplicada',
+  path: '/insights/ia-aplicada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsEstrategiaRoute = InsightsEstrategiaRouteImport.update({
+  id: '/insights/estrategia',
+  path: '/insights/estrategia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsCoachingRoute = InsightsCoachingRouteImport.update({
+  id: '/insights/coaching',
+  path: '/insights/coaching',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
   id: '/insights/$slug',
   path: '/insights/$slug',
@@ -149,6 +173,10 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/insights/coaching': typeof InsightsCoachingRoute
+  '/insights/estrategia': typeof InsightsEstrategiaRoute
+  '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
+  '/insights/liderazgo': typeof InsightsLiderazgoRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -171,6 +199,10 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/insights/coaching': typeof InsightsCoachingRoute
+  '/insights/estrategia': typeof InsightsEstrategiaRoute
+  '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
+  '/insights/liderazgo': typeof InsightsLiderazgoRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -194,6 +226,10 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/insights/coaching': typeof InsightsCoachingRoute
+  '/insights/estrategia': typeof InsightsEstrategiaRoute
+  '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
+  '/insights/liderazgo': typeof InsightsLiderazgoRoute
   '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -218,6 +254,10 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/email/unsubscribe'
     | '/insights/$slug'
+    | '/insights/coaching'
+    | '/insights/estrategia'
+    | '/insights/ia-aplicada'
+    | '/insights/liderazgo'
     | '/sitemap/xml'
     | '/insights/'
     | '/lovable/email/suppression'
@@ -240,6 +280,10 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/email/unsubscribe'
     | '/insights/$slug'
+    | '/insights/coaching'
+    | '/insights/estrategia'
+    | '/insights/ia-aplicada'
+    | '/insights/liderazgo'
     | '/sitemap/xml'
     | '/insights'
     | '/lovable/email/suppression'
@@ -262,6 +306,10 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/email/unsubscribe'
     | '/insights/$slug'
+    | '/insights/coaching'
+    | '/insights/estrategia'
+    | '/insights/ia-aplicada'
+    | '/insights/liderazgo'
     | '/sitemap/xml'
     | '/insights/'
     | '/lovable/email/suppression'
@@ -285,6 +333,10 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
+  InsightsCoachingRoute: typeof InsightsCoachingRoute
+  InsightsEstrategiaRoute: typeof InsightsEstrategiaRoute
+  InsightsIaAplicadaRoute: typeof InsightsIaAplicadaRoute
+  InsightsLiderazgoRoute: typeof InsightsLiderazgoRoute
   SitemapXmlRoute: typeof SitemapXmlRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
@@ -380,6 +432,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapXmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/liderazgo': {
+      id: '/insights/liderazgo'
+      path: '/insights/liderazgo'
+      fullPath: '/insights/liderazgo'
+      preLoaderRoute: typeof InsightsLiderazgoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/ia-aplicada': {
+      id: '/insights/ia-aplicada'
+      path: '/insights/ia-aplicada'
+      fullPath: '/insights/ia-aplicada'
+      preLoaderRoute: typeof InsightsIaAplicadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/estrategia': {
+      id: '/insights/estrategia'
+      path: '/insights/estrategia'
+      fullPath: '/insights/estrategia'
+      preLoaderRoute: typeof InsightsEstrategiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/coaching': {
+      id: '/insights/coaching'
+      path: '/insights/coaching'
+      fullPath: '/insights/coaching'
+      preLoaderRoute: typeof InsightsCoachingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/$slug': {
       id: '/insights/$slug'
       path: '/insights/$slug'
@@ -453,6 +533,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   InsightsSlugRoute: InsightsSlugRoute,
+  InsightsCoachingRoute: InsightsCoachingRoute,
+  InsightsEstrategiaRoute: InsightsEstrategiaRoute,
+  InsightsIaAplicadaRoute: InsightsIaAplicadaRoute,
+  InsightsLiderazgoRoute: InsightsLiderazgoRoute,
   SitemapXmlRoute: SitemapXmlRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,

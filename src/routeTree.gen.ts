@@ -9,69 +9,34 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
-import { Route as SobreFranciscoRouteImport } from './routes/sobre-francisco'
-import { Route as PoliticaPrivacidadRouteImport } from './routes/politica-privacidad'
-import { Route as PoliticaCookiesRouteImport } from './routes/politica-cookies'
-import { Route as ContactoRouteImport } from './routes/contacto'
-import { Route as ConsultoriaIaRouteImport } from './routes/consultoria-ia'
-import { Route as CoachingTerapiaRouteImport } from './routes/coaching-terapia'
-import { Route as CapacitacionCorporativaRouteImport } from './routes/capacitacion-corporativa'
-import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as InsightsIndexRouteImport } from './routes/insights.index'
-import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
-import { Route as InsightsLiderazgoRouteImport } from './routes/insights.liderazgo'
-import { Route as InsightsIaAplicadaRouteImport } from './routes/insights.ia-aplicada'
-import { Route as InsightsEstrategiaRouteImport } from './routes/insights.estrategia'
-import { Route as InsightsCoachingRouteImport } from './routes/insights.coaching'
-import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
-import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
+import { Route as CapacitacionCorporativaRouteImport } from './routes/capacitacion-corporativa'
+import { Route as CoachingTerapiaRouteImport } from './routes/coaching-terapia'
+import { Route as ConsultoriaIaRouteImport } from './routes/consultoria-ia'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as PoliticaCookiesRouteImport } from './routes/politica-cookies'
+import { Route as PoliticaPrivacidadRouteImport } from './routes/politica-privacidad'
+import { Route as SobreFranciscoRouteImport } from './routes/sobre-francisco'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as InsightsCoachingRouteImport } from './routes/insights.coaching'
+import { Route as InsightsEstrategiaRouteImport } from './routes/insights.estrategia'
+import { Route as InsightsIaAplicadaRouteImport } from './routes/insights.ia-aplicada'
+import { Route as InsightsLiderazgoRouteImport } from './routes/insights.liderazgo'
+import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
-import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
-import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
-import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 import { Route as ApiPublicTelegramWebhookRouteImport } from './routes/api/public/telegram/webhook'
+import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
+import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 
-const UnsubscribeRoute = UnsubscribeRouteImport.update({
-  id: '/unsubscribe',
-  path: '/unsubscribe',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
-  id: '/sobre-francisco',
-  path: '/sobre-francisco',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PoliticaPrivacidadRoute = PoliticaPrivacidadRouteImport.update({
-  id: '/politica-privacidad',
-  path: '/politica-privacidad',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PoliticaCookiesRoute = PoliticaCookiesRouteImport.update({
-  id: '/politica-cookies',
-  path: '/politica-cookies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactoRoute = ContactoRouteImport.update({
-  id: '/contacto',
-  path: '/contacto',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConsultoriaIaRoute = ConsultoriaIaRouteImport.update({
-  id: '/consultoria-ia',
-  path: '/consultoria-ia',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CoachingTerapiaRoute = CoachingTerapiaRouteImport.update({
-  id: '/coaching-terapia',
-  path: '/coaching-terapia',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CapacitacionCorporativaRoute = CapacitacionCorporativaRouteImport.update({
-  id: '/capacitacion-corporativa',
-  path: '/capacitacion-corporativa',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AvisoLegalRoute = AvisoLegalRouteImport.update({
@@ -79,49 +44,44 @@ const AvisoLegalRoute = AvisoLegalRouteImport.update({
   path: '/aviso-legal',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CapacitacionCorporativaRoute = CapacitacionCorporativaRouteImport.update({
+  id: '/capacitacion-corporativa',
+  path: '/capacitacion-corporativa',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsIndexRoute = InsightsIndexRouteImport.update({
-  id: '/insights/',
-  path: '/insights/',
+const CoachingTerapiaRoute = CoachingTerapiaRouteImport.update({
+  id: '/coaching-terapia',
+  path: '/coaching-terapia',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapXmlRoute = SitemapXmlRouteImport.update({
-  id: '/sitemap/xml',
-  path: '/sitemap/xml',
+const ConsultoriaIaRoute = ConsultoriaIaRouteImport.update({
+  id: '/consultoria-ia',
+  path: '/consultoria-ia',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsLiderazgoRoute = InsightsLiderazgoRouteImport.update({
-  id: '/insights/liderazgo',
-  path: '/insights/liderazgo',
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsIaAplicadaRoute = InsightsIaAplicadaRouteImport.update({
-  id: '/insights/ia-aplicada',
-  path: '/insights/ia-aplicada',
+const PoliticaCookiesRoute = PoliticaCookiesRouteImport.update({
+  id: '/politica-cookies',
+  path: '/politica-cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsEstrategiaRoute = InsightsEstrategiaRouteImport.update({
-  id: '/insights/estrategia',
-  path: '/insights/estrategia',
+const PoliticaPrivacidadRoute = PoliticaPrivacidadRouteImport.update({
+  id: '/politica-privacidad',
+  path: '/politica-privacidad',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsCoachingRoute = InsightsCoachingRouteImport.update({
-  id: '/insights/coaching',
-  path: '/insights/coaching',
+const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
+  id: '/sobre-francisco',
+  path: '/sobre-francisco',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/insights/$slug',
-  path: '/insights/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
-  id: '/email/unsubscribe',
-  path: '/email/unsubscribe',
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -129,21 +89,55 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
+  id: '/email/unsubscribe',
+  path: '/email/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsCoachingRoute = InsightsCoachingRouteImport.update({
+  id: '/insights/coaching',
+  path: '/insights/coaching',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsEstrategiaRoute = InsightsEstrategiaRouteImport.update({
+  id: '/insights/estrategia',
+  path: '/insights/estrategia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIaAplicadaRoute = InsightsIaAplicadaRouteImport.update({
+  id: '/insights/ia-aplicada',
+  path: '/insights/ia-aplicada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsLiderazgoRoute = InsightsLiderazgoRouteImport.update({
+  id: '/insights/liderazgo',
+  path: '/insights/liderazgo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapXmlRoute = SitemapXmlRouteImport.update({
+  id: '/sitemap/xml',
+  path: '/sitemap/xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LovableEmailTransactionalSendRoute =
-  LovableEmailTransactionalSendRouteImport.update({
-    id: '/lovable/email/transactional/send',
-    path: '/lovable/email/transactional/send',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const LovableEmailTransactionalPreviewRoute =
-  LovableEmailTransactionalPreviewRouteImport.update({
-    id: '/lovable/email/transactional/preview',
-    path: '/lovable/email/transactional/preview',
+const ApiPublicTelegramWebhookRoute =
+  ApiPublicTelegramWebhookRouteImport.update({
+    id: '/api/public/telegram/webhook',
+    path: '/api/public/telegram/webhook',
     getParentRoute: () => rootRouteImport,
   } as any)
 const LovableEmailQueueProcessRoute =
@@ -152,10 +146,16 @@ const LovableEmailQueueProcessRoute =
     path: '/lovable/email/queue/process',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ApiPublicTelegramWebhookRoute =
-  ApiPublicTelegramWebhookRouteImport.update({
-    id: '/api/public/telegram/webhook',
-    path: '/api/public/telegram/webhook',
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LovableEmailTransactionalSendRoute =
+  LovableEmailTransactionalSendRouteImport.update({
+    id: '/lovable/email/transactional/send',
+    path: '/lovable/email/transactional/send',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -348,60 +348,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/unsubscribe': {
-      id: '/unsubscribe'
-      path: '/unsubscribe'
-      fullPath: '/unsubscribe'
-      preLoaderRoute: typeof UnsubscribeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sobre-francisco': {
-      id: '/sobre-francisco'
-      path: '/sobre-francisco'
-      fullPath: '/sobre-francisco'
-      preLoaderRoute: typeof SobreFranciscoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/politica-privacidad': {
-      id: '/politica-privacidad'
-      path: '/politica-privacidad'
-      fullPath: '/politica-privacidad'
-      preLoaderRoute: typeof PoliticaPrivacidadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/politica-cookies': {
-      id: '/politica-cookies'
-      path: '/politica-cookies'
-      fullPath: '/politica-cookies'
-      preLoaderRoute: typeof PoliticaCookiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contacto': {
-      id: '/contacto'
-      path: '/contacto'
-      fullPath: '/contacto'
-      preLoaderRoute: typeof ContactoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/consultoria-ia': {
-      id: '/consultoria-ia'
-      path: '/consultoria-ia'
-      fullPath: '/consultoria-ia'
-      preLoaderRoute: typeof ConsultoriaIaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/coaching-terapia': {
-      id: '/coaching-terapia'
-      path: '/coaching-terapia'
-      fullPath: '/coaching-terapia'
-      preLoaderRoute: typeof CoachingTerapiaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/capacitacion-corporativa': {
-      id: '/capacitacion-corporativa'
-      path: '/capacitacion-corporativa'
-      fullPath: '/capacitacion-corporativa'
-      preLoaderRoute: typeof CapacitacionCorporativaRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/aviso-legal': {
@@ -411,67 +362,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AvisoLegalRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/capacitacion-corporativa': {
+      id: '/capacitacion-corporativa'
+      path: '/capacitacion-corporativa'
+      fullPath: '/capacitacion-corporativa'
+      preLoaderRoute: typeof CapacitacionCorporativaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/': {
-      id: '/insights/'
-      path: '/insights'
-      fullPath: '/insights/'
-      preLoaderRoute: typeof InsightsIndexRouteImport
+    '/coaching-terapia': {
+      id: '/coaching-terapia'
+      path: '/coaching-terapia'
+      fullPath: '/coaching-terapia'
+      preLoaderRoute: typeof CoachingTerapiaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap/xml': {
-      id: '/sitemap/xml'
-      path: '/sitemap/xml'
-      fullPath: '/sitemap/xml'
-      preLoaderRoute: typeof SitemapXmlRouteImport
+    '/consultoria-ia': {
+      id: '/consultoria-ia'
+      path: '/consultoria-ia'
+      fullPath: '/consultoria-ia'
+      preLoaderRoute: typeof ConsultoriaIaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/liderazgo': {
-      id: '/insights/liderazgo'
-      path: '/insights/liderazgo'
-      fullPath: '/insights/liderazgo'
-      preLoaderRoute: typeof InsightsLiderazgoRouteImport
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/ia-aplicada': {
-      id: '/insights/ia-aplicada'
-      path: '/insights/ia-aplicada'
-      fullPath: '/insights/ia-aplicada'
-      preLoaderRoute: typeof InsightsIaAplicadaRouteImport
+    '/politica-cookies': {
+      id: '/politica-cookies'
+      path: '/politica-cookies'
+      fullPath: '/politica-cookies'
+      preLoaderRoute: typeof PoliticaCookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/estrategia': {
-      id: '/insights/estrategia'
-      path: '/insights/estrategia'
-      fullPath: '/insights/estrategia'
-      preLoaderRoute: typeof InsightsEstrategiaRouteImport
+    '/politica-privacidad': {
+      id: '/politica-privacidad'
+      path: '/politica-privacidad'
+      fullPath: '/politica-privacidad'
+      preLoaderRoute: typeof PoliticaPrivacidadRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/coaching': {
-      id: '/insights/coaching'
-      path: '/insights/coaching'
-      fullPath: '/insights/coaching'
-      preLoaderRoute: typeof InsightsCoachingRouteImport
+    '/sobre-francisco': {
+      id: '/sobre-francisco'
+      path: '/sobre-francisco'
+      fullPath: '/sobre-francisco'
+      preLoaderRoute: typeof SobreFranciscoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/$slug': {
-      id: '/insights/$slug'
-      path: '/insights/$slug'
-      fullPath: '/insights/$slug'
-      preLoaderRoute: typeof InsightsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/email/unsubscribe': {
-      id: '/email/unsubscribe'
-      path: '/email/unsubscribe'
-      fullPath: '/email/unsubscribe'
-      preLoaderRoute: typeof EmailUnsubscribeRouteImport
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -481,6 +425,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/email/unsubscribe': {
+      id: '/email/unsubscribe'
+      path: '/email/unsubscribe'
+      fullPath: '/email/unsubscribe'
+      preLoaderRoute: typeof EmailUnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/insights/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/coaching': {
+      id: '/insights/coaching'
+      path: '/insights/coaching'
+      fullPath: '/insights/coaching'
+      preLoaderRoute: typeof InsightsCoachingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/estrategia': {
+      id: '/insights/estrategia'
+      path: '/insights/estrategia'
+      fullPath: '/insights/estrategia'
+      preLoaderRoute: typeof InsightsEstrategiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/ia-aplicada': {
+      id: '/insights/ia-aplicada'
+      path: '/insights/ia-aplicada'
+      fullPath: '/insights/ia-aplicada'
+      preLoaderRoute: typeof InsightsIaAplicadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/liderazgo': {
+      id: '/insights/liderazgo'
+      path: '/insights/liderazgo'
+      fullPath: '/insights/liderazgo'
+      preLoaderRoute: typeof InsightsLiderazgoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap/xml': {
+      id: '/sitemap/xml'
+      path: '/sitemap/xml'
+      fullPath: '/sitemap/xml'
+      preLoaderRoute: typeof SitemapXmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/suppression': {
       id: '/lovable/email/suppression'
       path: '/lovable/email/suppression'
@@ -488,18 +488,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lovable/email/transactional/send': {
-      id: '/lovable/email/transactional/send'
-      path: '/lovable/email/transactional/send'
-      fullPath: '/lovable/email/transactional/send'
-      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lovable/email/transactional/preview': {
-      id: '/lovable/email/transactional/preview'
-      path: '/lovable/email/transactional/preview'
-      fullPath: '/lovable/email/transactional/preview'
-      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+    '/api/public/telegram/webhook': {
+      id: '/api/public/telegram/webhook'
+      path: '/api/public/telegram/webhook'
+      fullPath: '/api/public/telegram/webhook'
+      preLoaderRoute: typeof ApiPublicTelegramWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lovable/email/queue/process': {
@@ -509,11 +502,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/telegram/webhook': {
-      id: '/api/public/telegram/webhook'
-      path: '/api/public/telegram/webhook'
-      fullPath: '/api/public/telegram/webhook'
-      preLoaderRoute: typeof ApiPublicTelegramWebhookRouteImport
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/transactional/send': {
+      id: '/lovable/email/transactional/send'
+      path: '/lovable/email/transactional/send'
+      fullPath: '/lovable/email/transactional/send'
+      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

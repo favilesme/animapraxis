@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { categories, getArticlesByCategory } from "@/data/insightsData";
+import { Target, Compass, Megaphone, Cpu, type LucideIcon } from "lucide-react";
+import {
+  categories,
+  getArticlesByCategory,
+  type CategorySlug,
+} from "@/data/insightsData";
 import { ArticleCard } from "@/components/insights/ArticleCard";
 
 export const Route = createFileRoute("/insights/")({
@@ -26,6 +30,13 @@ export const Route = createFileRoute("/insights/")({
   component: Page,
 });
 
+const categoryIcons: Record<CategorySlug, LucideIcon> = {
+  estrategia: Target,
+  coaching: Compass,
+  liderazgo: Megaphone,
+  "ia-aplicada": Cpu,
+};
+
 function Page() {
   return (
     <section className="py-16 sm:py-20">
@@ -40,34 +51,33 @@ function Page() {
           </p>
         </header>
 
-        <div className="mt-16 space-y-16">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {categories.map((category) => {
             const list = getArticlesByCategory(category);
             if (list.length === 0) return null;
+            const Icon = categoryIcons[category.slug];
             return (
-              <section key={category.slug}>
-                <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-4">
-                  <div>
-                    <h2 className="font-display text-3xl text-deep">
-                      {category.nombre}
-                    </h2>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {category.descripcion}
-                    </p>
-                  </div>
-                  <Link
-                    to={category.path}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary-hover transition-colors duration-300 hover:text-deep"
-                  >
-                    Ver todos los artículos de {category.nombre}
-                    <ArrowRight className="h-4 w-4" aria-hidden />
-                  </Link>
-                </div>
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <section
+                key={category.slug}
+                className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden"
+              >
+                <h2 className="p-5 pb-4 text-center font-display text-lg uppercase tracking-widest text-deep border-b border-border">
+                  {category.nombre}
+                </h2>
+                <div className="flex-1 space-y-4 p-4">
                   {list.map((a) => (
                     <ArticleCard key={a.slug} article={a} />
                   ))}
                 </div>
+                <Link
+                  to={category.path}
+                  className="mt-auto flex items-center gap-3 border-t border-border px-4 py-4 text-sm font-semibold text-primary-hover underline underline-offset-4 transition-colors duration-300 hover:text-deep"
+                >
+                  <Icon className="h-5 w-5 shrink-0" aria-hidden />
+                  <span className="min-w-0">
+                    Ver todos los artículos de {category.nombre}
+                  </span>
+                </Link>
               </section>
             );
           })}

@@ -147,9 +147,6 @@ export function createSubmitLeadTool(opts: { baseUrl: string; origen: string }) 
       console.log("[submit_lead] enviando lead", {
         endpoint,
         origen: opts.origen,
-        recipient: ANIMA_LEAD_EMAIL,
-        nombre: input.nombre,
-        email: input.email,
       });
 
       try {

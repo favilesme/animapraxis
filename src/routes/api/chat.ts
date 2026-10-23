@@ -17,7 +17,7 @@ export const Route = createFileRoute("/api/chat")({
         }).passthrough();
         const MessageSchema = z.object({
           id: z.string().max(128).optional(),
-          role: z.enum(["system", "user", "assistant", "tool"]),
+          role: z.enum(["user", "assistant"]),
           content: z.union([z.string().max(10_000), z.array(MessagePartSchema).max(20)]).optional(),
           parts: z.array(MessagePartSchema).max(20).optional(),
         }).passthrough();

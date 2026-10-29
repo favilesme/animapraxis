@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Compass, Megaphone, Cpu, type LucideIcon } from "lucide-react";
 import {
@@ -10,6 +11,7 @@ import { ArticleCard } from "@/components/insights/ArticleCard";
 export const Route = createFileRoute("/insights/")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Insights — Anima Praxis" },
       {
         name: "description",

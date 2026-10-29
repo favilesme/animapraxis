@@ -1,8 +1,10 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/politica-cookies")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Política de cookies — Anima Praxis" },
       { name: "description", content: "Política de cookies de Anima Praxis: uso de almacenamiento local, cookies de terceros y gestión de preferencias." },
       { property: "og:description", content: "Política de cookies, almacenamiento local y uso del asistente conversacional en el sitio de Anima Praxis." },

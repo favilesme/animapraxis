@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -8,6 +9,7 @@ import { CALENDLY_URL, EMAIL } from "@/lib/contact";
 export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Contacto — Anima Praxis" },
       { name: "description", content: "Agenda una conversación con Anima Praxis. Cuéntanos qué necesitas ordenar, transformar o fortalecer." },
       { property: "og:title", content: "Contacto — Anima Praxis" },

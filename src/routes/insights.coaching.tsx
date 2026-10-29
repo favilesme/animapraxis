@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { getCategoryBySlug } from "@/data/insightsData";
 import { CategoryPage } from "@/components/insights/CategoryPage";
@@ -11,6 +12,7 @@ export const Route = createFileRoute("/insights/coaching")({
   },
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Insights de Coaching — Anima Praxis" },
       {
         name: "description",

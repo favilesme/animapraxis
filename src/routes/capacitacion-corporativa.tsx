@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/contact";
@@ -6,6 +7,7 @@ import infografiaAsset from "@/assets/liderazgo-organizacional.png.asset.json";
 export const Route = createFileRoute("/capacitacion-corporativa")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Liderazgo Organizacional — Anima Praxis" },
       { name: "description", content: "Desarrollo del liderazgo de manera ubicua en todos los niveles de la organización, trascendiendo el ámbito directivo." },
       { property: "og:title", content: "Liderazgo Organizacional — Anima Praxis" },

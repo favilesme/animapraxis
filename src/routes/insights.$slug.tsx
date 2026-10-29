@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { articles, getArticleBySlug, type Article } from "@/data/articles";
 import { WHATSAPP_URL } from "@/lib/contact";
@@ -30,7 +31,7 @@ export const Route = createFileRoute("/insights/$slug")({
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
         { property: "og:url", content: `/insights/${params.slug}` },
-        { property: "og:image", content: a.imagen },
+        ...defaultSocialMeta(),
         { property: "article:author", content: a.autor },
         { property: "article:section", content: a.categoria },
       ],

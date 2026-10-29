@@ -17,6 +17,7 @@ import { Route as ConsultoriaIaRouteImport } from './routes/consultoria-ia'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as PoliticaCookiesRouteImport } from './routes/politica-cookies'
 import { Route as PoliticaPrivacidadRouteImport } from './routes/politica-privacidad'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SobreFranciscoRouteImport } from './routes/sobre-francisco'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -27,7 +28,6 @@ import { Route as InsightsCoachingRouteImport } from './routes/insights.coaching
 import { Route as InsightsEstrategiaRouteImport } from './routes/insights.estrategia'
 import { Route as InsightsIaAplicadaRouteImport } from './routes/insights.ia-aplicada'
 import { Route as InsightsLiderazgoRouteImport } from './routes/insights.liderazgo'
-import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as ApiPublicTelegramWebhookRouteImport } from './routes/api/public/telegram/webhook'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
@@ -72,6 +72,11 @@ const PoliticaCookiesRoute = PoliticaCookiesRouteImport.update({
 const PoliticaPrivacidadRoute = PoliticaPrivacidadRouteImport.update({
   id: '/politica-privacidad',
   path: '/politica-privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
@@ -124,11 +129,6 @@ const InsightsLiderazgoRoute = InsightsLiderazgoRouteImport.update({
   path: '/insights/liderazgo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapXmlRoute = SitemapXmlRouteImport.update({
-  id: '/sitemap/xml',
-  path: '/sitemap/xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
   path: '/lovable/email/suppression',
@@ -168,6 +168,7 @@ export interface FileRoutesByFullPath {
   '/contacto': typeof ContactoRoute
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/api/chat': typeof ApiChatRoute
@@ -177,7 +178,6 @@ export interface FileRoutesByFullPath {
   '/insights/estrategia': typeof InsightsEstrategiaRoute
   '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
   '/insights/liderazgo': typeof InsightsLiderazgoRoute
-  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/telegram/webhook': typeof ApiPublicTelegramWebhookRoute
@@ -194,6 +194,7 @@ export interface FileRoutesByTo {
   '/contacto': typeof ContactoRoute
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/api/chat': typeof ApiChatRoute
@@ -203,7 +204,6 @@ export interface FileRoutesByTo {
   '/insights/estrategia': typeof InsightsEstrategiaRoute
   '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
   '/insights/liderazgo': typeof InsightsLiderazgoRoute
-  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/telegram/webhook': typeof ApiPublicTelegramWebhookRoute
@@ -221,6 +221,7 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/api/chat': typeof ApiChatRoute
@@ -230,7 +231,6 @@ export interface FileRoutesById {
   '/insights/estrategia': typeof InsightsEstrategiaRoute
   '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
   '/insights/liderazgo': typeof InsightsLiderazgoRoute
-  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/telegram/webhook': typeof ApiPublicTelegramWebhookRoute
@@ -249,6 +249,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/politica-cookies'
     | '/politica-privacidad'
+    | '/sitemap.xml'
     | '/sobre-francisco'
     | '/unsubscribe'
     | '/api/chat'
@@ -258,7 +259,6 @@ export interface FileRouteTypes {
     | '/insights/estrategia'
     | '/insights/ia-aplicada'
     | '/insights/liderazgo'
-    | '/sitemap/xml'
     | '/insights/'
     | '/lovable/email/suppression'
     | '/api/public/telegram/webhook'
@@ -275,6 +275,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/politica-cookies'
     | '/politica-privacidad'
+    | '/sitemap.xml'
     | '/sobre-francisco'
     | '/unsubscribe'
     | '/api/chat'
@@ -284,7 +285,6 @@ export interface FileRouteTypes {
     | '/insights/estrategia'
     | '/insights/ia-aplicada'
     | '/insights/liderazgo'
-    | '/sitemap/xml'
     | '/insights'
     | '/lovable/email/suppression'
     | '/api/public/telegram/webhook'
@@ -301,6 +301,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/politica-cookies'
     | '/politica-privacidad'
+    | '/sitemap.xml'
     | '/sobre-francisco'
     | '/unsubscribe'
     | '/api/chat'
@@ -310,7 +311,6 @@ export interface FileRouteTypes {
     | '/insights/estrategia'
     | '/insights/ia-aplicada'
     | '/insights/liderazgo'
-    | '/sitemap/xml'
     | '/insights/'
     | '/lovable/email/suppression'
     | '/api/public/telegram/webhook'
@@ -328,6 +328,7 @@ export interface RootRouteChildren {
   ContactoRoute: typeof ContactoRoute
   PoliticaCookiesRoute: typeof PoliticaCookiesRoute
   PoliticaPrivacidadRoute: typeof PoliticaPrivacidadRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreFranciscoRoute: typeof SobreFranciscoRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -337,7 +338,6 @@ export interface RootRouteChildren {
   InsightsEstrategiaRoute: typeof InsightsEstrategiaRoute
   InsightsIaAplicadaRoute: typeof InsightsIaAplicadaRoute
   InsightsLiderazgoRoute: typeof InsightsLiderazgoRoute
-  SitemapXmlRoute: typeof SitemapXmlRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   ApiPublicTelegramWebhookRoute: typeof ApiPublicTelegramWebhookRoute
@@ -402,6 +402,13 @@ declare module '@tanstack/react-router' {
       path: '/politica-privacidad'
       fullPath: '/politica-privacidad'
       preLoaderRoute: typeof PoliticaPrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre-francisco': {
@@ -474,13 +481,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsLiderazgoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap/xml': {
-      id: '/sitemap/xml'
-      path: '/sitemap/xml'
-      fullPath: '/sitemap/xml'
-      preLoaderRoute: typeof SitemapXmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/lovable/email/suppression': {
       id: '/lovable/email/suppression'
       path: '/lovable/email/suppression'
@@ -528,6 +528,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactoRoute: ContactoRoute,
   PoliticaCookiesRoute: PoliticaCookiesRoute,
   PoliticaPrivacidadRoute: PoliticaPrivacidadRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreFranciscoRoute: SobreFranciscoRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   ApiChatRoute: ApiChatRoute,
@@ -537,7 +538,6 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsEstrategiaRoute: InsightsEstrategiaRoute,
   InsightsIaAplicadaRoute: InsightsIaAplicadaRoute,
   InsightsLiderazgoRoute: InsightsLiderazgoRoute,
-  SitemapXmlRoute: SitemapXmlRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   ApiPublicTelegramWebhookRoute: ApiPublicTelegramWebhookRoute,

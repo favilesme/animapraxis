@@ -1,4 +1,3 @@
-import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/contact";
 import francisco from "@/assets/francisco-aviles.png.asset.json";
@@ -13,7 +12,8 @@ export const Route = createFileRoute("/sobre-francisco")({
       { property: "og:url", content: "/sobre-francisco" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      ...defaultSocialMeta(),
+      { property: "og:image", content: francisco.url },
+      { name: "twitter:image", content: francisco.url },
     ],
     links: [{ rel: "canonical", href: "/sobre-francisco" }],
   }),

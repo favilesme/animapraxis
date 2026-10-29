@@ -3,3 +3,4 @@
 - [x] Integrar índices y categorías; preparar metadatos y corregir sitemap/robots.
 - [x] Validar contenido, rutas, enlaces, imágenes, tablas, FAQ, metadatos y visualización móvil/escritorio. No desplegar.
 - [x] QA: fechas ISO sin hora; imagen social anterior por defecto sin duplicados; validar ruta antigua/nueva, sitemap, pruebas y SHA. No desplegar.
+- [x] Restaurar imágenes sociales propias de los seis artículos legados y de Sobre Francisco; comprobar SSR de diez páginas, fallback de inicio, JPG sociales nuevos y WebP; siete pruebas aprobadas. No desplegar.

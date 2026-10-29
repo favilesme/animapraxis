@@ -1,6 +1,6 @@
 type EditorialArticle = {
   slug: string; titulo: string; seoTitle: string; metaDescripcion: string;
-  imagen: string; autor: string; categoria: string; publishedAt: string; modifiedAt: string;
+  imagen: string; socialImage: string; autor: string; categoria: string; publishedAt: string; modifiedAt: string;
 };
 
 export function markdownArticleHead(article: EditorialArticle) {
@@ -13,11 +13,13 @@ export function markdownArticleHead(article: EditorialArticle) {
       { property: "og:description", content: article.metaDescripcion },
       { property: "og:type", content: "article" },
       { property: "og:url", content: url },
-      { property: "og:image", content: article.imagen },
+      { property: "og:image", content: article.socialImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: article.seoTitle },
       { name: "twitter:description", content: article.metaDescripcion },
-      { name: "twitter:image", content: article.imagen },
+      { name: "twitter:image", content: article.socialImage },
       { property: "article:published_time", content: article.publishedAt },
       { property: "article:modified_time", content: article.modifiedAt },
       { property: "article:author", content: article.autor },

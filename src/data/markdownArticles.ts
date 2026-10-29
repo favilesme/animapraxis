@@ -2,6 +2,8 @@ import strategicContent from "@/content/insights/articulo-001.md?raw";
 import automationContent from "@/content/insights/articulo-002.md?raw";
 import strategicImage from "@/assets/insights/articulo-001-ia-planificacion-estrategica.png.asset.json";
 import automationImage from "@/assets/insights/articulo-002-automatizacion-ia-pymes.png.asset.json";
+import strategicSocial from "@/assets/insights/articulo-001-ia-planificacion-estrategica-social.jpg.asset.json";
+import automationSocial from "@/assets/insights/articulo-002-automatizacion-ia-pymes-social.jpg.asset.json";
 
 const origin = "https://animapraxis.org";
 const editorial = {
@@ -22,6 +24,7 @@ export const markdownArticles = [
     seoTitle: "IA en la planificación estratégica: decisiones verificables | Anima Praxis",
     metaDescripcion: "Aprende a usar IA para investigar, comparar escenarios y dar seguimiento a una estrategia con fuentes verificables y decisión humana.",
     imagen: `${origin}${strategicImage.url}`,
+    socialImage: `${origin}${strategicSocial.url}`,
     imageAlt: "Tarjetas de información que convergen en una ruta de decisiones estratégicas señalada en dorado",
     content: strategicContent,
   },
@@ -33,6 +36,7 @@ export const markdownArticles = [
     seoTitle: "Automatización con IA para pymes: priorizar y medir | Anima Praxis",
     metaDescripcion: "Identifica qué proceso automatizar primero, estima costos completos y mide un piloto de IA para decidir si conviene escalar.",
     imagen: `${origin}${automationImage.url}`,
+    socialImage: `${origin}${automationSocial.url}`,
     imageAlt: "Flujos de procesos empresariales; uno destaca en dorado y conduce a indicadores de tiempo, calidad y costo",
     content: automationContent,
   },

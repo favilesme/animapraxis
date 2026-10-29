@@ -20,7 +20,7 @@ export const Route = createFileRoute("/insights/$slug")({
         meta: [{ title: "Artículo — Anima Praxis" }],
       };
     }
-    if ("format" in a && a.format === "markdown") return markdownArticleHead(a);
+    if ("format" in a) return markdownArticleHead(a);
     return {
       meta: [
         { title: `${a.titulo} — Anima Praxis` },
@@ -87,7 +87,7 @@ export const Route = createFileRoute("/insights/$slug")({
 function ArticlePage() {
   const { article: a } = Route.useLoaderData() as { article: Article };
   const related = articles.filter((x) => x.slug !== a.slug).slice(0, 3);
-  if ("format" in a && a.format === "markdown") return <MarkdownArticlePage article={a} />;
+  if ("format" in a) return <MarkdownArticlePage article={a} />;
 
   return (
     <article className="pb-20">

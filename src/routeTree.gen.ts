@@ -28,6 +28,7 @@ import { Route as InsightsCoachingRouteImport } from './routes/insights.coaching
 import { Route as InsightsEstrategiaRouteImport } from './routes/insights.estrategia'
 import { Route as InsightsIaAplicadaRouteImport } from './routes/insights.ia-aplicada'
 import { Route as InsightsLiderazgoRouteImport } from './routes/insights.liderazgo'
+import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as ApiPublicTelegramWebhookRouteImport } from './routes/api/public/telegram/webhook'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
@@ -129,6 +130,11 @@ const InsightsLiderazgoRoute = InsightsLiderazgoRouteImport.update({
   path: '/insights/liderazgo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapXmlRoute = SitemapXmlRouteImport.update({
+  id: '/sitemap/xml',
+  path: '/sitemap/xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
   path: '/lovable/email/suppression',
@@ -178,6 +184,7 @@ export interface FileRoutesByFullPath {
   '/insights/estrategia': typeof InsightsEstrategiaRoute
   '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
   '/insights/liderazgo': typeof InsightsLiderazgoRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/telegram/webhook': typeof ApiPublicTelegramWebhookRoute
@@ -204,6 +211,7 @@ export interface FileRoutesByTo {
   '/insights/estrategia': typeof InsightsEstrategiaRoute
   '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
   '/insights/liderazgo': typeof InsightsLiderazgoRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/telegram/webhook': typeof ApiPublicTelegramWebhookRoute
@@ -231,6 +239,7 @@ export interface FileRoutesById {
   '/insights/estrategia': typeof InsightsEstrategiaRoute
   '/insights/ia-aplicada': typeof InsightsIaAplicadaRoute
   '/insights/liderazgo': typeof InsightsLiderazgoRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/insights/': typeof InsightsIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/api/public/telegram/webhook': typeof ApiPublicTelegramWebhookRoute
@@ -259,6 +268,7 @@ export interface FileRouteTypes {
     | '/insights/estrategia'
     | '/insights/ia-aplicada'
     | '/insights/liderazgo'
+    | '/sitemap/xml'
     | '/insights/'
     | '/lovable/email/suppression'
     | '/api/public/telegram/webhook'
@@ -285,6 +295,7 @@ export interface FileRouteTypes {
     | '/insights/estrategia'
     | '/insights/ia-aplicada'
     | '/insights/liderazgo'
+    | '/sitemap/xml'
     | '/insights'
     | '/lovable/email/suppression'
     | '/api/public/telegram/webhook'
@@ -311,6 +322,7 @@ export interface FileRouteTypes {
     | '/insights/estrategia'
     | '/insights/ia-aplicada'
     | '/insights/liderazgo'
+    | '/sitemap/xml'
     | '/insights/'
     | '/lovable/email/suppression'
     | '/api/public/telegram/webhook'
@@ -338,6 +350,7 @@ export interface RootRouteChildren {
   InsightsEstrategiaRoute: typeof InsightsEstrategiaRoute
   InsightsIaAplicadaRoute: typeof InsightsIaAplicadaRoute
   InsightsLiderazgoRoute: typeof InsightsLiderazgoRoute
+  SitemapXmlRoute: typeof SitemapXmlRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   ApiPublicTelegramWebhookRoute: typeof ApiPublicTelegramWebhookRoute
@@ -481,6 +494,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsLiderazgoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap/xml': {
+      id: '/sitemap/xml'
+      path: '/sitemap/xml'
+      fullPath: '/sitemap/xml'
+      preLoaderRoute: typeof SitemapXmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/suppression': {
       id: '/lovable/email/suppression'
       path: '/lovable/email/suppression'
@@ -538,6 +558,7 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsEstrategiaRoute: InsightsEstrategiaRoute,
   InsightsIaAplicadaRoute: InsightsIaAplicadaRoute,
   InsightsLiderazgoRoute: InsightsLiderazgoRoute,
+  SitemapXmlRoute: SitemapXmlRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   ApiPublicTelegramWebhookRoute: ApiPublicTelegramWebhookRoute,

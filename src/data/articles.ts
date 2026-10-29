@@ -4,8 +4,9 @@ import liderazgoImg from "@/assets/insights/liderazgo.jpg";
 import coachingImg from "@/assets/insights/coaching.jpg";
 import acompañamientoImg from "@/assets/insights/terapia.jpg";
 import capacitacionImg from "@/assets/insights/capacitacion.jpg";
+import { markdownArticles, type MarkdownArticle } from "@/data/markdownArticles";
 
-export type Article = {
+export type LegacyArticle = {
   slug: string;
   categoria: string;
   titulo: string;
@@ -27,7 +28,9 @@ export type Article = {
   cta: string;
 };
 
-export const articles: Article[] = [
+export type Article = LegacyArticle | MarkdownArticle;
+
+const legacyArticles: LegacyArticle[] = [
   {
     slug: "estrategia-en-tiempos-de-cambio",
     categoria: "Estrategia",
@@ -619,4 +622,5 @@ export const articles: Article[] = [
   },
 ];
 
+export const articles: Article[] = [...legacyArticles, ...markdownArticles];
 export const getArticleBySlug = (slug: string) => articles.find((a) => a.slug === slug);

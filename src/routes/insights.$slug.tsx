@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { articles, getArticleBySlug, type Article } from "@/data/articles";
 import { WHATSAPP_URL } from "@/lib/contact";
+import { MarkdownArticlePage } from "@/components/insights/MarkdownArticlePage";
+import { markdownArticleHead } from "@/lib/article-metadata";
 
 const WA_URL =
   `${WHATSAPP_URL}?text=Hola%20Anima%20Praxis%2C%20me%20interesa%20conversar%20a%20partir%20de%20uno%20de%20sus%20insights.`;
@@ -18,6 +20,7 @@ export const Route = createFileRoute("/insights/$slug")({
         meta: [{ title: "Artículo — Anima Praxis" }],
       };
     }
+    if ("format" in a && a.format === "markdown") return markdownArticleHead(a);
     return {
       meta: [
         { title: `${a.titulo} — Anima Praxis` },
@@ -84,6 +87,7 @@ export const Route = createFileRoute("/insights/$slug")({
 function ArticlePage() {
   const { article: a } = Route.useLoaderData() as { article: Article };
   const related = articles.filter((x) => x.slug !== a.slug).slice(0, 3);
+  if ("format" in a && a.format === "markdown") return <MarkdownArticlePage article={a} />;
 
   return (
     <article className="pb-20">

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://animapraxis.lovable.app/sitemap.xml
+Sitemap: https://animapraxis.org/sitemap.xml

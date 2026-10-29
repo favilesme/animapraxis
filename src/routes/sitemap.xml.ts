@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { articles } from "@/data/articles";
 
-const BASE_URL = "https://animapraxis.lovable.app";
+const BASE_URL = "https://animapraxis.org";
 
 interface SitemapEntry {
   path: string;
@@ -10,7 +10,7 @@ interface SitemapEntry {
   priority?: string;
 }
 
-export const Route = createFileRoute("/sitemap/xml")({
+export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
@@ -31,6 +31,7 @@ export const Route = createFileRoute("/sitemap/xml")({
           { path: "/politica-cookies", changefreq: "yearly", priority: "0.3" },
           ...articles.map((article) => ({
             path: `/insights/${article.slug}`,
+            ...("modifiedAt" in article ? { lastmod: article.modifiedAt } : {}),
             changefreq: "monthly" as const,
             priority: "0.7",
           })),

@@ -11,6 +11,8 @@ export const Route = createFileRoute("/coaching-terapia")({
       { property: "og:title", content: "Coaching Ontológico — Anima Praxis" },
       { property: "og:description", content: "Acompañamiento ontológico para expandir espacios de acción, consciencia y aprendizaje." },
       { property: "og:url", content: "/coaching-terapia" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/coaching-terapia" }],
   }),

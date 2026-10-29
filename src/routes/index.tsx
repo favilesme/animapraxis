@@ -14,6 +14,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Anima Praxis — Estrategia, Coaching y Liderazgo Consciente" },
       { property: "og:description", content: "Consultoría estratégica, coaching y liderazgo consciente con la aplicación transversal de inteligencia artificial para claridad y crecimiento." },
       { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [

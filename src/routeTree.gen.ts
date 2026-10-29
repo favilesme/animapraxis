@@ -17,6 +17,7 @@ import { Route as ConsultoriaIaRouteImport } from './routes/consultoria-ia'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as PoliticaCookiesRouteImport } from './routes/politica-cookies'
 import { Route as PoliticaPrivacidadRouteImport } from './routes/politica-privacidad'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SobreFranciscoRouteImport } from './routes/sobre-francisco'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -72,6 +73,11 @@ const PoliticaCookiesRoute = PoliticaCookiesRouteImport.update({
 const PoliticaPrivacidadRoute = PoliticaPrivacidadRouteImport.update({
   id: '/politica-privacidad',
   path: '/politica-privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreFranciscoRoute = SobreFranciscoRouteImport.update({
@@ -168,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/contacto': typeof ContactoRoute
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/api/chat': typeof ApiChatRoute
@@ -194,6 +201,7 @@ export interface FileRoutesByTo {
   '/contacto': typeof ContactoRoute
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/api/chat': typeof ApiChatRoute
@@ -221,6 +229,7 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/politica-cookies': typeof PoliticaCookiesRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-francisco': typeof SobreFranciscoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/api/chat': typeof ApiChatRoute
@@ -249,6 +258,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/politica-cookies'
     | '/politica-privacidad'
+    | '/sitemap.xml'
     | '/sobre-francisco'
     | '/unsubscribe'
     | '/api/chat'
@@ -275,6 +285,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/politica-cookies'
     | '/politica-privacidad'
+    | '/sitemap.xml'
     | '/sobre-francisco'
     | '/unsubscribe'
     | '/api/chat'
@@ -301,6 +312,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/politica-cookies'
     | '/politica-privacidad'
+    | '/sitemap.xml'
     | '/sobre-francisco'
     | '/unsubscribe'
     | '/api/chat'
@@ -328,6 +340,7 @@ export interface RootRouteChildren {
   ContactoRoute: typeof ContactoRoute
   PoliticaCookiesRoute: typeof PoliticaCookiesRoute
   PoliticaPrivacidadRoute: typeof PoliticaPrivacidadRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreFranciscoRoute: typeof SobreFranciscoRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -402,6 +415,13 @@ declare module '@tanstack/react-router' {
       path: '/politica-privacidad'
       fullPath: '/politica-privacidad'
       preLoaderRoute: typeof PoliticaPrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre-francisco': {
@@ -528,6 +548,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactoRoute: ContactoRoute,
   PoliticaCookiesRoute: PoliticaCookiesRoute,
   PoliticaPrivacidadRoute: PoliticaPrivacidadRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreFranciscoRoute: SobreFranciscoRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   ApiChatRoute: ApiChatRoute,

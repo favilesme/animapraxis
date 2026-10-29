@@ -10,6 +10,8 @@ export const Route = createFileRoute("/sobre-francisco")({
       { property: "og:title", content: "Sobre Francisco Avilés — Anima Praxis" },
       { property: "og:description", content: "Estrategia, IA y desarrollo humano integrados en una práctica boutique." },
       { property: "og:url", content: "/sobre-francisco" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:image", content: francisco.url },
     ],
     links: [{ rel: "canonical", href: "/sobre-francisco" }],

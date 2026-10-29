@@ -15,7 +15,7 @@ export function ArticleCard({ article }: { article: Article }) {
       <div className="aspect-video overflow-hidden bg-deep/10">
         <img
           src={article.imagen}
-          alt={article.titulo}
+          alt={"imageAlt" in article ? article.imageAlt : article.titulo}
           loading="lazy"
           width={1280}
           height={720}

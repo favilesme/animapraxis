@@ -13,6 +13,8 @@ export const Route = createFileRoute("/contacto")({
       { property: "og:title", content: "Contacto — Anima Praxis" },
       { property: "og:description", content: "Cuéntanos qué necesitas ordenar, transformar o fortalecer. Te contactaremos para coordinar una primera conversación." },
       { property: "og:url", content: "/contacto" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/contacto" }],
   }),

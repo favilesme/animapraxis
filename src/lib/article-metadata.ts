@@ -20,8 +20,6 @@ export function markdownArticleHead(article: EditorialArticle) {
       { name: "twitter:title", content: article.seoTitle },
       { name: "twitter:description", content: article.metaDescripcion },
       { name: "twitter:image", content: article.socialImage },
-      { property: "article:published_time", content: article.publishedAt },
-      { property: "article:modified_time", content: article.modifiedAt },
       { property: "article:author", content: article.autor },
       { property: "article:section", content: article.categoria },
     ],

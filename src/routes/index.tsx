@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, MapPin, Sparkles, Compass, Layers } from "lucide-react";
 import { WHATSAPP_URL, CALENDLY_URL, ADDRESS, MAPS_URL } from "@/lib/contact";
@@ -9,6 +10,7 @@ import francisco from "@/assets/francisco-aviles.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Anima Praxis — Estrategia, Coaching y Liderazgo Consciente" },
       { name: "description", content: "Consultoría estratégica con IA, coaching y liderazgo consciente. Reserva tu primera conversación." },
       { property: "og:title", content: "Anima Praxis — Estrategia, Coaching y Liderazgo Consciente" },

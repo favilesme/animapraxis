@@ -1,9 +1,11 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { EMAIL, ADDRESS } from "@/lib/contact";
 
 export const Route = createFileRoute("/aviso-legal")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Aviso legal — Anima Praxis" },
       { name: "description", content: "Aviso legal de Anima Praxis: condiciones de uso, licencias, propiedad intelectual y responsabilidad del sitio." },
       { property: "og:description", content: "Información legal, licencias y propiedad intelectual de Anima Praxis." },

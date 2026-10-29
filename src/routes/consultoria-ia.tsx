@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/contact";
@@ -6,6 +7,7 @@ import infografiaAsset from "@/assets/consultoria-estrategica.png.asset.json";
 export const Route = createFileRoute("/consultoria-ia")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Consultoría Estratégica — Anima Praxis" },
       { name: "description", content: "Consultoría estratégica con integración transversal de inteligencia artificial para acelerar y blindar el desarrollo de planes y esquemas de trabajo de alto nivel." },
       { property: "og:title", content: "Consultoría Estratégica — Anima Praxis" },

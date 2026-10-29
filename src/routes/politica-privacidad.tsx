@@ -1,9 +1,11 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { EMAIL } from "@/lib/contact";
 
 export const Route = createFileRoute("/politica-privacidad")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Política de privacidad — Anima Praxis" },
       { name: "description", content: "Política de privacidad de Anima Praxis: recopilación, uso, conservación y protección de datos personales según la LOPDP." },
       { property: "og:description", content: "Cómo Anima Praxis recopila, utiliza y protege los datos personales de sus visitantes según la normativa ecuatoriana." },

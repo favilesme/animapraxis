@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { CALENDLY_URL } from "@/lib/contact";
@@ -6,6 +7,7 @@ import infografiaAsset from "@/assets/coaching-ontologico.png.asset.json";
 export const Route = createFileRoute("/coaching-terapia")({
   head: () => ({
     meta: [
+      ...defaultSocialMeta(),
       { title: "Coaching Ontológico — Anima Praxis" },
       { name: "description", content: "Coaching ontológico para líderes, ejecutivos y adultos funcionales: acompañamiento profesional y confidencial en decisiones, transiciones y evolución personal." },
       { property: "og:title", content: "Coaching Ontológico — Anima Praxis" },

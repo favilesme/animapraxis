@@ -1,3 +1,4 @@
+import { defaultSocialMeta } from "@/lib/social-metadata";
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -5,6 +6,7 @@ type Status = 'checking' | 'valid' | 'invalid' | 'done' | 'error'
 
 export const Route = createFileRoute('/unsubscribe')({
   head: () => ({ meta: [
+    ...defaultSocialMeta(),
     { title: 'Preferencias de correo — Anima Praxis' },
     { name: 'description', content: 'Gestiona tu suscripción a los correos de Anima Praxis.' },
     { property: 'og:title', content: 'Preferencias de correo — Anima Praxis' },

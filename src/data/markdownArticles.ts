@@ -11,8 +11,8 @@ const editorial = {
   autor: "Francisco Avilés",
   fecha: "29 de octubre de 2026",
   fechaCorta: "29 octubre 2026",
-  publishedAt: "2026-10-29T00:00:00-05:00",
-  modifiedAt: "2026-10-29T00:00:00-05:00",
+  publishedAt: "2026-10-29",
+  modifiedAt: "2026-10-29",
 };
 
 export const markdownArticles = [

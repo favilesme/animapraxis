@@ -4,6 +4,14 @@ import { useEffect, useMemo, useState } from 'react'
 type Status = 'checking' | 'valid' | 'invalid' | 'done' | 'error'
 
 export const Route = createFileRoute('/unsubscribe')({
+  head: () => ({ meta: [
+    { title: 'Preferencias de correo — Anima Praxis' },
+    { name: 'description', content: 'Gestiona tu suscripción a los correos de Anima Praxis.' },
+    { property: 'og:title', content: 'Preferencias de correo — Anima Praxis' },
+    { property: 'og:description', content: 'Gestiona tu suscripción a los correos de Anima Praxis.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary' },
+  ] }),
   component: UnsubscribePage,
 })
 

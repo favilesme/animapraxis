@@ -11,6 +11,8 @@ export const Route = createFileRoute("/capacitacion-corporativa")({
       { property: "og:title", content: "Liderazgo Organizacional — Anima Praxis" },
       { property: "og:description", content: "Programas para potenciar la influencia legítima de cada colaborador hacia sus equipos y stakeholders." },
       { property: "og:url", content: "/capacitacion-corporativa" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/capacitacion-corporativa" }],
   }),

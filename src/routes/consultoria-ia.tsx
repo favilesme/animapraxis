@@ -11,6 +11,8 @@ export const Route = createFileRoute("/consultoria-ia")({
       { property: "og:title", content: "Consultoría Estratégica — Anima Praxis" },
       { property: "og:description", content: "Integramos IA de forma transversal en todos nuestros procesos de consultoría corporativa para potenciar planes estratégicos y esquemas de trabajo." },
       { property: "og:url", content: "/consultoria-ia" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/consultoria-ia" }],
   }),

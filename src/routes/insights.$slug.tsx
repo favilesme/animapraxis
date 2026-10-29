@@ -28,6 +28,7 @@ export const Route = createFileRoute("/insights/$slug")({
         { property: "og:title", content: a.titulo },
         { property: "og:description", content: a.metaDescripcion },
         { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
         { property: "og:url", content: `/insights/${params.slug}` },
         { property: "og:image", content: a.imagen },
         { property: "article:author", content: a.autor },

@@ -1,7 +1,7 @@
 import strategicContent from "@/content/insights/articulo-001.md?raw";
 import automationContent from "@/content/insights/articulo-002.md?raw";
-import strategicImage from "@/assets/insights/articulo-001-ia-planificacion-estrategica.png.asset.json";
-import automationImage from "@/assets/insights/articulo-002-automatizacion-ia-pymes.png.asset.json";
+import strategicImage from "@/assets/insights/articulo-001-ia-planificacion-estrategica.webp.asset.json";
+import automationImage from "@/assets/insights/articulo-002-automatizacion-ia-pymes.webp.asset.json";
 import strategicSocial from "@/assets/insights/articulo-001-ia-planificacion-estrategica-social.jpg.asset.json";
 import automationSocial from "@/assets/insights/articulo-002-automatizacion-ia-pymes-social.jpg.asset.json";
 
